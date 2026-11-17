@@ -1,0 +1,33 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# ── 构建产物与临时文件（不入库） ──────────────────────────
+# 数据库由游戏本体导出，体积大且属于游戏原始数据，请本地自行生成
+output/*.sqlite
+output/*.xlsx
+output/tables/
+output/~$*
+*.bak
+*.zip
+fh6-car-index-deploy/
+
+# 游戏原始表的导出中间件（.str 字符串表 / schema 转储）
+work/
+
+# ── 部署与工具链 ────────────────────────────────────────
+deploy/
+.edgeone/
+.tef_dist/
+.env
+.taste-skill/
+
+# ── 编辑器 / 系统 ──────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
