@@ -8,6 +8,8 @@
 
 ## 在线访问
 
+- **GitHub Pages**：<https://stevenwu1992.github.io/fh6_car_db/>
+  （入口页自动跳转到 `output/zh-hans.html`，简繁与明暗在页面内切换）
 - **EdgeOne Makers**：<https://fh6-car-index.edgeone.cool>
 - 也可直接打开仓库内的 `output/车辆索引.html`（纯静态，无需服务器）
 
