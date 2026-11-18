@@ -8,7 +8,7 @@
 
 ## 在线访问
 
-- **GitHub Pages**：<https://stevenwu1992.github.io/fh6_car_db/>
+- **GitHub Pages**：<https://stevenwu1992.github.io/fh6_car_db/>  
   （入口页自动跳转到 `output/zh-hans.html`，简繁与明暗在页面内切换）
 - **EdgeOne Makers**：<https://fh6-car-index.edgeone.cool>
 - 也可直接打开仓库内的 `output/车辆索引.html`（纯静态，无需服务器）
@@ -68,8 +68,10 @@ fh6_car_db/
    └─ assets/               # 车卡图 691 · 详情大图 691 · 品牌标 97 · 头图
 ```
 
-> `output/` 下的 SQLite 数据库与 Excel 清单**不随仓库提供**：它们由游戏本体导出，
+> `output/` 下的 SQLite 数据库与 Excel 清单**不随仓库提供**：它们由游戏本体导出，  
 > 体积大且属于游戏原始数据，请按下面的步骤自行生成。
+
+
 
 ---
 
@@ -77,7 +79,7 @@ fh6_car_db/
 
 直接双击 `output/车辆索引.html` 即可，页面不依赖任何 CDN 或后端服务。
 
-如需局域网共享，仓库之外还有一套 Docker 部署方案（nginx + 静态目录），
+如需局域网共享，仓库之外还有一套 Docker 部署方案（nginx + 静态目录），  
 本仓库为保持体积精简未收录。
 
 ---
@@ -97,34 +99,34 @@ python build_web.py        # 渲染四份 HTML
 
 依赖：`pip install openpyxl zhconv pillow numpy`
 
-构建脚本会读取游戏内的 `CHS.zip` / `CHT.zip` / `EN.zip` 字符串表做本地化，
+构建脚本会读取游戏内的 `CHS.zip` / `CHT.zip` / `EN.zip` 字符串表做本地化，  
 因此简繁、中英三套文案都来自游戏本体，不是人工翻译。
 
 ---
 
 ## 数据说明
 
-- **原始数据**：全部字段取自《Forza Horizon 6》游戏本体（`Data_Car`、`Data_Engine`、
+- **原始数据**：全部字段取自《Forza Horizon 6》游戏本体（`Data_Car`、`Data_Engine`、  
   `Data_CarBody`、`List_Upgrade*`、`List_Suspension*` 等表），未做数值修改。
-- **派生数据**：宽体加宽量、胎宽上限、引擎置换出处、赛季 / Car Pass 获取方式等，
+- **派生数据**：宽体加宽量、胎宽上限、引擎置换出处、赛季 / Car Pass 获取方式等，  
   由多张原始表关联计算得出，计算方式写在对应脚本的注释里。
-- **缺失数据的处理**：例如 `Data_Engine.EngineName` 有 16 条空串，页面会用
-  `EngineConfigID` / `AspirationTypeId` / `Displacement` 推断并在页面上以 `*` 标注，
+- **缺失数据的处理**：例如 `Data_Engine.EngineName` 有 16 条空串，页面会用  
+  `EngineConfigID` / `AspirationTypeId` / `Displacement` 推断并在页面上以 `*` 标注，  
   不把燃油车误标成纯电。
 
 ---
 
 ## 关于 AI
 
-**本项目的代码、文案与视觉均由 AI 辅助构建**：数据结构梳理、页面模板、交互逻辑、
-字段说明撰写与问题排查大量借助 AI 完成，作者负责需求定义、数据核对与验收。
+**本项目的代码、文案与视觉均由 AI 辅助构建**：数据结构梳理、页面模板、交互逻辑、  
+字段说明撰写与问题排查大量借助 AI 完成，作者负责需求定义、数据核对与验收。  
 浏览器端的每一处数字都来自游戏文件，可回溯到具体表与字段。
 
 ---
 
 ## 版权与免责
 
-- 车辆名称、车辆数据、车辆渲染图、品牌标识等素材版权归
+- 车辆名称、车辆数据、车辆渲染图、品牌标识等素材版权归  
   **Microsoft Corporation / Playground Games Limited** 所有，来源为《Forza Horizon 6》游戏本体。
 - 本项目为**非商业粉丝项目**，仅用于数据查询与调校参考，不含任何破解或绕过机制。
 - `LICENSE` 中的 MIT 许可证仅覆盖本仓库的代码与文档，**不覆盖**上述游戏素材与数据。

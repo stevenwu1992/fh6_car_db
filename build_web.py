@@ -717,12 +717,13 @@ def build_payload() -> dict[str, Any]:
     return payload
 
 
-# 简 / 繁是两个独立页面（部署包里对应 index.html 与 zh-hant.html），
-# 当前页那一侧用 span 高亮，另一侧是跳转链接。zhconv 对已繁体文本幂等，
-# 所以繁体串可以直接写繁体，不必依赖后续整体转换。
+# 简 / 繁是两个独立页面（部署包里对应 index.html / zh-hans.html 与 zh-hant.html）。
+# 两边互相跳转统一用 ASCII 文件名 zh-hans.html / zh-hant.html：
+# 这样无论站点是挂在根目录（EdgeOne）还是 output/ 子目录（GitHub Pages），
+# 简体页都能在同级找到繁体页、繁体页也能回到同级存在的简体页，不会 404。
 DOCSW_HANS = ('<span class="on" aria-current="page">简</span>'
               '<a href="zh-hant.html" title="切换到繁体版">繁</a>')
-DOCSW_HANT = ('<a href="index.html" title="切換到簡體版">簡</a>'
+DOCSW_HANT = ('<a href="zh-hans.html" title="切換到簡體版">簡</a>'
               '<span class="on" aria-current="page">繁</span>')
 
 
