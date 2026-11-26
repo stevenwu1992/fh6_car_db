@@ -43,6 +43,22 @@ function eqHash(a, b) {
   return x === 0;
 }
 
+// 支持把密码以 PBKDF2 哈希形式放在 wrangler [vars]（明文无需进控制台）
+const unb64 = s => {
+  let t = s.replace(/-/g, "+").replace(/_/g, "/");
+  while (t.length % 4) t += "=";
+  return Uint8Array.from(atob(t), c => c.charCodeAt(0));
+};
+
+async function verifyPbkdf2(pw, stored) {
+  const [algo, iterStr, saltB64, hashB64] = String(stored).split("$");
+  if (algo !== "pbkdf2") return false;
+  const key = await crypto.subtle.importKey("raw", enc.encode(String(pw)), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits(
+    { name: "PBKDF2", hash: "SHA-256", salt: unb64(saltB64), iterations: Number(iterStr) }, key, 256);
+  return eqHash(b64url(new Uint8Array(bits)), hashB64);
+}
+
 function readCookie(request, name) {
   for (const part of (request.headers.get("cookie") || "").split(";")) {
     const i = part.indexOf("=");
@@ -136,7 +152,9 @@ async function putTier(request, env, url) {
 /* ---------- 登录 ---------- */
 async function login(request, env, url) {
   if (badOrigin(request, url)) return json(403, { error: "来源不被允许" });
-  if (!env.ADMIN_PASSWORD) return json(503, { error: "服务端未配置 ADMIN_PASSWORD" });
+  if (!env.ADMIN_PASSWORD && !env.ADMIN_PASSWORD_HASH) {
+    return json(503, { error: "服务端未配置 ADMIN_PASSWORD" });
+  }
 
   const ip = request.headers.get("cf-connecting-ip") || "0.0.0.0";
   const bucket = "admin:login:" + await sha256hex(ip);
@@ -144,7 +162,10 @@ async function login(request, env, url) {
   if (!await rateLimit(env, "admin:login:global", 100, 3600)) return json(429, { error: "登录尝试过多，请稍后再试" });
 
   const body = await request.json().catch(() => ({}));
-  const ok = eqHash(await sha256hex(String(body.password ?? "")), await sha256hex(env.ADMIN_PASSWORD));
+  const pw = String(body.password ?? "");
+  const ok = env.ADMIN_PASSWORD
+    ? eqHash(await sha256hex(pw), await sha256hex(env.ADMIN_PASSWORD))
+    : await verifyPbkdf2(pw, env.ADMIN_PASSWORD_HASH);
   if (!ok) return json(401, { error: "密码不正确" });
 
   const { token, ttl } = await issue(request, env);

@@ -1,6 +1,7 @@
 import { handleContact } from "./contact.js";
 import { routeAuth } from "./auth.js";
 import { routeAdmin } from "./admin.js";
+import { ensureSchema } from "./schema.js";
 
 const json = (code, body) =>
   new Response(JSON.stringify(body), {
@@ -14,6 +15,10 @@ export default {
     const { pathname } = url;
 
     // 进入 Worker 的只有 run_worker_first 声明的 /api/* 与 /auth/*
+    if (pathname.startsWith("/api/") || pathname.startsWith("/auth/")) {
+      await ensureSchema(env);   // 幂等建表，每个 isolate 只跑一次
+    }
+
     if (pathname === "/api/contact") {
       if (request.method === "POST") return handleContact(request, env);
       return json(405, { error: "只支持 POST" });
