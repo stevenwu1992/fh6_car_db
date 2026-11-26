@@ -195,6 +195,16 @@ export async function routeApp(request, env, url) {
   if (p.startsWith("/api/ratings/") && m === "PUT") {
     return putRating(request, env, url, await currentUser(request, env));
   }
+  if (p.startsWith("/api/ratings/") && m === "DELETE") {
+    const u = await currentUser(request, env);
+    const bad = guardWrite(request, url, u);
+    if (bad) return bad;
+    const carId = carIdOf(url);
+    if (!CAR_RE.test(carId)) return json(400, { error: "车辆 ID 不合法" });
+    await env.DB.prepare("DELETE FROM ratings WHERE user_id=? AND car_id=?").bind(u.id, carId).run();
+    const agg = await env.DB.prepare("SELECT COUNT(*) v, AVG(score) a FROM ratings WHERE car_id=?").bind(carId).first();
+    return json(200, { ok: true, votes: agg?.v ?? 0, avg: Number((agg?.a ?? 0).toFixed(2)) });
+  }
 
   if (p === "/api/stats" && m === "GET") return stats(env, url);
 
