@@ -18,7 +18,10 @@
 
 # ── 2. 字体 ────────────────────────────────────────────────────
 # 文件名稳定、内容不会变，可以放心 immutable
+# 注意：`! Cache-Control` 先摘掉 /* 继承来的那条，否则两个 Cache-Control 会
+# 以逗号拼接成一条非法值（实测出现过 max-age=600 与 30 天并存），浏览器只认第一个。
 /output/assets/fonts/*
+  ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
 # ── 3. 站内图片 ────────────────────────────────────────────────
@@ -26,6 +29,7 @@
 # 所以这里绝对不能写 immutable —— 一旦重导出同一张图，老访客一年内都看不到新图，
 # 而且 immutable 会连强制刷新都跳过。用 30 天 + 后台静默续期。
 /output/assets/*
+  ! Cache-Control
   Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
 
 # ── 4. 后台页面 ────────────────────────────────────────────────
