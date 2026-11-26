@@ -1,12 +1,20 @@
-name = "fh6-car-db"
-pages_build_output_dir = "./dist"
-compatibility_date = "2026-11-01"
+# Cloudflare Workers 配置（静态资源 + 边缘 API）
+# 历史：本文件最初写的是 Pages 配置（pages_build_output_dir），而项目实际创建为 Worker，
+# `wrangler deploy` 会因此告警并失败。现改为 Workers 原生写法。
 
-# 反馈表单的 D1 绑定
-# database_id 用 `npx wrangler d1 create fh6_contacts` 输出的 uuid 替换
+name = "fh6-car-db"
+main = "src/index.js"
+compatibility_date = "2026-11-26"
+
+[assets]
+# 站点文件已在仓库根（index.html + output/），直接以仓库根为静态目录，
+# 这样 /output/zh-hans.html 这类既有 URL 一个字都不用改。
+directory = "."
+binding = "ASSETS"
+# 只有 /api/* 进入 Worker；其余请求由静态资源层直接返回，不消耗 Worker 调用
+run_worker_first = ["/api/*"]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "fh6_contacts"
-database_id = "00000000-0000-0000-0000-000000000000"
-
-# 不要在这里写 TURNSTILE_SECRET，密钥用控制台的 Secret 或 wrangler pages secret put
+database_id = "eefbe651-81aa-4640-9548-00dc5e7be209"

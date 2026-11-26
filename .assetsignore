@@ -1,0 +1,30 @@
+# Workers 静态资源上传排除清单
+# 站点只需要 index.html + output/ + _headers；其余不进部署包。
+
+*.py
+*.pyc
+*.bak
+*.zip
+*.xlsx
+*.sqlite
+~$*
+
+.github/
+.taste-skill/
+.edgeone/
+deploy/
+docs/
+server/
+tools/
+work/
+__pycache__/
+
+# 这两个目录会被打包进 Worker 脚本，不作为静态文件对外
+src/
+functions/
+
+README.md
+LICENSE
+wrangler.toml
+.gitignore
+.assetsignore
