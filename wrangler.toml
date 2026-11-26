@@ -11,8 +11,8 @@ compatibility_date = "2026-11-26"
 # 这样 /output/zh-hans.html 这类既有 URL 一个字都不用改。
 directory = "."
 binding = "ASSETS"
-# 只有 /api/* 进入 Worker；其余请求由静态资源层直接返回，不消耗 Worker 调用
-run_worker_first = ["/api/*"]
+# 只有 /api/* 与 /auth/* 进入 Worker；其余请求由静态资源层直接返回，不消耗 Worker 调用
+run_worker_first = ["/api/*", "/auth/*"]
 # 默认行为会把 /x.html 307 跳到 /x，保留扩展名，避免站内每次跳转都多一次重定向
 html_handling = "none"
 

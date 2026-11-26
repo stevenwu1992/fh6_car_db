@@ -424,6 +424,9 @@
     font:500 13.5px/1 var(--text);cursor:pointer}
   #loginBox button.ghost{background:none;color:var(--steel);border:1px solid var(--rule)}
   #loginBox .lb-msg{min-height:18px;font-size:12.5px;color:var(--steel);margin-top:10px}
+  #loginBox .lb-tabs{display:flex;gap:6px;margin:16px 0 4px}
+  #loginBox .lb-tabs button{flex:1;background:none;color:var(--steel);border:1px solid var(--rule)}
+  #loginBox .lb-tabs button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .tuneform{margin-top:12px;display:grid;gap:8px}
   .tuneform .row{display:flex;gap:8px;flex-wrap:wrap}
   .tuneform input,.tuneform select{flex:1;min-width:150px;padding:8px 10px;border:1px solid var(--rule);
@@ -3106,7 +3109,7 @@ function paintAuth() {
   const b = $("navAuth");
   if (!b) return;
   if (!API_OK) { b.hidden = true; return; }
-  if (!ME) { b.textContent = "登录"; b.onclick = () => openLogin(); return; }
+  if (!ME || !ME.user || !ME.user.logged_in) { b.textContent = "登录"; b.onclick = () => openLogin(); return; }
   const admin = ME.user.is_admin;
   b.textContent = admin ? "管理员" : (ME.user.is_display_name || ME.user.display_name || "我的");
   b.onclick = () => (admin ? (location.href = "admin.html") : openLogin());
@@ -3118,32 +3121,55 @@ function openLogin() {
   box.id = "loginBox";
   box.innerHTML = `<div class="lb-card">
       <h3>同步你的收藏</h3>
-      <p>用邮箱收一个一次性登录链接，收藏、评分与调校就会跟账号绑定。</p>
+      <p>注册或登录后，收藏、评分与调校会跟账号绑定。</p>
+      <div class="lb-tabs"><button data-tab="login" class="on">登录</button><button data-tab="register">注册</button></div>
       <div class="row"><input id="lbEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
-      <div class="row"><button id="lbGo">发送登录链接</button><button id="lbClose" class="ghost">稍后再说</button></div>
+      <div class="row"><input id="lbPw" type="password" autocomplete="current-password" placeholder="密码（至少 8 位）"></div>
+      <div class="row" id="lbNameRow" hidden><input id="lbName" type="text" autocomplete="nickname" maxlength="40" placeholder="昵称（可选）"></div>
+      <div class="row"><button id="lbGo">登录</button><button id="lbClose" class="ghost">稍后再说</button></div>
       <div class="row"><a class="lb-steam" href="${API_BASE}/auth/steam/start?next=${encodeURIComponent(location.pathname + location.search)}">使用 Steam 登录</a></div>
       <p class="lb-msg" id="lbMsg"></p>
     </div>`;
   document.body.appendChild(box);
+
+  let mode = "login";
   const close = () => box.remove();
   box.addEventListener("click", e => { if (e.target === box) close(); });
   $("lbClose").onclick = close;
+
+  box.querySelectorAll(".lb-tabs button").forEach(b => {
+    b.onclick = () => {
+      mode = b.dataset.tab;
+      box.querySelectorAll(".lb-tabs button").forEach(x => x.classList.toggle("on", x === b));
+      $("lbNameRow").hidden = mode !== "register";
+      $("lbGo").textContent = mode === "register" ? "注册" : "登录";
+      $("lbPw").autocomplete = mode === "register" ? "new-password" : "current-password";
+      $("lbMsg").textContent = "";
+    };
+  });
+
   $("lbGo").onclick = async () => {
     const email = $("lbEmail").value.trim();
+    const password = $("lbPw").value;
     const msg = $("lbMsg");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = "邮箱格式不对"; return; }
-    msg.textContent = "发送中…";
+    if (password.length < 8) { msg.textContent = "密码至少 8 位"; return; }
+    msg.textContent = mode === "register" ? "注册中…" : "登录中…";
+    $("lbGo").disabled = true;
     try {
-      const r = await api("/auth/email/start", { method: "POST", body: JSON.stringify({ email, next: location.pathname + location.search }) });
-      msg.textContent = r.dev_link
-        ? "开发模式：点这里登录 → " 
-        : "已发送，请查收邮箱（链接 15 分钟内有效）";
-      if (r.dev_link) {
-        const a = document.createElement("a");
-        a.href = r.dev_link; a.textContent = "打开登录链接"; a.style.cssText = "color:var(--accent);text-decoration:underline";
-        msg.append(a);
-      }
-    } catch (e) { msg.textContent = e.status === 429 ? "请求太频繁，稍后再试" : "发送失败，请稍后重试"; }
+      const body = { email, password };
+      if (mode === "register") body.name = $("lbName").value.trim();
+      await api(mode === "register" ? "/api/auth/register" : "/api/auth/login", {
+        method: "POST", body: JSON.stringify(body)
+      });
+      location.reload();
+    } catch (e) {
+      $("lbGo").disabled = false;
+      msg.textContent = e.status === 409 ? "该邮箱已注册，请直接登录"
+        : e.status === 401 ? "邮箱或密码不正确"
+        : e.status === 429 ? "尝试过于频繁，请稍后再试"
+        : "操作失败，请稍后重试";
+    }
   };
 }
 
@@ -3165,7 +3191,7 @@ function renderSocial(c) {
     ${ME && ME.user.is_admin ? `<a class="alogin" href="admin.html">分级后台</a>` : ""}`;
 
   $("dFav").onclick = async () => {
-    if (!ME) return openLogin();
+    if (!ME || !ME.user.logged_in) return openLogin();
     const now = MY.garage.get(id) === "favorite";
     try {
       if (now) { await api("/api/garage/" + id, { method: "DELETE" }); MY.garage.delete(id); s.fav = Math.max(0, (s.fav || 0) - 1); }

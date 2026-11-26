@@ -1,4 +1,5 @@
 import { handleContact } from "./contact.js";
+import { routeAuth } from "./auth.js";
 
 const json = (code, body) =>
   new Response(JSON.stringify(body), {
@@ -8,13 +9,20 @@ const json = (code, body) =>
 
 export default {
   async fetch(request, env) {
-    const { pathname } = new URL(request.url);
+    const url = new URL(request.url);
+    const { pathname } = url;
 
-    // 只有 /api/* 会进入 Worker（wrangler.toml 里 run_worker_first 控制），
-    // 其余请求由静态资源层直接返回，不消耗 Worker 调用。
+    // 进入 Worker 的只有 run_worker_first 声明的 /api/* 与 /auth/*
     if (pathname === "/api/contact") {
       if (request.method === "POST") return handleContact(request, env);
       return json(405, { error: "只支持 POST" });
+    }
+
+    const authRes = await routeAuth(request, env, url);
+    if (authRes) return authRes;
+
+    if (pathname.startsWith("/api/") || pathname.startsWith("/auth/")) {
+      return json(404, { error: "接口不存在" });
     }
 
     return env.ASSETS.fetch(request);
