@@ -119,6 +119,7 @@ function badOrigin(request, url) {
 
 /* ---------- 分级 ---------- */
 const CAR_RE = /^\d{1,6}$/;
+const SHARE_RE = /^\d{9}$/;
 
 async function listTiers(env) {
   const rows = await env.DB.prepare(
