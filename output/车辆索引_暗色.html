@@ -1992,6 +1992,26 @@ function renderGallery() {
   apply();
 }
 
+/* renderGallery 只是把缓存节点重新 append，cardOf 里的卡片 HTML 是首屏生成后就不再重算的，
+   所以后台改了分级必须就地把徽章换掉，否则永远是「未分级」 */
+function refreshCardBadges() {
+  cars.forEach(c => {
+    const rec = cardOf.get(c.id);
+    if (!rec) return;
+    const meta = rec.el.querySelector(".car-meta");
+    if (!meta) return;
+    meta.querySelectorAll(".tierb").forEach(n => n.remove());
+    const html = tierBadge(c);
+    if (!html) return;
+    const box = document.createElement("span");
+    box.innerHTML = html;
+    const node = box.firstElementChild;
+    if (!node) return;
+    const soc = meta.querySelector(".csoc");
+    meta.insertBefore(node, soc || null);
+  });
+}
+
 /* ── 数据表 ───────────────────────────────────────── */
 let tblBuilt = false;
 let builtMode = null;
@@ -3145,7 +3165,7 @@ async function refreshTiers() {
     window.__ovrSig = sig;
 
     /* 首次有覆盖、或覆盖内容变了，才重建网格；没变化就不打断用户的滚动位置 */
-    if (changed && (list.length > 0 || prev !== "")) { renderGallery(); apply(); }
+    if (changed && (list.length > 0 || prev !== "")) { refreshCardBadges(); renderGallery(); }
   } catch { /* 接口不可用时沿用静态分级 */ }
 }
 
