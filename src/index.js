@@ -1,5 +1,6 @@
 import { handleContact } from "./contact.js";
 import { routeAuth } from "./auth.js";
+import { routeAdmin } from "./admin.js";
 
 const json = (code, body) =>
   new Response(JSON.stringify(body), {
@@ -17,6 +18,9 @@ export default {
       if (request.method === "POST") return handleContact(request, env);
       return json(405, { error: "只支持 POST" });
     }
+
+    const adminRes = await routeAdmin(request, env, url);
+    if (adminRes) return adminRes;
 
     const authRes = await routeAuth(request, env, url);
     if (authRes) return authRes;

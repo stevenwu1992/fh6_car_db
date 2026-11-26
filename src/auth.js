@@ -18,6 +18,8 @@ const COOKIE = "fh6_sid";
 const STATE_COOKIE = "fh6_oauth";
 const SESSION_DAYS = 30;
 
+import { adminValid } from "./admin.js";
+
 // Workers 免费版单次调用 CPU 上限 10ms：PBKDF2 210k 次会超时，这里取 10k。
 // 迭代次数写进哈希串，将来升级到付费版可以直接调高而不影响老密码。
 const PBKDF2_ITER = 10000;
@@ -214,7 +216,15 @@ async function logout(request, env) {
 
 async function me(request, env) {
   const u = await currentUser(request, env);
-  return json(200, u ? shape(u) : guest());
+  const isAdmin = await adminValid(request, env);
+  if (!u) {
+    const g = guest();
+    if (isAdmin) { g.user.is_admin = true; g.user.display_name = "管理员"; }
+    return json(200, g);
+  }
+  const body = shape(u);
+  if (isAdmin) body.user.is_admin = true;
+  return json(200, body);
 }
 
 /* ---------- Steam OpenID 2.0 ---------- */
