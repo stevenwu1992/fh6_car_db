@@ -1,6 +1,11 @@
 # Workers 静态资源上传排除清单
 # 站点只需要 index.html + output/ + _headers；其余不进部署包。
 
+# 构建环境里的 .git 含 31.9 MiB 的 pack 文件，超过 25 MiB 单文件上限，必须排除
+.git/
+.gitignore
+.gitattributes
+
 *.py
 *.pyc
 *.bak
