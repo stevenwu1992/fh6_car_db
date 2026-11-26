@@ -1401,8 +1401,23 @@ const TIER = DATA.tier || {};
 const TIER_NAMES = DATA.tierNames || [];
 const TIER_GROUPS = DATA.tierGroups || [];
 const TIER_IMG = ["meta-plus", "meta", "t0-5", "t1", "t1-5", "t2", "t3", "unknown"];
-const tierOf = c => { const t = TIER[String(c.id)]; return t && t.length ? t[0][0] : 99; };
-const tierGroupOf = c => { const t = TIER[String(c.id)]; return t && t.length ? TIER_GROUPS[t[0][1]] || "" : ""; };
+/* 後臺覆蓋優先：OVR 裏的 race_tier 是名稱（Meta+ / T1 …），要換算成 TIER_NAMES 的下標，
+   否則卡片徽章、懸浮說明、抽屜裏的分級全都還停在構建時烘焙的靜態值 */
+const tierOf = c => {
+  const o = OVR[String(c.id)];
+  if (o && o.race_tier) {
+    const i = TIER_NAMES.indexOf(o.race_tier);
+    if (i >= 0) return i;
+  }
+  const t = TIER[String(c.id)];
+  return t && t.length ? t[0][0] : 99;
+};
+const tierGroupOf = c => {
+  const o = OVR[String(c.id)];
+  if (o && o.race_group) return o.race_group;
+  const t = TIER[String(c.id)];
+  return t && t.length ? TIER_GROUPS[t[0][1]] || "" : "";
+};
 const tierName = c => (tierOf(c) < 99 ? TIER_NAMES[tierOf(c)] : "未分級");
 const tierImg = c => (tierOf(c) < 99 ? `assets/tier/${TIER_IMG[tierOf(c)]}.png` : "");
 /* 漂移分級：只有 S–D 五檔，徽章是另一套圖 */
@@ -3113,15 +3128,22 @@ async function bootAuth() {
   loadStats();
 }
 
-/* 分級覆蓋：後臺改完後必須重繪卡片，否則頁面還是構建時烘焙的靜態分級 */
+/* 分級覆蓋：後臺改完後必須重建卡片，apply() 只切 .hide 不改徽章 HTML */
 async function refreshTiers() {
   try {
     const t = await api("/api/tiers");
     const list = t.overrides || [];
+    const sig = JSON.stringify(list);
+    const prev = window.__ovrSig || "";
+    const changed = sig !== prev;
+
     Object.keys(OVR).forEach(k => delete OVR[k]);
     list.forEach(o => { OVR[String(o.car_id)] = o; });
     window.__ovrAt = Date.now();
-    if (list.length) apply();   // 沒有覆蓋就不必重繪，靜態分級已經畫好了
+    window.__ovrSig = sig;
+
+    /* 首次有覆蓋、或覆蓋內容變了，才重建網格；沒變化就不打斷用戶的滾動位置 */
+    if (changed && (list.length > 0 || prev !== "")) { renderGallery(); apply(); }
   } catch { /* 接口不可用時沿用靜態分級 */ }
 }
 
