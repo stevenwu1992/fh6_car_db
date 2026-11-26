@@ -18,6 +18,8 @@ fh6-car-index-deploy/
 # 游戏原始表的导出中间件（.str 字符串表 / schema 转储）
 work/
 
+server/data/
+
 # ── 部署与工具链 ────────────────────────────────────────
 deploy/
 .edgeone/

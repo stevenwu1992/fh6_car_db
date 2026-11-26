@@ -440,6 +440,30 @@ def build_payload() -> dict[str, Any]:
         rec = wide_full.setdefault(str(cid), {"s": body_row(sbid), "k": []})
         rec["k"].append([lvl, price or 0, mass or 0] + body_row(bid))
 
+    # ---------- 空气动力学套件（尾翼升级） ----------
+    # List_UpgradeRearWing 每车一条原厂（IsStock=1）+ 若干改装档；下压力/风阻曲线
+    # 挂在 List_AeroPhysics（Drag0/1、Downforce0/1 是攻角滑杆两端）。
+    # 同一台车常有多个只有外观差别的尾翼，性能参数完全一样，按数值去重。
+    aero: dict[str, dict[str, Any]] = {}
+    for cid, lvl, price, mass, ds, wis, d0, d1, f0, f1, ang, isstock in cur.execute(
+            "SELECT w.Ordinal, w.Level, w.Price, w.MassDiff, w.DragScale, w.WindInstabilityScale,"
+            " a.Drag0, a.Drag1, a.Downforce0, a.Downforce1, a.AngleZeroDownforce, w.IsStock"
+            " FROM List_UpgradeRearWing w"
+            " LEFT JOIN List_AeroPhysics a ON a.AeroPhysicsID = w.AeroPhysicsID"
+            " ORDER BY w.Ordinal, w.IsStock DESC, w.Level"):
+        rec = aero.setdefault(str(cid), {"s": None, "k": []})
+        row = [lvl, price or 0, round(mass or 0, 2), round(ds if ds else 1, 4),
+               round(wis if wis else 1, 3), round(d0 or 0, 2), round(d1 or 0, 2),
+               round(f0 or 0, 2), round(f1 or 0, 2), round(ang or 0, 1)]
+        if isstock:
+            if rec["s"] is None:
+                rec["s"] = row
+            continue
+        key = tuple(row[2:])
+        if any(tuple(k[2:]) == key for k in rec["k"]):
+            continue
+        rec["k"].append(row)
+
     # ---------- 悬挂结构 / 后轮转向 / 转向手感 ----------
     # 三者都挂在 List_UpgradeSpringDamper 的原厂档（IsStock=1）上；
     # 具体悬挂结构要从 List_SuspensionPhysicsType.Path 的文件名里取
@@ -660,6 +684,58 @@ def build_payload() -> dict[str, Any]:
     } for cid, rid, cnt in cur.execute(
         "SELECT CountryID, MIN(RegionID), COUNT(*) FROM Data_Car GROUP BY CountryID ORDER BY 3 DESC")]
 
+    # ---------- 竞速强度分级（来自调校推荐表） ----------
+    # tools/tier_map.auto.json 由 tools/build_tiers.py 生成：carId -> [{g: 组别, t: 强度, m: 原始型号}]
+    # 一台车可能在多张表里出现（不同改装等级），取「强度最高、组别 PI 最大」的那条作为主标签，
+    # 全部条目另外存一份给详情页展开。
+    TIER_NAMES = ["Meta+", "Meta", "T0.5", "T1", "T1.5", "T2", "T3", "未知"]
+    tier_map_path = Path(__file__).with_name("tools") / "tier_map.auto.json"
+    tier_pairs: dict[str, list[list[Any]]] = {}
+    tier_rows: dict[str, list[list[Any]]] = {}
+    tier_groups: list[str] = []
+    if tier_map_path.exists():
+        raw_tier = json.loads(tier_map_path.read_text(encoding="utf-8"))
+        for cid, entries in raw_tier.items():
+            for e in entries:
+                if e["g"] not in tier_groups:
+                    tier_groups.append(e["g"])
+        for cid, entries in raw_tier.items():
+            picked = []
+            for e in entries:
+                ti = TIER_NAMES.index(e["t"]) if e["t"] in TIER_NAMES else 7
+                gi = tier_groups.index(e["g"])
+                picked.append([ti, gi])
+            # 去重 + 排序：强度优先，其次组别 PI 越大越靠前
+            uniq = sorted({tuple(p) for p in picked},
+                          key=lambda p: (p[0], -(int(re.search(r"\d{3}", tier_groups[p[1]]).group())
+                                                 if re.search(r"\d{3}", tier_groups[p[1]]) else 0)))
+            tier_pairs[str(cid)] = [list(p) for p in uniq]
+            # 详情/数据表用的完整行：强度、组别、驱动、难度、轮胎、定位、备注
+            ordered = sorted(picked, key=lambda p: (p[0], tier_groups[p[1]]))
+            seen_rows, rows_out = set(), []
+            for ti, gi in ordered:
+                src = next((e for e in entries
+                            if (TIER_NAMES.index(e["t"]) if e["t"] in TIER_NAMES else 7) == ti
+                            and tier_groups.index(e["g"]) == gi), None)
+                if not src:
+                    continue
+                key = (ti, gi, src["d"], src["diff"], src["tire"], src["role"], src["note"])
+                if key in seen_rows:
+                    continue
+                seen_rows.add(key)
+                rows_out.append([ti, gi, src["d"], src["diff"], src["tire"],
+                                 src["role"], src["note"][:220]])
+            tier_rows[str(cid)] = rows_out
+
+
+    uniform: list[str] = []
+    _cols_all = [r[1] for r in cur.execute("PRAGMA table_info(Data_Car)")]
+    for f in _cols_all:
+        n = cur.execute(
+            f"SELECT COUNT(DISTINCT [{f}]) FROM Data_Car WHERE [{f}] IS NOT NULL").fetchone()[0]
+        if n <= 1:
+            uniform.append(f)
+
     ci = {k: i for i, k in enumerate(COLUMNS)}
     payload = {
         "cols": COLUMNS,
@@ -683,6 +759,12 @@ def build_payload() -> dict[str, Any]:
         "wide": wide,      # carId -> [[等级, 价格, 加宽 cm], ...]
         "wideFull": wide_full,  # carId -> {s: 原厂车身, k: [[等级, 价格, 车身...], ...]}
         "bodyFields": BODY_FIELDS,  # 车身数组的字段顺序
+        "aero": aero,      # carId -> {s: 原厂尾翼, k: [[等级, 价格, 质量, 风阻缩放, 稳定性, 风阻0/1, 下压力0/1, 零攻角], ...]}
+        "uniform": uniform,  # 全库取值完全一致的字段名（详情页默认折叠）
+        "tier": tier_pairs,  # carId -> [[强度序号, 组别序号], ...]（首个为主标签）
+        "tierRows": tier_rows,  # carId -> [[强度, 组别, 驱动, 难度, 轮胎, 定位, 备注], ...]
+        "tierNames": TIER_NAMES,
+        "tierGroups": tier_groups,
         "tireW": tire_w,   # carId -> {sf/sr: 原厂车身最大胎宽, wf/wr: 宽体车身最大胎宽}
         "susp": susp,      # carId -> {f/r: 悬挂结构ID, st: 转向手感ID, rs: 后轮转向ID, a: 最大转角}
         "suspType": susp_type,   # 悬挂结构ID -> {n: 粗分类, p: 物理文件路径}
@@ -738,22 +820,140 @@ def render(payload: dict[str, Any], theme: str, hant: bool = False) -> str:
     return html
 
 
+
+
+ADMIN_HTML = """<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>分级后台 · FH6 车辆索引</title>
+<style>
+  :root{--ink:#111114;--paper:#fff;--paper-2:#f4f4f5;--steel:#65656d;--rule:#e3e3e6;--accent:#e8185f}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper-2);color:var(--ink);
+    font:400 14px/1.5 "Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+  header{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;
+    padding:14px 22px;background:var(--paper);border-bottom:1px solid var(--rule)}
+  header h1{font-size:15px;margin:0;font-weight:600}
+  header .sp{flex:1}
+  header a{color:var(--steel);text-decoration:none;font-size:13px}
+  main{padding:18px 22px 60px;max-width:1180px;margin:0 auto}
+  .bar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  input[type=search]{flex:1;min-width:220px;padding:9px 12px;border:1px solid var(--rule);border-radius:4px;font:inherit}
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left;font-size:13px;vertical-align:middle}
+  th{background:#fafafa;font-weight:600}
+  select{padding:5px 7px;border:1px solid var(--rule);border-radius:4px;font:inherit;background:#fff}
+  button.save{padding:5px 12px;border:0;border-radius:4px;background:var(--ink);color:#fff;cursor:pointer;font-size:12.5px}
+  button.save:disabled{opacity:.35;cursor:default}
+  .cur{color:var(--steel);font-size:12px;white-space:nowrap}
+  .ok{color:#0a7f43}
+  .msg{padding:10px 2px;color:var(--steel)}
+</style></head>
+<body>
+<header><h1>分级后台</h1><span class="cur" id="who">检查登录状态…</span><span class="sp"></span>
+  <a href="zh-hans.html">返回站点</a></header>
+<main>
+  <div class="bar"><input id="q" type="search" placeholder="搜车名 / 品牌 / ID"></div>
+  <div id="msg" class="msg"></div>
+  <table><thead><tr><th style="width:44%">车辆</th><th style="width:15%">竞速强度</th>
+    <th style="width:19%">组别</th><th style="width:11%">漂移强度</th><th></th></tr></thead>
+    <tbody id="rows"></tbody></table>
+</main>
+<script>
+const CARS = __CARS__, RACE = __RACE__, GROUPS = __GROUPS__, DRIFT = __DRIFT__;
+const OVR = {};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const api = async (p, o = {}) => {
+  const r = await fetch(p, { credentials: "include", ...o,
+    headers: { "Content-Type": "application/json", "X-CSRF": "1", ...(o.headers || {}) } });
+  if (!r.ok) throw Object.assign(new Error("HTTP " + r.status), { status: r.status });
+  return r.json();
+};
+(async () => {
+  try { const me = await api("/api/me"); if (!me.user.is_admin) { $("#who").textContent = "当前账号不是管理员"; return; } $("#who").textContent = me.user.display_name + " · 管理员"; }
+  catch { $("#who").textContent = "无法连接 API"; return; }
+  try { const r = await api("/api/tiers"); r.overrides.forEach(o => OVR[o.car_id] = o); } catch {}
+  paint();
+})();
+function paint() {
+  const q = ($("#q").value || "").trim().toLowerCase();
+  const list = CARS.filter(c => !q || c.n.toLowerCase().includes(q) || String(c.id).includes(q)).slice(0, 400);
+  $("#rows").innerHTML = list.map(c => {
+    const o = OVR[c.id] || {};
+    const race = o.race_tier || c.rt || "";
+    const group = o.race_group || c.rg || "";
+    const drift = o.drift_tier || "";
+    return `<tr data-id="${c.id}">
+      <td><b>${esc(c.n)}</b><br><span class="cur">ID ${c.id} · ${c.cls} ${c.pi} · 现：${esc(c.rt || "未分级")}${c.rg ? " / " + esc(c.rg) : ""}</span></td>
+      <td><select class="rt">${["", ...RACE].map(t => `<option ${t === race ? "selected" : ""}>${t}</option>`).join("")}</select></td>
+      <td><select class="rg">${["", ...GROUPS].map(t => `<option ${t === group ? "selected" : ""}>${t}</option>`).join("")}</select></td>
+      <td><select class="dt">${["", ...DRIFT].map(t => `<option ${t === drift ? "selected" : ""}>${t}</option>`).join("")}</select></td>
+      <td><button class="save">保存</button></td></tr>`;
+  }).join("");
+  document.querySelectorAll("#rows tr").forEach(tr => {
+    const btn = tr.querySelector(".save");
+    btn.onclick = async () => {
+      btn.disabled = true; btn.textContent = "…";
+      try {
+        await api("/api/tiers/" + tr.dataset.id, { method: "PUT", body: JSON.stringify({
+          race_tier: tr.querySelector(".rt").value || null,
+          race_group: tr.querySelector(".rg").value || null,
+          drift_tier: tr.querySelector(".dt").value || null }) });
+        btn.textContent = "已保存";
+        setTimeout(() => { btn.textContent = "保存"; btn.disabled = false; }, 1200);
+      } catch (e) { btn.textContent = "失败"; btn.disabled = false; }
+    };
+  });
+  $("#msg").textContent = list.length ? `显示 ${list.length} 台（最多 400）` : "没有匹配的车辆";
+}
+$("#q").oninput = () => { clearTimeout(window.__t); window.__t = setTimeout(paint, 150); };
+</script></body></html>"""
+
+
+def write_admin(payload: dict[str, Any]) -> None:
+    """分级后台：独立页面，只做「改标签」，鉴权与写库都在 API 侧。"""
+    tier = payload.get("tier", {})
+    names, groups = payload.get("tierNames", []), payload.get("tierGroups", [])
+    cars_admin = [{
+        "id": c["id"], "n": c["name"], "cls": c["cls"], "pi": c["pi"],
+        "rt": names[tier[str(c["id"])][0][0]] if str(c["id"]) in tier else "",
+        "rg": groups[tier[str(c["id"])][0][1]] if str(c["id"]) in tier else "",
+    } for c in payload.get("_cars_brief", [])]
+    html = (ADMIN_HTML
+            .replace("__CARS__", json.dumps(cars_admin, ensure_ascii=False, separators=(",", ":")))
+            .replace("__RACE__", json.dumps(names, ensure_ascii=False))
+            .replace("__GROUPS__", json.dumps(groups, ensure_ascii=False))
+            .replace("__DRIFT__", json.dumps(["S", "A", "B", "C", "D"], ensure_ascii=False)))
+    (OUT.parent / "admin.html").write_text(html, encoding="utf-8")
+    print(f"[OK] admin.html  {(OUT.parent / 'admin.html').stat().st_size / 1024:.0f} KB")
+
 def main() -> int:
     if not DB.exists():
         raise SystemExit(f"找不到数据库：{DB}")
     payload = build_payload()
-    for theme, path in (("light", OUT), ("dark", OUT.with_name("车辆索引_暗色.html"))):
-        path.write_text(render(payload, theme), encoding="utf-8")
-        print(f"[OK] {path.name}  {path.stat().st_size / 1024:.0f} KB")
+    payload["_cars_brief"] = [
+        {"id": r[0], "name": r[2], "cls": r[4], "pi": r[5]} for r in payload["rows"]]
+    # 中文名是主文件；同时写 ASCII 副本，供 GitHub Pages / 本地服务直接访问
+    HANS = {"light": OUT, "dark": OUT.with_name("车辆索引_暗色.html")}
+    HANS_ASCII = {"light": "zh-hans.html", "dark": "zh-hans-dark.html"}
+    for theme, path in HANS.items():
+        html = render(payload, theme)
+        path.write_text(html, encoding="utf-8")
+        (OUT.parent / HANS_ASCII[theme]).write_text(html, encoding="utf-8")
+        print(f"[OK] {path.name} + {HANS_ASCII[theme]}  {path.stat().st_size / 1024:.0f} KB")
+
+    write_admin(payload)
 
     # ── 繁體版：分类名换成 CHT 原文，其余文案整体转繁 ──
     hant = copy.deepcopy(payload)
     for b in hant.get("buckets", []):
         if b.get("tw"):
             b["zh"] = b["tw"]
+    HANT_ASCII = {"light": "zh-hant.html", "dark": "zh-hant-dark.html"}
     for theme, name in (("light", "車輛索引.html"), ("dark", "車輛索引_暗色.html")):
         html = zhconv.convert(render(hant, theme, True), "zh-hant")
         html = html.replace('lang="zh-CN"', 'lang="zh-Hant"')
+        (OUT.parent / HANT_ASCII[theme]).write_text(html, encoding="utf-8")
         path = OUT.with_name(name)
         path.write_text(html, encoding="utf-8")
         print(f"[OK] {path.name}  {path.stat().st_size / 1024:.0f} KB")

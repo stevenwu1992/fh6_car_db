@@ -1,0 +1,10366 @@
+{
+ "4210": [
+  {
+   "g": "R 998公路",
+   "t": "Meta+",
+   "m": "2018 Lotus Scura Motorsports Exige WTAC",
+   "s": 1.052,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "奈良世界纪录 白川世界纪录 北部世界纪录 大黑世界纪录 色川世界纪录 立山世界纪录 东京铁道世界纪录"
+  },
+  {
+   "g": "R 998公路",
+   "t": "Meta",
+   "m": "2018 Lotus Scura Motorsports Exige WTAC",
+   "s": 1.052,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "LetzeLU",
+   "note": "曾尔世界纪录 毛豆世界纪录"
+  }
+ ],
+ "4197": [
+  {
+   "g": "R 998公路",
+   "t": "Meta+",
+   "m": "1994 Mazda MX-5 Miata Forza Edition",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "全热熔",
+   "role": "动力",
+   "tuner": "VSM Huon",
+   "note": "传奇岛世界纪录 嘉年华世界纪录 维纳斯世界纪录 海滨世界纪录 霜山世界纪录"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta+",
+   "m": "1994 Mazda MX-5 Miata Forza Edition",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "K1Z Gray",
+   "note": "长冲刺强车 中后段优势"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "未知",
+   "m": "1994 Mazda MX-5 Miata Forza Edition",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "萨埵1:33.857 by lphanhan 除AE86 FE最快 线上你真敢开这个？"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta",
+   "m": "1994 Mazda MX-5 Miata Forza Edition",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "lphanhan",
+   "note": "向日葵55.1 北部51.590干净圈 比CLK更均衡"
+  }
+ ],
+ "1335": [
+  {
+   "g": "R 998公路",
+   "t": "Meta+",
+   "m": "1991 Mazda #55 马自达 787B",
+   "s": 0.83,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "歌莉娅世界纪录"
+  },
+  {
+   "g": "R 998公路",
+   "t": "T0.5",
+   "m": "1991 Mazda #55 马自达 787B",
+   "s": 0.83,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "ESV Mars",
+   "note": ""
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta+",
+   "m": "1991 Mazda #55 马自达 787B",
+   "s": 0.83,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "K1Z Howzer",
+   "note": "白川46.9"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "Meta+",
+   "m": "1991 Mazda #55 马自达 787B",
+   "s": 0.83,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "雪地胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川52.9"
+  }
+ ],
+ "4200": [
+  {
+   "g": "R 998公路",
+   "t": "Meta",
+   "m": "2020 Lotus Evija Forza Edition",
+   "s": 1.029,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "VSM Huon",
+   "note": "高速路世界纪录 伊东世界纪录 四季彩世界纪录"
+  }
+ ],
+ "4163": [
+  {
+   "g": "R 998公路",
+   "t": "Meta",
+   "m": "2020 Wuling Sunshine S Forza Edition",
+   "s": 1.045,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "赛用热熔",
+   "role": "动力",
+   "tuner": "VSM Huon",
+   "note": "萨埵世界纪录"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta",
+   "m": "2020 Wuling Sunshine S Forza Edition",
+   "s": 1.045,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "VSM Huon",
+   "note": "萨埵世界纪录"
+  }
+ ],
+ "4212": [
+  {
+   "g": "R 998公路",
+   "t": "Meta",
+   "m": "1993 Nissan #32 Skyline WTAC \n'Xtreme GTR'",
+   "s": 1.05,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "GreetedDust8",
+   "note": "电器街世界记录"
+  }
+ ],
+ "1392": [
+  {
+   "g": "R 998公路",
+   "t": "T0.5",
+   "m": "2011 Lamborghini Sesto Elemento",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "R级非常少见的均衡强车 线上推荐驾驶"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T0.5",
+   "m": "2011 Lamborghini Sesto Elemento",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "白川48.7 偏操控 手感很舒服"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2011 Lamborghini Sesto Elemento",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.0  越野胎像在陆地开船 弯速很快 阻力低有一点后段"
+  }
+ ],
+ "3304": [
+  {
+   "g": "R 998公路",
+   "t": "T0.5",
+   "m": "1990 Alfa Romeo SE 048SP",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta",
+   "m": "1990 Alfa Romeo SE 048SP",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "3.1G 普通全热熔更均衡 白川47.3"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta",
+   "m": "1990 Alfa Romeo SE 048SP",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "3.3G 赛用全热熔偏操控"
+  }
+ ],
+ "1229": [
+  {
+   "g": "R 998公路",
+   "t": "T0.5",
+   "m": "2008 Mazda Furai",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "K1Z Howzer",
+   "note": "传奇岛 58.2"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta+",
+   "m": "2008 Mazda Furai",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "白川47.2 灵活四驱操控车"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "Meta+",
+   "m": "2008 Mazda Furai",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "东京铁道世界纪录 加速非常快 弯速也不错"
+  }
+ ],
+ "3606": [
+  {
+   "g": "R 998公路",
+   "t": "T1",
+   "m": "2020 Lamborghini Essenza SCV12",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T0.5",
+   "m": "2020 Lamborghini Essenza SCV12",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": ""
+  }
+ ],
+ "3631": [
+  {
+   "g": "R 998公路",
+   "t": "T1",
+   "m": "2022 Aston Martin Valkyrie AMR Pro",
+   "s": 1.041,
+   "d": "RWD",
+   "diff": "中等",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "3.3G 操控很好 缺后段加速和极速"
+  },
+  {
+   "g": "R 998公路",
+   "t": "T1",
+   "m": "2022 Aston Martin Valkyrie AMR Pro",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "3.6G 操控很好 缺后段加速和极速"
+  }
+ ],
+ "4264": [
+  {
+   "g": "R 998公路",
+   "t": "T1",
+   "m": "2018 Ferrari FXX-K Evo 'Welcome Pack'",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "1175": [
+  {
+   "g": "R 998公路",
+   "t": "T2",
+   "m": "2009 Pagani Zonda R",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "全热熔",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速弯有点推头"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T0.5",
+   "m": "2009 Pagani Zonda R",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "传奇岛1:04.6 东京铁道1:44.6"
+  }
+ ],
+ "1007": [
+  {
+   "g": "R 998公路",
+   "t": "T2",
+   "m": "2008 Koeniigsegg CCGT",
+   "s": 0.953,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "2008 Koeniigsegg CCGT",
+   "s": 0.953,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "传奇岛1:06.9"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T3",
+   "m": "2008 Koeniigsegg CCGT",
+   "s": 0.953,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "1020": [
+  {
+   "g": "R 998公路",
+   "t": "T2",
+   "m": "1996 Ferrari F50 GT",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "赛用热熔",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "4156": [
+  {
+   "g": "R 998公路",
+   "t": "T2",
+   "m": "2024 Ferrari F80",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "不是纯花瓶 空力不错 冲刺图表现还行"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "2024 Ferrari F80",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 48.7 拉力胎转向响应稍慢 有时候滑胎但是完全不需要救车 大多数情况全油门即可恢复抓地力整体很好控 F80不是花瓶!!!!!"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2025 Ferrari F80",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "MSR Mian",
+   "note": "白川 55.3 加，前中段较差，中后一般偏差 拐，低速一般，中高速不错！ *越野胎 驾驶需要一定技术"
+  }
+ ],
+ "4211": [
+  {
+   "g": "S2 900公路",
+   "t": "Meta",
+   "m": "1990 Honda #19 101 Motorsport CRX WTAC",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "by JeeQz",
+   "note": "霜山世界记录 毛豆世界纪录 仅限小赛道"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "1990 Honda #19 101 Motorsport CRX WTAC",
+   "s": 1.048,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "ESV Mars",
+   "note": "3.9G前驱操控车 仅限小赛道"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "1990 Honda #19 101 Motorsport CRX WTAC",
+   "s": 1.048,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Bachee1234",
+   "note": "电器街世界纪录"
+  }
+ ],
+ "3311": [
+  {
+   "g": "S2 900公路",
+   "t": "T0.5",
+   "m": "2018 Ferrari FXX-K Evo",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "传奇岛1:05.9"
+  }
+ ],
+ "4118": [
+  {
+   "g": "S2 900公路",
+   "t": "T0.5",
+   "m": "2025 Mclaren W1",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "WIL Eclipse",
+   "note": "白川48.3"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "2025 Mclaren W1",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "ESV Birdy",
+   "note": "白川 54.2"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2025 Mclaren W1",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "KapienPL",
+   "note": "石部51.1"
+  }
+ ],
+ "338": [
+  {
+   "g": "S2 900公路",
+   "t": "T0.5",
+   "m": "1997 McLaren F1 GT",
+   "s": 0.959,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速公路15.2"
+  }
+ ],
+ "3600": [
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "2021 Henessey Venom F5",
+   "s": 0.97,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速公路15.8"
+  }
+ ],
+ "4231": [
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "2004 Honda #52 Evasive Motorsports S2000 WTAC",
+   "s": 1.06,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "漂移胎",
+   "role": "操控",
+   "tuner": "LetzeLU",
+   "note": "白川48.1 操控向后驱 锁极速"
+  }
+ ],
+ "3363": [
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "1998 Nissan #23 Pennzoil NISMO \nSkyline GTR",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1998 Nissan #23 Pennzoil NISMO Skyline GTR",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "KapienPL",
+   "note": "石部50.1"
+  }
+ ],
+ "641": [
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "1998 Porsche 911 GT1 Starssenversion",
+   "s": 1.016,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "高速公路15.4 弯速高操控好，前段有点挠地"
+  }
+ ],
+ "3288": [
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "1993 Schuppan 962CR",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速公路16.7 高速弯强势 刹车一般般"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1993 Schuppan 962CR",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.7  手感不错 可配合轻点手刹 出弯抓地力强"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1993 Schuppan 962CR",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "伊根01.7 糠平2:52.772  AION调校有前空 更加操控  菜狗调校原厂前空 更均衡 低速弯推头 操控优秀"
+  }
+ ],
+ "2569": [
+  {
+   "g": "S2 900公路",
+   "t": "T1",
+   "m": "2015 Ultima Evolution Coupe 1020",
+   "s": 1.035,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "中后段比F1 GT有优势"
+  }
+ ],
+ "3141": [
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "2019 Apollo Intensa Emozione",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川50.1"
+  },
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "2019 Apollo Intensa Emozione",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川50.5 平平无奇的车 弯道手感还行 可跑湿地"
+  }
+ ],
+ "4270": [
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "2025 Ford Mustang GTD",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 49.8"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2025 Ford Mustang GTD",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.6 中低速优势 缺后段"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "2025 Ford Mustang GTD",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:01.4  前段加速快 中后段一般 弯速很快 低速操控不错  手感有点诡异 需抑制后轮打滑 有一点难度"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2025 Ford Mustang GTD",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川 1:00.4 手感较笨重需要适应"
+  }
+ ],
+ "2371": [
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "2014 Ferrari FXX K",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 49.9  加速很快 弯速一般般 可跑湿地"
+  }
+ ],
+ "1023": [
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "1989 Ferrari F40 Competizione",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3672": [
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "2020 Lamborghini Huracan STO",
+   "s": 0.983,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川50.0"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2020 Lamborghini Huracan STO",
+   "s": 0.983,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.4"
+  }
+ ],
+ "3554": [
+  {
+   "g": "S2 900公路",
+   "t": "T2",
+   "m": "2005 Mitsubishi #1 Sierra Sierra Enterprises Lancer Evolution Time Attack",
+   "s": 1.084,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 49.8  高速弯比较快 空力高  低速弯车头略重 会有些推头"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2005 Mitsubishi #1 Sierra Sierra Enterprises Lancer Evolution Time Attack",
+   "s": 1.084,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "Qurgo",
+   "note": "霜山 26.5"
+  }
+ ],
+ "3364": [
+  {
+   "g": "S2 900公路",
+   "t": "T3",
+   "m": "2019 Aston Martin Valhalla Concept Car",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川51.0"
+  }
+ ],
+ "1667": [
+  {
+   "g": "S2 900公路",
+   "t": "T3",
+   "m": "2013 McLaren P1",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 50.9 加，前中段一般，中后段一般 拐，还行"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2013 Mclaren P1",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 55.5 阻力低 操控优秀"
+  }
+ ],
+ "2470": [
+  {
+   "g": "S2 900公路",
+   "t": "T3",
+   "m": "2016 Aston Martin Vulcan",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "全热熔",
+   "role": "操控",
+   "tuner": "MSR Sola",
+   "note": "白川52.5 时代的眼泪"
+  }
+ ],
+ "4162": [
+  {
+   "g": "S1 800公路",
+   "t": "Meta+",
+   "m": "1985 Toyota Sprinter Trueno GT-Apex \nForza Edition",
+   "s": 1.066,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "中后段加速和极速优势"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1985 Toyota Sprinter Trueno GT-APEX\nForza Edition",
+   "s": 1.066,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "KapienPL",
+   "note": "石部50.9"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta+",
+   "m": "1985 Toyota Sprinter Trueno GT-Apex\nForza Edition",
+   "s": 1.066,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "长冲刺强车 中后段和极速大优势"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1985 Toyota Sprinter Trueno GT-APEX\nForza Edition",
+   "s": 1.066,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "MSR Mian",
+   "note": "伊根 1:05.3  加一般还行，拐不错 悬挂稳定性较差 注意颠簸"
+  }
+ ],
+ "3655": [
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "2021 Mclaren 620R",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "白川 54.3"
+  }
+ ],
+ "2801": [
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "1983 Nissan #11 Tomica Skyline\nTurbo Super Silhouette",
+   "s": 1.069,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.2"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta+",
+   "m": "1983 Nissan #11 Tomica Skyline\nTurbo Super Silhouette",
+   "s": 1.069,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根00.2 加速很快 操控不错 但有些推 综合线上实力非常强"
+  }
+ ],
+ "4160": [
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "1989 Nissan S-Cargo Forza Edition",
+   "s": 1.038,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速公路世界纪录"
+  }
+ ],
+ "391": [
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "2004 Maserati MC12",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.1 弯速非常快的同时阻力低 加速和后段也不落下风"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2004 Maserati MC12",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.5 很均衡 后段不错 手感好"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "2004 Maserati MC12",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根01.3 动力还不错 烂路抓地力较差 有上手难度"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta+",
+   "m": "2004 Maserati MC12",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川59.2"
+  }
+ ],
+ "2866": [
+  {
+   "g": "S1 800公路",
+   "t": "Meta",
+   "m": "2018 Exomotive Exocet Sport V8 XP-5",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "毛豆世界纪录 霜山世界纪录"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "2018 Exomotive Exocet Sport V8 XP-5",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "K1Z Bard",
+   "note": "霜山世界纪录 毛豆世界纪录"
+  }
+ ],
+ "1200": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2009 Audi R8 LMS",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 54.5 转向响应有点慢 加速很快  弯道很强 低速机抓很不错"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2009 Audi R8 LMS",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "MSR Mian",
+   "note": "白川 1:00.5 加略差，拐不错 *偏操控圈图表现好"
+  }
+ ],
+ "3494": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 54.4 刹车偏弱 全段加速优秀"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川 54.7 高速公路 1:23.9"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta+",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "“请使用标题为Dirt的调校” 伊根世界纪录 全段加速都不错 操控很好 抓地力很强"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta+",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "“请使用标题含Dirt/CC的调校” 伊根00.5 南岸世界纪录 更多的power 操作上限会更高 越野拉力通用调校"
+  },
+  {
+   "g": "S1 800越野",
+   "t": "Meta+",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "“请使用标题含Dirt/CC的调校” 伊根00.5 南岸世界纪录 更多的power 操作上限会更高 越野拉力通用调校"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:00.0 (1.8G) 加和拐全段都还可以"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "怀旧胎",
+   "role": "操控",
+   "tuner": "MSR Mian",
+   "note": "白川 1:00.2 (2.1G) 加一般偏差 拐，全段强"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1968 Alfa Romeo\nAutodeltaTipo 33/2 Daytona",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "MSR Mian",
+   "note": "伊根 1:05.1 加一般，拐很不错"
+  }
+ ],
+ "3369": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2020 Chevrolet Corvette Stingray Coupe",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.6"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2020 Chevrolet Corvette Stingray Coupe",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.1"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2020 Chevrolet Corvette Stingray Coupe",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.6 越野胎四驱 稳重好开"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2020 Chevrolet Corvette Stingray Coupe",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.4 瑠璃光寺 2:01.2  悬挂支撑不错 底盘低不能涉水 颠簸路面可能推头 越野嘉豪车 与众不同这一块"
+  }
+ ],
+ "3954": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2024 Chevrolet Camaro ZL1",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "OSM Cinnabar",
+   "note": "白川54.1"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2024 Chevrolet Camaro ZL1",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.6"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta+",
+   "m": "2024 Chevrolet Camaro ZL1",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川 59.2 全能无短板"
+  }
+ ],
+ "3771": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2024 Chevrolet Corvette E-Ray",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.6"
+  }
+ ],
+ "1046": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2008 Dodge Viper SRT-10 ACR",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.3"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2008 Dodge Viper SRT-10 ACR",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2008 Dodge Viper SRT-10 ACR",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Cirno1X",
+   "note": "白川59.6 操控很好 加速稍慢"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "2008 Dodge Viper SRT-10 ACR",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "伊根1:06.5 操控很强 公路段优势"
+  }
+ ],
+ "2544": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2016 Dodge Viper ACR",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 54.6 加速优秀 弯速可以 悬挂也算稳定"
+  }
+ ],
+ "348": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2005 Ford GT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "全热熔",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "白川 54.5 加速很快 空力略差弯速一般般  比较难开 需要滑移角 不能雨天开"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta+",
+   "m": "2005 Ford GT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.2 全段加速优势"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "2005 Ford GT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:04.9 弯道很舒服 加速很快 公路段也无需多言 很好开"
+  },
+  {
+   "g": "A 700越野",
+   "t": "Meta+",
+   "m": "2005 Ford GT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Zookiiwi",
+   "note": "江户川 码头 体育场世界纪录  跳台少的圈图都是这辆车快"
+  }
+ ],
+ "2825": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "1997 Lotus Elise GT1",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "trviis",
+   "note": ""
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1997 Lotus Elise GT1",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "向日葵55.9 赛悬稳定 拉悬灵活"
+  }
+ ],
+ "4158": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2010 Lexus LFA Forza Edition",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "传奇岛 1:13.9 白川 54.4"
+  }
+ ],
+ "3289": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2018 Lamborghini Aventador SVJ",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "白川 54.6 传奇岛 1:14.1 弯速优秀 后段略慢"
+  }
+ ],
+ "2616": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2016 Lamborghini Centenario LP 770-4",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "操控",
+   "tuner": "K1Z Howzer",
+   "note": "传奇岛 1:13.7"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2016 Lamborghini Centenario LP 770-4",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川 54.8"
+  }
+ ],
+ "3839": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2024 Mercedes-AMG GT 63 4MATIC+",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川54.5"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta",
+   "m": "2024 Mercedes-AMG GT 63 4MATIC+",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:00.6 向日葵 54.8  加速还可以 高速弯弯速非常快 刹车效率极高  低速弯略甩 抓地车 不需要滑着走"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2024 Mercedes-AMG GT 63 4MATIC+",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.4"
+  }
+ ],
+ "3087": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2014 McLaren 650S Spider",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.6"
+  }
+ ],
+ "4094": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2024 Nissan GT-R NISMO",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.6"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2024 Nissan GT-R NISMO",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川59.9"
+  }
+ ],
+ "4214": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "1995 Toyota J&J Motorsport Supra WTAC",
+   "s": 1.048,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "LetzeLU",
+   "note": "白川 53.8"
+  }
+ ],
+ "4232": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "2005 Porsche Cayman GT3 WTAC",
+   "s": 1.022,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "漂移胎",
+   "role": "操控",
+   "tuner": "vladxlr",
+   "note": "白川54.3"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2005 Porsche Cayman GT3 WTAC",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "VNX Ruinz",
+   "note": ""
+  }
+ ],
+ "3282": [
+  {
+   "g": "S1 800公路",
+   "t": "T0.5",
+   "m": "1987 Porsche #203 Porsche AG 961",
+   "s": 0.855,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 54.5"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "1987 Porsche #203 Porsche AG 961",
+   "s": 0.855,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "lphanhan",
+   "note": "伊根01.3/01.5干净 前中段加速不错 操控可以 但引擎在后面手感较怪 需要适应"
+  }
+ ],
+ "2473": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2016 Audi R8 V10 Plus",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.9"
+  }
+ ],
+ "4266": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2021 BMW M4 \nCompetition Coupe 'Welcome Pack'",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川 54.9"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "2021 BMW M4 \nCompetition Coupe 'Welcome Pack'",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵55.7 石部50.0"
+  }
+ ],
+ "2739": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2017 Chevrolet Camaro ZL1",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "白川54.8 比较均衡 但没什么后段"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2017 Chevrolet Camaro ZL1",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.9 手感最好的拉力胎 均衡性能"
+  }
+ ],
+ "3149": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2018 Chevrolet Camaro ZL1 1LE",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.8"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2018 Chevrolet Camaro ZL1 1LE",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川59.8 手感最好的拉力胎 操控很强 推荐圈图"
+  }
+ ],
+ "3766": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2023 Chevrolet Corvette Z06",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 55.2"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2023 Chevrolet Corvette Z06",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.7 拉力胎满动力8.4 V10  虽然四驱 但是马力极大低速弯仍需控油"
+  }
+ ],
+ "2177": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2015 Chevrolet Corvette Z06",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.9"
+  }
+ ],
+ "3118": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2019 Chevrolet Corvette ZR1",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.7"
+  }
+ ],
+ "3198": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1984 De Tomaso Pantera GT5",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川55.0 前段加速快"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1984 De Tomaso Pantera GT5",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "伊根01.8 冲刺图强势 前中段加速非常快"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1984 De Tomaso Pantera GT5",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Cirno1X",
+   "note": "白川59.7 前段加速快 锁极速"
+  }
+ ],
+ "333": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2002 Ferrari Enzo Ferrari",
+   "s": 0.769,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "白川 55.1"
+  }
+ ],
+ "1006": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2005 Ferrari FXX",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.9"
+  }
+ ],
+ "4341": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2017 Ferrari J50 Preorder Car",
+   "s": 1.026,
+   "d": "RWD",
+   "diff": "中等",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 55.4 加，前中一般略差，中后还行 拐，全段一般还行 *漂移胎小后 驾驶需要一定技术"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2017 Ferrari J50 Preorder Car",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "跟GR GT坐一桌，能玩，手感还可以"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "2017 Ferrari J50 Preorder Car",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵55.3 出弯有点推"
+  }
+ ],
+ "3724": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2022 Ferrari 296 GTB",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 55.4"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2022 Ferrari 296 GTB",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川56.1，全空半热熔，不能上草，可跑湿地，手感不错"
+  }
+ ],
+ "2400": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2016 Ford Mustang Shelby GT350R",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "白川 54.8"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "2016 Ford Mustang Shelby GT350R",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "外山世界纪录 纯劲大"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2016 Ford Mustang Shelby GT350R",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.0  加速还行 高速弯速较快 手感比较砖"
+  }
+ ],
+ "4254": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2001 Honda #33 BYP Racing Integra Integra WTAC",
+   "s": 0.951,
+   "d": "FWD",
+   "diff": "中等",
+   "tire": "漂移胎",
+   "role": "操控",
+   "tuner": "LetzeLU",
+   "note": "白川54.6"
+  }
+ ],
+ "3852": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "EoJz7294",
+   "note": "白川 54.3"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:01.1  前中段加速很快 弯速很快 机抓充足"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta+",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.0 后段弱"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "操控",
+   "tuner": "K1Z Bard",
+   "note": "奈良44.1"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "AP Kaike",
+   "note": ""
+  },
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "伊根 1:04.9 加还行，拐不错"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "K1Z Bard",
+   "note": "白川1:03.9 后段加速和极速欠缺"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta+",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "伊根 1:08.5 地平线 54.2"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "非常均衡 全段加速和操控优秀"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "1991 Honda Beat",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "地平线攀爬赛1:01.4"
+  }
+ ],
+ "569": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2005 Honda NSX-R GT",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2005 Honda NSX-R GT",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川02.3 非常好开 适合新手练习后驱"
+  }
+ ],
+ "1398": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2012 Lamborghini Aventador LP700-4",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.6 高速沾草可能会有点甩 小心驾驶"
+  }
+ ],
+ "3608": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2020 Lamborghini Sian Roadster",
+   "s": 0.993,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.2"
+  }
+ ],
+ "3371": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2020 Lamborghini Huracan EVO",
+   "s": 0.983,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.4 前中段加速快 弯速还行 缺点阻力较高 后段没有"
+  }
+ ],
+ "3759": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2022 Lamborghini Huracan EVO Spyder",
+   "s": 1.012,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.4 前中段加速快 弯速还行 缺点阻力较高 后段没有 悬挂略不稳定 低速车尾稍滑"
+  }
+ ],
+ "335": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2002 Lotus Esprit V8",
+   "s": 0.977,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川 55.0"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2002 Lotus Esprit V8",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.1 瑠璃光寺 2:01.5  前段加速睡着了 弯速不错 后段快 悬挂落地非常不错 但是行程短 抗冲击能力弱可能会弹飞 不能过水 依旧嘉豪车与众不同"
+  }
+ ],
+ "3661": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2018 Lotus Exige Cup 430",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.8"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2018 Lotus Exige Cup 430",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.6  车尾较重 车身动态有些难以预测 悬挂有点小毛病 高速弯很快"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2018 Lotus Exige Cup 430",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "困难",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根02.8 外山53.8 加速很暴力 适合线上"
+  }
+ ],
+ "4144": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1992 Mazda RX-7 Type S",
+   "s": 0.941,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "白川 54.4"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1992 Mazda RX-7 Type S",
+   "s": 0.941,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路33.7 略晃"
+  }
+ ],
+ "3482": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2021 McLaren 765LT Coupe",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.9 均衡四驱"
+  }
+ ],
+ "1130": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2011 Mclaren 12C Coupe",
+   "s": 0.962,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.9"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2011 Mclaren 12C Coupe",
+   "s": 0.962,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.3  加速很快 高速弯也不错 但是悬挂比较一般 车身姿态有点诡异 低速有些甩尾 有一点难度"
+  }
+ ],
+ "2472": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2015 Mclaren 570S Coupe",
+   "s": 0.97,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.4 手感不错 悬挂一般 加速很快"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2015 McLaren 570S Coupe",
+   "s": 0.97,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:00.1 加，全段不错 拐，一般还行 越野胎缘故，稍微有点船"
+  }
+ ],
+ "1314": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1993 McLaren F1",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.4"
+  }
+ ],
+ "4169": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1990 Mercedes-Benz 190 E 2.5-16 Evolution II Forza Edition",
+   "s": 1.075,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "ESV Rapture",
+   "note": "毛豆 27.6"
+  }
+ ],
+ "568": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1998 Mercedes-Benz AMG CLK GTR",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 54.8 加，前中还可以，中后一般略差 拐，全段不错"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta",
+   "m": "1998 Mercedes-Benz AMG CLK GTR",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "lphanhan",
+   "note": "操控图世界纪录车 线上综合实力较差 FuzzyTexas81292——使用标题为Hokobu Trail的"
+  }
+ ],
+ "4085": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1990 Mitsubishi #269 Attacking the Clock Racing Minicab Time Attack",
+   "s": 1.081,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "vladxlr",
+   "note": "白川53.6"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "1990 Mitsubishi #269 Attacking the Clock Racing Minicab Time Attack",
+   "s": 1.081,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "Lnvrtebrate",
+   "note": "白川58.0"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta",
+   "m": "1990 Mitsubishi #269 Attacking the Clock Racing Minicab Time Attack",
+   "s": 1.081,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "by JeeQz",
+   "note": "霜山世界纪录"
+  }
+ ],
+ "432": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2004 Saleen S7",
+   "s": 0.903,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.0  加速非常快 弯速一般  手感很差 纯火箭车 注意控车"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "2004 Saleen S7",
+   "s": 0.903,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "SR1 Rian",
+   "note": "伊根 1:01.5 石部49.9 向日葵55.6  全段加速非常快 弯速也不算太慢  悬挂不稳定 弯道需控油 有一定难度"
+  }
+ ],
+ "4179": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "1990 Nissan #12 Skyline GT-R (BNR32 Gr.A) JTC",
+   "s": 1.057,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 54.9"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1990 Nissan #12 Skyline GT-R\n (BNR32 Gr.A) JTC",
+   "s": 1.057,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.8"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1990 Nissan #12 Skyline GT-R\n (BNR32 Gr.A) JTC",
+   "s": 1.057,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.3  前段加速不算慢 空力高 高速弯非常快  车头略重低速可能推头"
+  }
+ ],
+ "3999": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2002 Nissan Silvia Spec-R",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.5"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2002 Nissan Silvia Spec-R",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川59.8干净 高速路32.7 手感有点推"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2002 Nissan Silvia Spec-R",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.9"
+  }
+ ],
+ "1253": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2010 Noble M600",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川 55.1"
+  }
+ ],
+ "2993": [
+  {
+   "g": "S1 800公路",
+   "t": "T1",
+   "m": "2018 TVR Griffith",
+   "s": 0.948,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川 54.9"
+  }
+ ],
+ "3767": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2022 Acura NSX Type S",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川55.9"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2022 Acura NSX Type S",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3745": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2020 Audi R8 V10 Performance",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川55.6  加速很快 弯速不错 车尾略滑"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2020 Audi R8 V10 Performance",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川56.2 有那么一点推头，动力够用"
+  }
+ ],
+ "3917": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2023 Audi R8 Coupé V10 GT RWD",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川55.7"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2023 Audi R8 Coupé V10 GT RWD",
+   "s": 1.022,
+   "d": "RWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "白川 56.2 比较全能 加速全段较好 阻力偏低 原厂外观与原厂驱动形式 注意出弯略微控油"
+  }
+ ],
+ "3227": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2019 Ferrari 488 Pista",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.7  后段稍微低了一点 车尾低速有点甩"
+  }
+ ],
+ "2467": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2015 Ferrari 488 GTB",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.6  加速还行 后段快 操控勉强合格 车尾有点甩"
+  }
+ ],
+ "3595": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2020 Ferrari SF90 Stradale",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.8  高速弯手感不错 低速足够灵活 可跑湿地"
+  }
+ ],
+ "2034": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2013 Ferrari LaFerrari",
+   "s": 0.701,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.8  动力一般 但是阻力低 冲刺图不会很乏力  车尾有点甩"
+  }
+ ],
+ "3859": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "全热熔",
+   "role": "操控",
+   "tuner": "MSR Sola",
+   "note": "白川55.9 圈图限定 需要极高的前驱驾驶手法"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "FWD",
+   "diff": "中等",
+   "tire": "全热熔",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "大黑53.2 刹车入弯小心翻车"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.5  加速非常快 弯速也还可以 250极速 但是0-250都快 车身动态比较诡异 控车难度较高 不能跑冲刺图"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "全热熔",
+   "role": "操控",
+   "tuner": "trviis",
+   "note": "毛豆世界纪录"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.0  传奇岛1:18 世界纪录 静态起步劣势"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": ""
+  },
+  {
+   "g": "C 500公路",
+   "t": "T1",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "大马力前驱"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T1",
+   "m": "1984 Honda City E II",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "前中段加速很快 后段和极速劣势"
+  }
+ ],
+ "3153": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2018 Mclaren 600LT Coupe",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.5  悬挂不好 动态诡异 有一定驾驶难度"
+  }
+ ],
+ "567": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1998 Nissan R390(GT1)",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川55.8 冲刺车，前中段加速快，空力差不怎么拐弯"
+  }
+ ],
+ "3293": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1993 Jaguar XJ220S TWR",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.5  高速弯速很快 车尾略甩 悬挂稳定 不容易踩地雷"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "1993 Jaguar XJ220S TWR",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "ZVTCJAU",
+   "note": "伊根 1:01.1 向日葵 55.5  弯速很快且手感非常不错 同时加速也不落下风"
+  }
+ ],
+ "3287": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1991 Jaguar Sport XJR-15",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.8"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "1991 Jaguar Sport XJR-15",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3891": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2024 Lamborghini Revuelto",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.8  空力很强 弯速快 但是阻力很高没后段  不要跑冲刺图"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2024 Lamborghini Revuelto",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "还是跟GR GT坐一桌，手感好，拐弯挺不错的，加速平均水平"
+  }
+ ],
+ "2042": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2013 Lamborghini Veneno",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.8"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2013 Lamborghini Veneno",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.6 加速可以 操控一般 比较均衡"
+  }
+ ],
+ "3775": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2021 Lamborghini Aventador \nLP 780-4 Ultimae",
+   "s": 1.058,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.9  阻力超大 完全没有后段 跑不了冲刺图"
+  }
+ ],
+ "2164": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2014 Lamborghini Huracan LP 610-4",
+   "s": 1.005,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川55.7  手感特别好，上手简单，老牌强车"
+  }
+ ],
+ "3774": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2021 Lamborghini Countach LPI 800-4",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.7  手感很好 操作简单 高空力弯速很快 后段略差"
+  }
+ ],
+ "3753": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2022 Lamborghini Huracan Tecnica",
+   "s": 1.001,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.9  底盘极低 每次压路肩都大概率卡底盘掉速甚至卡停 不要在有路肩的图开这车"
+  }
+ ],
+ "1369": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2010 Pagani Zonda Cinque Roadster",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.7"
+  }
+ ],
+ "3624": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1987 Porsche 911 Carrera Coupe 'Luftauto 002'",
+   "s": 1.058,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川 55.8"
+  }
+ ],
+ "2794": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1993 Porsche 911 Turbo S Leichtbau",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.9  神秘后置手感+神秘悬挂+刹不住 火箭车 典型的后置车思维 上限有一点 难度却不止一点"
+  }
+ ],
+ "3781": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2023 Porsche 911 GT3 RS",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 55.7"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2023 Porsche 911 GT3 RS",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "有两个调校，一个拉力胎一个半热熔（semi slicks），拉力胎快一点，半热熔是轨道车，都好开"
+  }
+ ],
+ "3214": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2019 Porsche #70 Porsche Motorsport 935",
+   "s": 0.914,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.5  加速还行 后段稍慢 弯速很快 空力不错"
+  }
+ ],
+ "3498": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2017 Saleen S7 LM",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.9  虽然没有拉力胎快 但是好开很多 后悬挂还是有小问题 不过好上手很多 更加均衡"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2017 Saleen S7 LM",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.6  动力很强 空力较差 但是弯速尚可 适合冲刺 此车调校方法较为极端 虽然上限更高但是较难控制 车尾微滑 后悬挂有些不稳定 谨慎驾驶"
+  }
+ ],
+ "1562": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2013 SRT Viper GTS",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 55.6  空力差 操控一般 偏推头 加速不错 甲沟炎晚期 不能上路肩 尽量不跑带路肩的图 虽然上限有 但是弹飞的概率较大"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2013 SRT Viper GTS",
+   "s": 0.959,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2013 SRT Viper GTS",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川59.8"
+  }
+ ],
+ "3429": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "全能",
+   "tuner": "NismoWM",
+   "note": ""
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": ""
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": ""
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "MSR Sola",
+   "note": "白川 1:00.1"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "赛用热熔",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.5 加速龟爬 弯速非常快 比较均衡  好开的拉力车 坠机了"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 1:06.9  弯速很快 加速龟爬 后段没有 很好开"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "2019 Ginetta G40 Junior",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:12.5 弯速极快 加速龟爬 漂移悬挂解决推头问题 但是操控反应较为灵敏 需要一定控车手法"
+  }
+ ],
+ "296": [
+  {
+   "g": "S1 800公路",
+   "t": "T1.5",
+   "m": "1998 TVR Cerbera Speed 12",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川55.6 EZ Powerbuild 非常好控油 弯速快 但没什么后段"
+  },
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "1998 TVR Cerbera Speed 12",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.5  比较轮椅 略推头 看似标了操控  实则没有后段没招了"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "Meta",
+   "m": "1998 TVR Cerbera Speed 12",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根00.8干净 向日葵55.3 北部径走51.9 加速很快 机械抓地力 但高速偏推"
+  }
+ ],
+ "2010": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2013 Audi R8 Coupe V10 plus 5.2 FSI quattro",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 56.2"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2013 Audi R8 Coupe \nV10 plus 5.2 FSI Quattro",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川1:00.1 加一般，拐不错（宽体+行李架） *这车有问题，服务器不给上传和下载调校。 调校数据可以加群找眠眠要~"
+  }
+ ],
+ "3650": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2021 Mercedes-AMG ONE",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "MSR Mian",
+   "note": "白川 56.101 前段还行 中段偏差 后段差 拐 全段不错 适合均衡赛道"
+  }
+ ],
+ "2654": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2017 Mercedes-AMG GT R",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.2  拍照meta 原厂空力极低 操控不及格水平 加速还行 很推"
+  }
+ ],
+ "3611": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2022 Maserati MC20",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川 56.1 MC20不是区!"
+  }
+ ],
+ "1397": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2011 Koenigsegg Agera",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.2  均衡车 面板碾压其他柯尼塞格 但是圈速却差不多"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2011 Koenigsegg Agera",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵56.4"
+  }
+ ],
+ "2526": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2016 Koenigsegg Regera",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "4081": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2024 Koenigsegg Gemera",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 56.3 加 前中一般 中后还行 拐全段还行 *拉力胎/跑车减重/全空思路"
+  }
+ ],
+ "2188": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2015 Koenigsegg One:1",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3773": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2023 Honda Civic Type R",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "中等",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "FuzzyTexas81292",
+   "note": "白川56.5 前驱街车独苗 比动力车有操控 比操控车有动力 但是意外地不慢"
+  }
+ ],
+ "1069": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2009 Chevrolet Corvette ZR1",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 56.8"
+  }
+ ],
+ "292": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2003 Porsche Carrera GT",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.1  手感还行 悬挂稳定性还可以"
+  }
+ ],
+ "3667": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2021 Poesche 911 GT3",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.2  手感还行 后置有点推头 但是问题不大"
+  }
+ ],
+ "3123": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2019 Porsche 911 Carrera S",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川56.7，手感偏推，整体好控"
+  }
+ ],
+ "2184": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2013 Ferrari 458 Speciale",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川56.3 加速极速不错 弯道一般 空力不平衡有点推头"
+  }
+ ],
+ "3367": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2019 Ferrari F8 Tributo",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 56.0  塞不下减重 转向手感比较一般  没有好用的引擎 动力一般般"
+  }
+ ],
+ "1131": [
+  {
+   "g": "S1 800公路",
+   "t": "T2",
+   "m": "2009 Ferrari 458 Italia",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 56.1"
+  }
+ ],
+ "3616": [
+  {
+   "g": "S1 800公路",
+   "t": "T3",
+   "m": "2021 Mercedes-AMG GT Black Series",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "哪哪都好就是慢"
+  },
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2021 Mercedes-AMG GT Black Series",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵56.8"
+  }
+ ],
+ "4198": [
+  {
+   "g": "S1 800泥地",
+   "t": "Meta+",
+   "m": "1999 Dodge Viper GTS ACR Forza Edition",
+   "s": 1.05,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Zookiiwi",
+   "note": "仅限动力图使用"
+  },
+  {
+   "g": "S1 800越野",
+   "t": "Meta+",
+   "m": "1999 Dodge Viper GTS ACR Forza Edition",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "越野世界纪录批发车 (Han:该调校仅限越野赛事)"
+  }
+ ],
+ "1478": [
+  {
+   "g": "S1 800泥地",
+   "t": "Meta",
+   "m": "1986 Audi #2 奥迪 Sport quattro S1",
+   "s": 0.983,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根00.8 前中段加速快 抓地力不错 唯一一个正经拉力车Meta"
+  }
+ ],
+ "1549": [
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "1968 Alfa Romeo 33 Stradale",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "FuzzyTexas81292",
+   "note": "向日葵55.8 伊根01.4 鲷鱼烧59.7(lphanhan)"
+  },
+  {
+   "g": "S1 800越野",
+   "t": "T1",
+   "m": "1968 Alfa Romeo 33 Stradale",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "过水稍差一些 加速、烂路抓地力viper之下第一车"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1968 Alfa Romeo 33 Stradale",
+   "s": 1.018,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川59.8 火箭般的加速 锁极速342"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1968 Alfa Romeo 33 Stradale",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "2793": [
+  {
+   "g": "S1 800泥地",
+   "t": "T0.5",
+   "m": "1967 Ferrari #24 Ferrari Spa 330 P4",
+   "s": 0.884,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "伊根01.4 石部49.9 加速还不错 烂路抓地力很强 公路段很牢 手感像Lola T70转世"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1967 Ferrari #24 Ferrari Spa 330 P4",
+   "s": 0.884,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川59.9 加一般，拐不错 个人感觉，如果对上了频率，开着会很舒服"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "1967 Ferrari #24 Ferrrari Spa 330 P4",
+   "s": 0.87,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:04.9  弯速非常快 同时加速也不算差 转向略微迟钝  空力不均高速弯手感推 但弯速正常 整体好开"
+  }
+ ],
+ "2161": [
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1965 Alfa Romeo Giulia TZ2",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "伊根01.8 石部50.2 加速很暴力 烂路抓地力很强"
+  },
+  {
+   "g": "S1 800越野",
+   "t": "T1",
+   "m": "1965 Alfa Romeo Gulia TZ2",
+   "s": 0.99,
+   "d": "AWD",
+   "diff": "困难",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "比33S加速更快 但抓地力稍差 过水依然很差"
+  },
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "1965 Alfa Romeo Giulia TZ2",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川58.9"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1965 Alfa Romeo Giulia TZ2",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.8  操控还行 前中段加速不错 后段一般"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1965 Alfa Romeo Giulia TZ2",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "白川1:04.9"
+  }
+ ],
+ "3085": [
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "2018 DeBerti Ford Mustang GT",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "SR1 Rian",
+   "note": "石部50.8"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2018 DeBerti Ford Mustang GT",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川 1:00.6 加速不错 出弯快 高速弯拐不动 需要一定手法"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2018 DeBerti Ford Mustang GT",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.8 石部 52.9 前中段加速非常快 出弯起飞 弯速一般般  偏推 需要一定手法"
+  }
+ ],
+ "3170": [
+  {
+   "g": "S1 800泥地",
+   "t": "T1",
+   "m": "1994 Ford Supervan 3",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:01.8  前段加速快 中后段很一般 低扭很不错 挡位多 但是无需频繁降档 弯速非常快 手感还不错"
+  }
+ ],
+ "489": [
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "1993 Jaguar XJ220",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:02.3  加速比较慢 弯速还行 全能车  指干啥都行但是都不擅长"
+  }
+ ],
+ "4164": [
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2022 Subaru BRZ Forza Edition",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "悬挂很好 纯泥地抓地优势"
+  },
+  {
+   "g": "S1 800越野",
+   "t": "T1",
+   "m": "2022 Subaru BRZ Forza Edition",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2022 Subaru BRZ Forza Edition",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.3 瑠璃光寺 2:00.3  加速比较一般 弯速非常快  悬挂有点莫名其妙 想开快需要一点控车"
+  }
+ ],
+ "324": [
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "1999 Lamborghini Diablo GTR",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "FuzzyTexas81292",
+   "note": "伊根02.8 向日葵56.8干净圈 推荐用赛悬 直线加速快 适合线上"
+  }
+ ],
+ "3315": [
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2020 Koenigsegg Jesko",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵56.8"
+  }
+ ],
+ "3212": [
+  {
+   "g": "S1 800泥地",
+   "t": "T2",
+   "m": "2019 Zenvo TSR-S",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵56.7 手感有点重"
+  }
+ ],
+ "1295": [
+  {
+   "g": "S1 800泥地",
+   "t": "T3",
+   "m": "1982 Lancia 037 Stradale",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "1108": [
+  {
+   "g": "S1 800泥地",
+   "t": "T3",
+   "m": "1985 Ford RS200 Evolution",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": ""
+  },
+  {
+   "g": "S1 800越野",
+   "t": "T2",
+   "m": "1985 Ford RS200 Evolution",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": ""
+  }
+ ],
+ "2549": [
+  {
+   "g": "S1 800泥地",
+   "t": "T3",
+   "m": "1970 Porsche #3 917 LH",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "lphanhan",
+   "note": "向日葵57.464 手感和五代一样 动力偏弱了一些"
+  }
+ ],
+ "2147": [
+  {
+   "g": "S1 800泥地",
+   "t": "T3",
+   "m": "1986 MG Metro 6R4",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "lphanhan",
+   "note": ""
+  }
+ ],
+ "1332": [
+  {
+   "g": "S1 800越野",
+   "t": "Meta",
+   "m": "1968 Dodge Dart HEMI Super Stock",
+   "s": 1.035,
+   "d": "AWD",
+   "diff": "困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "超级冲冲火箭车 抓地力很强 悬挂有点颠"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1968 Dodge Dart HEMI Super Stock",
+   "s": 1.035,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:00.5"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1968 Dodge Dart HEMI Super Stock",
+   "s": 1.035,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": ""
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1968 Dodge Dart HEMI Super Stock",
+   "s": 1.035,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Seako",
+   "note": "南岸56.7 悬挂还行 没有暗病 高速弯操控较弱 永远可以相信Dart叔叔的雷霆动力"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1968 Dodge Dart HEMI Super Stock",
+   "s": 1.035,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:04.9 冲刺图优势 街车变速箱建议4 5档驾驶"
+  }
+ ],
+ "2742": [
+  {
+   "g": "S1 800越野",
+   "t": "T1",
+   "m": "2016 Jeep Trailcat",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "前中段加速很强 注意控油"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T3",
+   "m": "2016 Jeep Trailcat",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "轮椅综合车 通过性非常强 建议纯泥地驾驶"
+  }
+ ],
+ "4175": [
+  {
+   "g": "S1 800越野",
+   "t": "T1",
+   "m": "2020 Ford Super Duty F-450 DRW PLATINUM Forza Edition",
+   "s": 1.07,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2020 Ford Super Duty F-450 DRW PLATINUM Forza Edition",
+   "s": 1.07,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:01.0"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "2020 Ford Super Duty F-450 DRW PLATINUM Forza Edition",
+   "s": 1.07,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "GreetedDust8",
+   "note": "石部 52.3"
+  },
+  {
+   "g": "A 700越野",
+   "t": "Meta+",
+   "m": "2020 Ford Super Duty F-450 DRW PLATINUM Forza Edition",
+   "s": 1.07,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "GreetedDust8",
+   "note": "高城 2:24.3 瑠璃光寺 1:59.5 传奇岛 冈城 鸣尾世界纪录 弯速非常恐怖 同时加速快 也有一定后段 但是悬挂会莫名其妙起飞 线上蹭墙容易被减速 小心驾驶 在部分圈图有断档圈速"
+  }
+ ],
+ "1063": [
+  {
+   "g": "S1 800越野",
+   "t": "T2",
+   "m": "1969 Dodge Charger Daytona HEMI",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "伊豆2:08.0"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1969 Dodge Charger Daytona HEMI",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.1 拉力胎四驱强车 极速360 刹车差"
+  },
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "1969 Dodge Charger Daytona HEMI",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "瑠璃光寺 1:59.4 南岸 56.2  受长车头长车尾的影响大跳坡落地非常不稳定 不能上大角度跳台 无法兼顾所有地图 通用性受限  高速弯和全段加速都很优秀"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1969 Dodge Charger Daytona HEMI",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "GreetedDust8",
+   "note": "彩虹桥 2:28.868"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1969 Dodge Charger Daytona HEMI",
+   "s": 1.032,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "无穷无尽的后段加速"
+  }
+ ],
+ "4282": [
+  {
+   "g": "S1 800越野",
+   "t": "T3",
+   "m": "2025 Volkswagen Electric Buzz",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "前段极快 弯速快  线上操控图稳一点还是能打赢别的车的"
+  }
+ ],
+ "4268": [
+  {
+   "g": "S1 800越野",
+   "t": "T3",
+   "m": "2023 Ford F-150 Raptor R 'Welcome Pack'",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "纯玩具车 没什么强度"
+  }
+ ],
+ "1297": [
+  {
+   "g": "S1 800越野",
+   "t": "T3",
+   "m": "1988 Mitsubishi Starion ESI-R",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3958": [
+  {
+   "g": "S1 800越野",
+   "t": "T3",
+   "m": "2023 Dodge Challenger SRT Demon 170",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2023 Dodge Challenger SRT Demon 170",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.2"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "2023 Dodge Challenger SRT Demon 170",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "高城 2:24.1 瑠璃光寺 2:00.6 南岸 57.6 加速和弯速都还可以 整体刚性比老肌肉车强 底盘更低 涉水不如老肌肉车 但是颠簸 菜狗的解悬挂 落地保速能力强适合冲刺图 Seako没解悬挂的版本适合圈图"
+  }
+ ],
+ "1155": [
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "1965 Shelby Cobra Daytona Coupe",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.5 加速很快"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "Meta+",
+   "m": "1965 Shelby Cobra Daytona Coupe",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Zookiiwi",
+   "note": "伊根 1:04.2 加速很快 操控还行 (Zookiiwi 偏动力) (Mian&Boonhead 偏操控/均衡)"
+  },
+  {
+   "g": "A 700越野",
+   "t": "Meta+",
+   "m": "1965 Shelby Cobra Daytona Coupe",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Zookiiwi",
+   "note": "大佛寺 南岸世界纪录  极致的加速配合纯粹的操控 硬实力过强的优点被卡底盘的悬挂平衡了(? 只要没有过水和大跳坡即可享受极致的越野"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1965 Shelby Cobra Daytona Coupe",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "zombiejesus52",
+   "note": "白川1:05.9 加速很快"
+  }
+ ],
+ "1592": [
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "1974 Toyota Celica GT",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川59.3 开TC会快很多"
+  }
+ ],
+ "2002": [
+  {
+   "g": "A 700公路",
+   "t": "Meta",
+   "m": "2012 Nissan GT-R Black Edition (R35)",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川59.3"
+  }
+ ],
+ "2372": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1932 Ford De Luxe Five-Window Coupe",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Shinnosuke",
+   "note": ""
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1932 Ford De Luxe Five-Window Coupe",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "樱桃园2:03high 小心点开"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta",
+   "m": "1932 Ford De Luxe Five-Window Coupe",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "白川1:03.9"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "未知",
+   "m": "1932 Ford De Luxe Five-Window Coupe",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": ""
+  }
+ ],
+ "3950": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1967 Ferrari 275 GTB4 Spider",
+   "s": 1.022,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "街车胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川59.7 高速公路环道34Mid"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1967 Ferrari 275 GTB4 Spider",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.7  操控还可以 后段较慢"
+  }
+ ],
+ "3904": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2022 Ford Focus ST",
+   "s": 0.959,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "K1Z Bard",
+   "note": "白川59.7"
+  }
+ ],
+ "2205": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1970 Honda S800",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川59.4"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1970 Honda S800",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:04.5"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1970 Honda S800",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路55.4"
+  }
+ ],
+ "2175": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2015 Lexus RC F",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川59.8"
+  }
+ ],
+ "4114": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1992 Nissan Skyline GT-R",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.7"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1992 Nissan Skyline GT-R",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "街车胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路35.1 四改后GTR不是区"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1992 Nissan Skyline GT-R",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.6  前段加速还可以 弯速不错  高速弯有点推 整体很好开"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1992 Nissan Skyline GT-R",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.3"
+  }
+ ],
+ "2618": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2017 Nissan GT-R (R35)",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川59.6"
+  }
+ ],
+ "4222": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1989 Nissan Silvia K's",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "白川59.4"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta+",
+   "m": "1989 Nissan Silvia K's",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "萨埵冲刺世界纪录 高速公路环道39.5 冲刺图非常强势"
+  }
+ ],
+ "455": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1985 Toyota Sprinter Trueno GT-Apex",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Shinnosuke",
+   "note": "白川59.2"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1985 Toyota Sprinter Trueno GT Apex",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1985 Toyota Sprinter Trueno GT Apex",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.1"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1985 Toyota Sprinter Trueno GT Apex",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.5 加速弯速都还可以 公路段动态非常正常  很抓地 很好控"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1985 Toyota Sprinter Trueno GT-Apex",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "4055": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1996 Toyota Starlet Glanza V",
+   "s": 1.022,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川59.8 阻力低后段好弯速高"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1996 Toyota Starlet Glanza V",
+   "s": 1.022,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "白川1:00.3 最强拉力胎大前 可以一战 比漂移胎控油简单但弯速慢一些"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1996 Toyota Starlet Glanza V",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.2  前中段加速非常快 机抓不错 前后胎宽差值大  车头重 手感一般"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1996 Toyota Starlet Glanza V",
+   "s": 1.022,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.0"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1996 Toyota Starlet Glanza V",
+   "s": 1.022,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "阻力低后段好弯速高"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1996 Toyota Starlet Glanza V",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.3 加速和弯速都还可以 比较均衡  前后胎宽差值大 车头重 手感一般"
+  }
+ ],
+ "2007": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2013 Toyota 86",
+   "s": 0.903,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "高速路33.1"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2013 Toyota 86",
+   "s": 0.903,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.8"
+  }
+ ],
+ "2469": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1965 Toyota Sports 800",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川59.5"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1965 Toyota Sports 800",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "白川1:04.4"
+  }
+ ],
+ "3933": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "1997 Toyota Chaser 2.5 Tourer V",
+   "s": 1.032,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川59.7 高速路32.8 手感稳重"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1997 Toyota Chaser 2.5 Tourer V",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.6 冲刺车，不怎么拐弯，中段加速非常快"
+  }
+ ],
+ "3761": [
+  {
+   "g": "A 700公路",
+   "t": "T0.5",
+   "m": "2022 Toyota GR86",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "白川59.5 高速公路环道32.7干净/32.0"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2022 Toyota GR86",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.6"
+  }
+ ],
+ "1393": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1992 Alfa Romeo 155 Q4",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:00.7 加，前中还行，中后一般略差 拐，低中还行，中高不错 *适合均衡赛道"
+  }
+ ],
+ "2542": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2017 Alfa Romeo Giulia Quadrifoglio",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "FuzzyTexas81292",
+   "note": "白川1:00.7 意外地比155Q4强 弯速快 略推头"
+  }
+ ],
+ "1032": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2007 Alfa Romeo 8C Competizione",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.5"
+  }
+ ],
+ "4122": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2025 BMW M4 CS",
+   "s": 0.903,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.5"
+  }
+ ],
+ "3645": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2021 BMW M4 Competiition Coupe",
+   "s": 0.988,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.6"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2021 BMW M4 Competition Coupe",
+   "s": 1.005,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "向日葵59.4"
+  }
+ ],
+ "4067": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2025 Bentley Continental GT Speed",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川1:00.7  弯速一般加速一般 手感略重"
+  },
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "2025 Bentley Continental GT Speed",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:23.5 瑠璃光寺 2:00.1  前中段加速一般 后段不错 弯速很快 车尾微滑 像是更稳定的肌肉车 强度意外的还不错  越野也可以优雅 适合后段图"
+  }
+ ],
+ "2421": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2016 Cadillac CTS-V Sedan",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.4"
+  }
+ ],
+ "2262": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2016 Cadillac ATS-V",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川1:00.4 推头 刹车不稳定"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2016 Cadillac ATS-V",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": "调校师备注倒转极限圈速伊根 1:05.790 推头多给油滑动辅助过弯"
+  }
+ ],
+ "1064": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1979 Chevrolet Camaro Z28",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川 59.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1979 Chevrolet Camaro Z28",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:04.9"
+  }
+ ],
+ "1429": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.9 经典A级强车 完美复刻FH4手感"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "伊根 1:04.6 机械抓地力很强 公路段低速偏推 刹车较差 动力很强"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Rocklxd",
+   "note": "大佛寺前世界纪录"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:05.5"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.6"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.2 标题 No Aero"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1969 Chevrolet Nova Super Sport 396",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "高速路 52.9 加速很快 高速弯偏推"
+  }
+ ],
+ "314": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2002 Chevrolet Corvette Z06",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.7 转向有点硬"
+  }
+ ],
+ "513": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1969 Dodge Charger R/T",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.1 拉力胎四驱强车 稳定好开 全天气可用 可上草"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1969 Dodge Charger R/T",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "有v8dsc和77v12两个版本 都特别好控"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "1969 Dodge Charger R/T",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Zookiiwi",
+   "note": ""
+  }
+ ],
+ "1352": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1970 Dodge Coronet Super Bee",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.1 拉力胎四驱强车 稳定好开 全天气可用 可上草"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1970 Dodge Coronet Super Bee",
+   "s": 1.022,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:00.7 超级推重比加魔法拐弯 涡轮在3000转起压 需要十分小心地控油 中高速图强势"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "1970 Dodge Coronet Super Bee",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根 1:04.8 机抓很强 偏综合 比Nova更好开 直线略慢Nova一些"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1970 Dodge Coronet Super Bee",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Seako",
+   "note": "南岸56.6 悬挂中等偏下，大跳坡保险杠容易把车掀起来 操控手感还不错"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1970 Dodge Coronet Super Bee",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.6"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1970 Dodge Coronet Super Bee",
+   "s": 1.022,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:05.4 操控不错"
+  }
+ ],
+ "1052": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2006 Dodge Ram SRT-10",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:00.6干净"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "2006 Dodge Ram SRT-10",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": "向日葵59.1 伊根1:05.3 加速操控很好"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "2006 Dodge Ram SRT-10",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "传奇岛32.1干净 抓地力很强 前中段加速非常快 但前轮抓地力较弱 有些地方偏推"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "2006 Dodge Ram SRT-10",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:12.5  一般般 加速不快弯速也不快 较推"
+  }
+ ],
+ "2909": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2018 Dodge Challenger SRT Demon",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.6"
+  }
+ ],
+ "2468": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2015 Dodge Charger SRT Hellcat",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.5"
+  }
+ ],
+ "3846": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2024 Ford Mustang GT",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川59.9 拉力胎四驱强车 稳定好开 全天气可用 可上草 宽体套件十分帅气"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "2024 Mustang GT",
+   "s": 0.853,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "伊根1:06.5 手感很肉 像开船"
+  }
+ ],
+ "3108": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2018 Ford Mustang RTR Spec 5",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.3"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2018 Ford Mustang RTR Spec 5",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.0  加速较快 弯速一般般 手感比较砖"
+  }
+ ],
+ "1278": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1973 Ford XB Falcon GT",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:00.4"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1973 Ford XB Flacon GT",
+   "s": 0.941,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:04.5"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T1",
+   "m": "1973 Ford XB Falcon GT",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路54.5"
+  }
+ ],
+ "1294": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1991 GMC Syclone",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Mian",
+   "note": "白川 59.9 加无敌 拐，低中速一般，中高速还行 *赛用变速箱，无惧卡档，一改往日风采"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1991 GMC Syclone",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "ZVTCJAU",
+   "note": ""
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1991 GMC Syclone",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:24.3 瑠璃光寺 2:00.6  弯速快加速也快 悬挂较为一般 整体比较好控"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1991 GMC Syclone",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "TheDannny",
+   "note": ""
+  }
+ ],
+ "2487": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2016 Honda S660 Alpha",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川59.9"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2016 Honda S660 Alpha",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.6  前中段加速还不错 弯速还行  胎宽窄低速需要控油 有一定难度"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "2016 Honda S660 Alpha",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 1:04.9"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "2016 Honda S660 Alpha",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.1 中段加速还不错 弯速非常快 空力不均高速可能有点推头"
+  }
+ ],
+ "2817": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2000 Honda Prelude Type SH",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川1:00.5"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2000 Honda Prelude Type SH",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.6"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "2000 Honda Prelude Type SH",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.4 石部56.1 前中段加速还行 弯速不错  车头略重但是手感没问题"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T1",
+   "m": "2000 Honda Prelude Type SH",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "427": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2003 Honda S2000",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "街车胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:00.3 前中段加速快 相对好控"
+  }
+ ],
+ "1511": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1968 Holden Monaro GTS 327",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.5"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1968 Holden Monaro GTS 327",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.4 加速非常快 弯速不太行 偏船 上手难度较高"
+  },
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "1968 Holden Monara GTS 327",
+   "s": 0.971,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:23.1 瑠璃光寺 2:00.3 南岸56.4 加速很快 弯道手感很好 悬挂在肌肉车中属于顶尖水平 底盘高过水减速较少  305后胎车尾微滑限制圈速"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1968 Holden Monaro GTS 327",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:04.8"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1968 Holden Monara GTS 327",
+   "s": 0.971,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "北部上坡2:04.8 白川1:06.2"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1968 Holden Monaro GTS 327",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "伊根1:10.4 向日葵1:03.4 加速非常快 弯速不太行 刚性极差动态极为诡异"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1968 Holden Monaro GTS 327",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:11.1"
+  }
+ ],
+ "2131": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2014 HSV GEN-F GTS",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川59.9"
+  }
+ ],
+ "2235": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2015 Jaguar XKR-S GT",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Hokaze",
+   "note": "白川1:00.6"
+  }
+ ],
+ "1260": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2010 Lexus LFA",
+   "s": 0.903,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "zombiejesus52",
+   "note": "白川1:00.4"
+  }
+ ],
+ "4002": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2024 Lamborghini Temerario",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "LetzeLU",
+   "note": "白川1:00.4"
+  }
+ ],
+ "1601": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2012 Lamborghini Gallardo \nLP570-4 Spyder Performante",
+   "s": 1.069,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.7 操控好"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "2012 Lamborghini Gaallardo LP570-4 Spyder Performante",
+   "s": 1.06,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "伊根1:06.394 均衡水桶操控车"
+  }
+ ],
+ "1173": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2010 Lamborghini Murcielago LP 670-4 SV",
+   "s": 1.024,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Hokaze",
+   "note": "白川1:00.3"
+  }
+ ],
+ "1221": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2010 Mazda Mazdaspeed 3",
+   "s": 0.806,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.6"
+  }
+ ],
+ "1090": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2009 Mercedes-Benz \nSL 65 AMG Black Series",
+   "s": 1.055,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.4 均衡车，各方各面表现都很不错"
+  }
+ ],
+ "3176": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1987 Mercedes-Benz AMG Hammer Coupe",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.6  尾速非常高，操控够用，手感符合直觉"
+  }
+ ],
+ "4223": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2000 Nissan Skyline GT-R V-Spec II",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川59.9"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "2000 Nissan Skyline GT-R V-Spec II",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.7  前段加速还可以 弯速不错  手感有点莫名其妙 有一点难度"
+  }
+ ],
+ "3921": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2024 Nissan Z Nismo",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.5 操控非常好，不足就是加速和极速弱，如果在圈图或许会有次Meta级别的统治力"
+  }
+ ],
+ "3622": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2020 Nissan GT-R NISMO (R35)",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川59.9"
+  }
+ ],
+ "3307": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2019 Nissan 370Z Nismo",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川 1:00.6"
+  }
+ ],
+ "4057": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1997 Nissan Skyline GT-R V-Spec",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.9"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "1997 Nissan Skyline GT-R V-Spec",
+   "s": 1.032,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路35.7 四改后GTR不是区"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1998 Nissan Skyline GT-R 40周年纪念版",
+   "s": 0.875,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "FuzzyTexas81292",
+   "note": "白川02.8，还挺好开的"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1997 Nissan Skyline GT-R V-Spec",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.4  前中段加速还可以  高速弯非常快 手感很不错"
+  }
+ ],
+ "2738": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1995 Nissan Nismo GT-R LM",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.2"
+  }
+ ],
+ "440": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1994 Nissan Silvia K's",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:00.1 阻力比K's Aero低 上限更高 但也相对操作难度较高一些 宽体版中低速操控更好 无宽体更加冲刺"
+  }
+ ],
+ "2659": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1998 Nissan Silvia K's Aero",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:00.2 高速弯弯速快"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1998 Nissan Silvia K's Aero",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 1:05.6 弯速不错 起步稍慢 后段不错 前胎较窄 有时候有点推 整体很好控 引擎需要红转之前换挡"
+  }
+ ],
+ "4181": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1983 Nissan 240RS",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "白川1：00.5                                                              加速很不错，可惜轮胎太窄，驾驶时小心打滑"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1983 Nissan 240RS",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.6(4.8 V10)/1:05.8(3.7 V6) 前中段加速不错 弯速不错 但是空力极度不均导致高速弯容易甩尾外抛 需要一定控车手法  4.8版本更均衡 3.7版本更简单操控"
+  }
+ ],
+ "2773": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2018 Porsche Cayenne Turbo",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.6 操控好，底盘高，加速还行，目前最强SUV"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2018 Porsche Cayenne Turbo",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:28.5 瑠璃光寺 2:02.6  弯速快 加速还行 依旧底盘低 依旧颠"
+  }
+ ],
+ "3980": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1998 Renault Sport Spider",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": ""
+  }
+ ],
+ "3735": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2022 Subaru BRZ",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速公路32.8"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2022 Subaru BRZ",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.6"
+  }
+ ],
+ "1655": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2013 Subaru BRZ",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "高速路33.2干净33.0脏"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2013 Subaru BRZ",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "MSR Ane3tr",
+   "note": "白川1:05.7"
+  }
+ ],
+ "4259": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2013 Toyota 86 'Stories'",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.2"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2013 Toyota 86 'Stories'",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川1:01.8，需要一定控车手法，车尾不老实，原厂变速箱快一点点，但是建议二档起步"
+  }
+ ],
+ "461": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1998 Toyota Supra RZ",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川59.9"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "1998 Toyota Supra RZ",
+   "s": 0.977,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "街车胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:01.0干净圈 高速路34.2 中段加速不错 高速弯性能好 有一定驾驶难度"
+  }
+ ],
+ "3413": [
+  {
+   "g": "A 700公路",
+   "t": "T1",
+   "m": "2021 Volkswagen Golf R",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.7"
+  }
+ ],
+ "368": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:00.8 有点推头"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sola",
+   "note": "白川1:01.0 起步慢，弯道直线表现都不错"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.4 全段加速优秀"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:05.5"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2002 Acura Integra Type S",
+   "s": 0.964,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:07.0"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:09.7  加速还行 弯速非常快 满减重版本操控非常不错  公路段手感极佳 非常轮椅的车"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "2001 Acura Integra Type R",
+   "s": 1.009,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "Miyako的偏动力，Sola的偏操控"
+  }
+ ],
+ "4147": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2021 Alfa Romeo Giulia GTAm",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.8"
+  }
+ ],
+ "3854": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1993 Autozam AZ-1",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": ""
+  }
+ ],
+ "2154": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2014 BMW M4 Coupe",
+   "s": 0.906,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.9"
+  }
+ ],
+ "1330": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1970 Chevrolet Camaro Z28",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "控油非常非常简单 最适合新手的大后之一"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1970 Chevrolet Camaro Z28",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:04.9干净极限04.6 相对简单好开 有后段"
+  }
+ ],
+ "483": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1999 Dodge Viper GTS ACR",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川1:00.8 加，前段不错，中段还行，后段一般 拐，全段一般"
+  }
+ ],
+ "3593": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2024 Ferrari Purosangue",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Howzer",
+   "note": "白川 1:01.0"
+  }
+ ],
+ "405": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2000 Ford Mustang SVT Cobra R",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "白川1:00.8 很滑 不好开 刹车也不稳定"
+  }
+ ],
+ "1533": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1977 Holden Torana A9X",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1977 Holden Torana A9X",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "AIONS580Pio",
+   "note": "伊根1:05.8 推头 多用手刹或顶油辅助过弯"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1977 Holden Torana A9X",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Seako",
+   "note": "南岸56.6 悬挂本身不够稳定 而且会因为配重出现问题 偏推头注意油门刹车配合 操控更好的Dart"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1977 Holden Torana A9X",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Splaaash97",
+   "note": "白川1:04.4"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1977 Holden Torana A9X",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路51.4 嘉年华38.5干净圈"
+  }
+ ],
+ "357": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1997 Mitsubishi GTO",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川1:00.9  加速还行 弯速一般般 265后胎车尾较滑"
+  }
+ ],
+ "1277": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1971 Plymouth Cuda 426 HEMI",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:00.8"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1971 Plymouth Cuda 426 HEMI",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:23.8 瑠璃光寺 2:01.5 南岸56.8 弯速快 机抓好 悬挂稳定 没有明显短板"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1971 Plymouth Cuda 426 HEMI",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1971 Plymouth Cuda 426 HEMI",
+   "s": 1.018,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:05.1"
+  }
+ ],
+ "1276": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1977 Pontiac Firebird Trans Am",
+   "s": 1.029,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1977 Pontiac Firebird Trans Am",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根 1:05.3 加速不错 机抓很强 几乎没什么短板 稍微有点点砖"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1977 Pontiac Firebird Trans Am",
+   "s": 1.029,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:04.9 中后段优势 出弯小心打滑"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1977 Pontiac Firebrid Trans Am",
+   "s": 0.993,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1977 Pontiac Firebrid Trans Am",
+   "s": 0.993,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.3"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1977 Pontiac Firebrid Trans Am",
+   "s": 0.993,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "高速路51.6 相对好控 加速非常快"
+  }
+ ],
+ "306": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1965 Shelby Cobra 427 S/C",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1965 Shelby Cobra 427 S/C",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:05.5  加速非常快 偏船 弯速还可以  刹车不好踩 手感比较奇怪"
+  }
+ ],
+ "3960": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "1994 Subaru Vivio RX-R",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:01.0"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1994 Subaru Vivio RX-R",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.4"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1994 Subaru Vivio RX-R",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.8  前中段加速不错 弯速还可以 抓地跑法 车头较重有时推头 但是车体小整体并不难开"
+  }
+ ],
+ "3402": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2020 Toyota GR Supra",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:00.9"
+  }
+ ],
+ "1231": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2010 Volkswagen Golf R",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:01.0"
+  }
+ ],
+ "2142": [
+  {
+   "g": "A 700公路",
+   "t": "T1.5",
+   "m": "2014 Volkswagen Golf R",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:01.0"
+  }
+ ],
+ "1325": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2011 Alfa Romeo Giulietta \nQuadrifoglio Verde",
+   "s": 1.06,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:01.2"
+  }
+ ],
+ "3726": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2023 Acura Integra A-Spec",
+   "s": 1.009,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sola",
+   "note": "白川01.3 起步慢，冲刺能力强"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta",
+   "m": "2023 Acura Integra A-Spec",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.3"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "2023 Acura Integra A-Spec",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:09.7  加速还行 高速弯弯速快 低速弯操控不错  完全没有四门车的笨重手感 非常好开"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "2023 Acura Integra A-Spec",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:10.3"
+  }
+ ],
+ "3325": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2003 Aston Martin DB7 GT",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 1:01.3 加速一般 弯速一般 比较好控 （MSR Mian调教稍滑，上限高）"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2003 Aston Martin DB7 GT",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川 1:03.3  加速比较拉 弯道一般般"
+  },
+  {
+   "g": "B 600公路",
+   "t": "未知",
+   "m": "2003 Aston Martin DB7 GT",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "中等",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "Purist纯粹调教"
+  }
+ ],
+ "1045": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "1987 Pontiac Firebird Trans Am GTA",
+   "s": 1.041,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:01.3 非常帅的车"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1987 Pontiac Firebrid Trans Am GTA",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "高速路51.4/51.8干净 操控很好 弯速快"
+  }
+ ],
+ "3117": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2018 Porsche 718 Cayman GTS",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:01.7 均衡好开 加速略差"
+  }
+ ],
+ "625": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2008 Honda Civic Type R",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "MSR Sola",
+   "note": "白川1:01.8，需要控油，中马力前驱，起步较慢"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T3",
+   "m": "2008 Honda Civic Type R",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:07.8"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T3",
+   "m": "2008 Honda Civic Type R",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "Purist调教，适用于外观党，要慢一点，有点推头"
+  }
+ ],
+ "3908": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2022 Honda E",
+   "s": 0.857,
+   "d": "RWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "MSR Mian",
+   "note": "白川 1:01.9 加，前中偏差，中后一般 拐，全段差 （勉强能玩一点，实战中图一乐）"
+  },
+  {
+   "g": "A 700公路",
+   "t": "未知",
+   "m": "2022 Honda Honda E",
+   "s": 0.68,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "请将此车置于表底，表格吉祥物，本质B级车，与B级版本的区别就是有了那么一点加速，有宽体挺好看的"
+  },
+  {
+   "g": "A 700越野",
+   "t": "未知",
+   "m": "2022 Honda E",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "快乐车 锁极速的 竟然不是唯一底层越野车 （也没想到直线还能比T100快一点点）"
+  },
+  {
+   "g": "B 600公路",
+   "t": "未知",
+   "m": "2022 Honda Honda E",
+   "s": 0.68,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "请将此车置于表底，本质C级车，长得很可爱，本表吉祥物，就是慢到家了"
+  }
+ ],
+ "1355": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "1965 Ford Mustang GT Coupe",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:01.5干净圈"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1965 Ford Mustang GT Coupe",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "ZVTCJAU",
+   "note": ""
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1965 Ford Mustang GT Coupe",
+   "s": 1.014,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路53.8 嘉年华冲刺38.7"
+  }
+ ],
+ "1417": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2011 Audi RS 5 Coupe",
+   "s": 0.944,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:01.6"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2011 Audi RS5 Coupe",
+   "s": 0.908,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "全面弱化的宾利"
+  }
+ ],
+ "2179": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2015 Audi S1",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.0"
+  }
+ ],
+ "3318": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2018 Audi RS 4 Avant",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.0"
+  }
+ ],
+ "3584": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2021 Audi RS 7 Sportback",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:01.9 加，全段差 拐，全段还行 （无空力）"
+  }
+ ],
+ "1220": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2010 Audi TT RS Coupé",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "KilianFirebold",
+   "note": "白川1:01.7"
+  }
+ ],
+ "383": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2005 BMW M3",
+   "s": 0.826,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:01.299 （街头减重） 加，还行 拐，全段一般 2个尾翼！！！（建议打开ABS驾驶）"
+  },
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2005 BMW M3",
+   "s": 0.826,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:01.6 （赛车减重） 加，还行 拐，低速一般，中高速不错 2个尾翼！！！"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2005 BMW M3",
+   "s": 0.826,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:06.2 加，前段还行，中段一般，后段偏差 拐，全段不错（不比A级逊色多少）（1.7G） 搞笑外观（两个尾翼！）"
+  }
+ ],
+ "3918": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "1995 Nissan Gloria Gran Turismo",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:01.6 超级大砖头，加速还不错，不拐弯"
+  }
+ ],
+ "1103": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2010 Nissan 370Z",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川1:01.7 Purist纯粹调校"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2010 Nissan 370Z",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.7"
+  }
+ ],
+ "295": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2003 Toyota Celica Sport Specialty II",
+   "s": 1.048,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "白川 1:01.7 可用 比Glanza差远了"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2003 Toyota Celica Sport Specialty II",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.7"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2003 Toyota Celica Sport Specialty II",
+   "s": 1.048,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "2003 Celica Sport Specialty II",
+   "s": 0.959,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "MSR Sola",
+   "note": "白川1:11.9"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "Meta",
+   "m": "2003 Toyota Celica Sport Specialty II",
+   "s": 1.048,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "GreetedDust8",
+   "note": "地平线攀爬 1:00.1"
+  }
+ ],
+ "3964": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2024 Toyota Prius Prime XSE Premium",
+   "s": 1.043,
+   "d": "FWD",
+   "diff": "困难",
+   "tire": "拉力胎",
+   "role": "动力",
+   "tuner": "MSR Mian",
+   "note": "白川 1:01.2 加，前段偏差，中段一般，后段不错(极速411) 操控，全段一般 超级无敌外星科技CVT！1档上400！！！"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2024 Toyota Prius Prime XSE Premium",
+   "s": 1.043,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Mian",
+   "note": "白川 1:06.6 高速路线上 1:44.8 加，前段差，中段还行，后段不错(极速411) 操控，低速差，中速一般，高速一般 超级无敌外星科技CVT！1档上400！！！"
+  }
+ ],
+ "2128": [
+  {
+   "g": "A 700公路",
+   "t": "T2",
+   "m": "2013 Cadillac XTS Limousine",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:01.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2013 Cadillac XTS Limousine",
+   "s": 1.018,
+   "d": "FWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.3"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "2013 Cadillac XTS Limousine",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.5 瑠璃光寺 2:07.4  加速和弯速都还不错 悬挂比较稳定 但是轴距太长容易被地形影响 转向角度也会比较奇怪"
+  }
+ ],
+ "2551": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2014 Ford FPV Limited Edition Pursuit Ute",
+   "s": 1.055,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.5 手感不错 玩具车"
+  }
+ ],
+ "2494": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2015 Land Rover Range Rover Sport SVR",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.3"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2015 Land Rover Range Rover Sport SVR",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.8 瑠璃光寺 2:02.0 鸣尾1:04.5  冈城1:22.7 弯速极快 加速也还可以 很好开的抓地越野车 CaiGou的偏操控 hanhan的偏动力"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2015 Land Rover Range Rover Sport SVR",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:37.5 瑠璃光寺 2:07.5 弯速极快 加速一般后段还行  很好开的抓地越野车"
+  }
+ ],
+ "3120": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2019 Lamborghini Urus",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.6 弯道不错，加速略差"
+  }
+ ],
+ "316": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1988 Lamborghini Countach LP5000 QV",
+   "s": 1.043,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:02.4 Purist纯粹调校"
+  },
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1988 Lamborghini Countach LP5000 QV",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "AIONS580Pio",
+   "note": "伊根1:05.8 综合简单车"
+  }
+ ],
+ "3716": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2023 Lotus Emira",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:02.7 Purist纯粹调校"
+  }
+ ],
+ "3858": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1997 Nissan Stagea RS FOUR V",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川02.6，强度能玩，注意重心转移，有R34前脸的瓦罐车那还说啥了"
+  }
+ ],
+ "1110": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1994 Mazda MX-5 Miata",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1994 Mazda MX-5 Miata",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路52.6 高速弯和中后段加速优势"
+  }
+ ],
+ "379": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2005 Subaru Legacy B4 2.0 GT",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.9(脏） 原厂悬注意重心转移，手感不错"
+  }
+ ],
+ "4090": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2001 Mitsubishi Lancer Evolution VI GSR TM Edition",
+   "s": 1.067,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:03.2 手感不错"
+  }
+ ],
+ "1040": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "1981 BMW M1",
+   "s": 0.826,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.8"
+  }
+ ],
+ "2628": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2016 BMW M4 GTS",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:02.8 强度偏弱 加速弱，弯道起码有 但他有警灯"
+  }
+ ],
+ "1011": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2008 BMW M3",
+   "s": 0.826,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:03.5  龟爬加速，弯速也是勉强能用，出弯有点推头"
+  }
+ ],
+ "3983": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2024 BMW X6 M Competition",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": ""
+  },
+  {
+   "g": "A 700越野",
+   "t": "T3",
+   "m": "2024 BMW X6 M Competition",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:30.5 瑠璃光寺 2:03.4  弯速不错 加速一般般 底盘很低 通过性差 落地掉速严重"
+  }
+ ],
+ "3763": [
+  {
+   "g": "A 700公路",
+   "t": "T3",
+   "m": "2023 BMW M2",
+   "s": 0.826,
+   "d": "RWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "白川 1:03.4  车尾不老实  有一定控车难度"
+  }
+ ],
+ "3359": [
+  {
+   "g": "A 700公路",
+   "t": "未知",
+   "m": "2021 Audi RS E-Tron GT",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "跟Honda E一桌，圈速打不赢B级车"
+  }
+ ],
+ "3789": [
+  {
+   "g": "A 700公路",
+   "t": "未知",
+   "m": "2022 Wuling Mini EV",
+   "s": 0.771,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "2430": [
+  {
+   "g": "A 700公路",
+   "t": "未知",
+   "m": "2016 Ariel Nomad",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "ESV Lawrence",
+   "note": "白川1:01.X(1?) 圈速T1.5 容易程度T10086 如果生活太如意了不如驾驶一下这个"
+  }
+ ],
+ "315": [
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "1970 Chevrolet Corvette ZR-1",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根1:04.8 机抓很强 操控不错 很全能 动力弱化版nova 比nova上手难度更低更好开"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1970 Chevrolet Corvette ZR-1",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.8"
+  }
+ ],
+ "1668": [
+  {
+   "g": "A 700泥地",
+   "t": "Meta",
+   "m": "1969 Ford Mustang Boss 302",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "伊根攀爬赛1:04.9 重刹时很推 需要一定的上手难度 抓地力强 加速很快仅次于Nova"
+  }
+ ],
+ "1564": [
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1953 Chevrolet Corvette",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根 1:05.2 很综合 几乎没有什么短板"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T1",
+   "m": "1953 Chevrolet Corvette",
+   "s": 0.998,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路54.8"
+  }
+ ],
+ "1575": [
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1988 Chevrolet Monte Carlo Super Sport",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "伊根1:05.4 偏冲刺 过弯比较推头 需要一定开肌肉车的经验 悬挂有问题 落地会托底掉速 看运气"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1988 Chevrolet Monte Carlo Super Sport",
+   "s": 1.05,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路52.6 加速优势"
+  }
+ ],
+ "1283": [
+  {
+   "g": "A 700泥地",
+   "t": "T0.5",
+   "m": "1957 Ford Thunderbrid",
+   "s": 0.931,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根05.5 操控不错 加速很快 线上很强"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "1957 Ford Thunderbird",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:24.6 瑠璃光寺 2:01.2  前中段加速极快 弯速一般 悬挂在肌肉车算好 但是也是通病不能过水落地容易坠机"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1957 Ford Thunderbird",
+   "s": 0.985,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:05.4 刹车较差要小心"
+  }
+ ],
+ "4188": [
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1972 Datsun 240Z #5 Rallye",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "SR1 Rain",
+   "note": "伊根 1:05.9 石部53.5 向日葵59.8  前中段加速快 弯速不错 没后段 手感偏船"
+  }
+ ],
+ "637": [
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1967 Lamborghini Miura P400",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "TheDannny",
+   "note": "向日葵59.6"
+  }
+ ],
+ "1587": [
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1972 Mazda Cosmo 110S Series II",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.5 向日葵 59.5 加速不错 弯速还行 没有突出的地方 比较均衡"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1972 Mazda Cosmo 110S Series II",
+   "s": 1.032,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路40.7 弯速优势"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1972 Mazda Cosmo 110S Series II",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.5"
+  }
+ ],
+ "251": [
+  {
+   "g": "A 700泥地",
+   "t": "T1",
+   "m": "1954 Mercedes-Benz 300 SL Coupé",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根1:05.6极限 干净05.9 操控还可以 比较均衡 刹车有点立正"
+  }
+ ],
+ "1150": [
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1965 Alfa Romeo Giulia \nSprint GTA Stradale",
+   "s": 1.057,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.5  加速很快 弯速一般 需要手刹辅助过弯 偏船 稳定性一般"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1965 Alfa Romeo Giulia Sprint GTA Stradale",
+   "s": 1.057,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.5"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1965 Alfa Romeo Giulia \nSprint GTA Stradale",
+   "s": 1.057,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.5 前中段加速快 高速弯弯速快"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1965 Alfa Romeo Giulia \nSprint GTA Stradale",
+   "s": 1.057,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "ZVTCJAU",
+   "note": ""
+  }
+ ],
+ "1559": [
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1955 Mercedes-Benz 300 SLR",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "伊根 1:06.8"
+  }
+ ],
+ "412": [
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1992 Honda NSX-R",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "伊根1:06.6 操控很强 公路段优势"
+  }
+ ],
+ "4034": [
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1972 Honda Z GT",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "伊根1:06.5  前中段加速非常快 后段较慢 弯速不慢 但是刚性比较差 动态有些难以预测 195后胎注意甩尾"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "1972 Honda Z GT",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "伊根 1:09.6 加，前还行，中一般，后差 拐，全段优秀 此调校偏操控"
+  }
+ ],
+ "2140": [
+  {
+   "g": "A 700泥地",
+   "t": "T2",
+   "m": "1980 Subaru BRAT GL",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:06.6  前中段加速很快 弯速不错  小车比较灵活 整体比较好控 需要8500转换挡"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "1980 Subaru BRAT GL",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "364": [
+  {
+   "g": "A 700泥地",
+   "t": "T3",
+   "m": "2004 Subaru IMPREZA WRX STi",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "2005 Subaru Impreza WRX STI",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.3  比较均衡 后段稍弱 上手比较简单"
+  }
+ ],
+ "3886": [
+  {
+   "g": "A 700泥地",
+   "t": "T3",
+   "m": "1995 Mitsubishi Lancer Evolution III GSR",
+   "s": 1.053,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "2574": [
+  {
+   "g": "A 700泥地",
+   "t": "T3",
+   "m": "2554 AMG Transport Dynamics M12S Warthog CST",
+   "s": 0.94,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3063": [
+  {
+   "g": "A 700越野",
+   "t": "Meta+",
+   "m": "2018 Mercedes-Benz X-Class",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "无需用圈速证明强度的车 A越野断档 请一律选用最新版本 Seako有自动挡新手调校"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2018 Mercedes-Benz X-Class",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.4 均衡好开"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta+",
+   "m": "2018 Mercedes-Benz X-Class",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城2:32.9 瑠璃光寺2:07.5 伊豆2:19.5 冲刺超快核弹皮卡 原厂胎满动力RV8 全段加速非常暴力 适合直线很多的地图 都有着极强的竞争力 但是控车难度较高"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta",
+   "m": "2018 Mercedes-Benz X-Class",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.0 瑠璃光寺 2:06.5  弯速非常快 5.2引擎动力一般 冲刺图表现一般 驾驶难度很低"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "2018 Mercedes-Benz X-Class",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "起步加速非常快 推荐线上使用"
+  }
+ ],
+ "3657": [
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "2021 RIVIAN R1T",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "瑠璃光寺1:59.5世界纪录 高城 2:24.9(锁极速) 前中段加速猛 弯速快 车尾微滑 均衡图绝对强者 新手友好"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2021 RIVIAN R1T",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "高城 2:39.5 瑠璃光寺 2:07.6  加速全段龟爬 弯速不错 后段一般 3.1吨只有800多匹马力 比较好玩的车 但是不算很强 Miyako的锁250极速跑圈图 菜狗的290极速跑均衡图"
+  }
+ ],
+ "3374": [
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "2019 Toyota Tacoma TRD Pro",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Seako",
+   "note": "瑠璃光寺 1:59.8 高城 2:23.1  悬挂不错 加速不错 hanhan不解变速箱动力更大 Seako解变速箱综合性能更强"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta",
+   "m": "2019 Toyota Tacoma TRD Pro",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.4 瑠璃光寺 2:05.8 4.8V10版本 原厂小越野胎操控不错 动力一般 弯速极快且非常好开的原厂胎 均衡图实力非常强大"
+  }
+ ],
+ "3477": [
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "2020 Chevrolet Silverado LT Trail Boss",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "南岸57.2 稳定性很好 大跳坡大概率会陷地 新手手离越野启蒙车"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "2020 Chevrolet Silverado LT Trail Boss",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.5  加速不错 弯速一般 车身较重 像在开轮船"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta+",
+   "m": "2020 Chevrolet Silverado LT Trail Boss",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:33.9 瑠璃光寺 2:06.8 弯速快 后段强 推荐冲刺图使用 手感不错 Noa Seako:嘉豪们可以使用impressive V8版本"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta",
+   "m": "2020 Chevrolet Silverado LT Trail Boss",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:34.0 瑠璃光寺 2:07.0  低速弯速非常快 后段也可以"
+  }
+ ],
+ "1300": [
+  {
+   "g": "A 700越野",
+   "t": "Meta",
+   "m": "1964 Chevrolet Impala Super Sport 409",
+   "s": 1.048,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "高城 2:23.2 瑠璃光寺 2:00.2 南岸57.1 加速非常快 后段快 低速弯快高速一般 整体偏船  315后胎限制强度"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1964 Chevrolet Impala Super Sport 409",
+   "s": 1.048,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:04.9"
+  }
+ ],
+ "2507": [
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1955 Chevrolet 150 Utility Sedan",
+   "s": 1.035,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:22.8 瑠璃光寺 2:01.2  全段加速非常快 弯速相对一般 175前胎 抓地过弯时可能会推 需要一点手刹辅助  依旧肌肉车不能过水落地容易坠机"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1955 Chevrolet 150 Utility Sedan",
+   "s": 1.035,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Seako",
+   "note": "伊根 1:10.9(Seako)/10.6(菜狗) Seako的是单后空 冲刺图更强 菜狗的全空偏均衡Baby Mustang'68 加速很快 刚性一般 前胎过窄 弯道动态较难预测"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "1955 Chevrolet 150 Utility Sedan",
+   "s": 1.035,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:35.9 瑠璃光寺 2:07.0  全段加速非常快 弯速相对一般 175前胎 抓地过弯时可能会推 需要一点手刹辅助  依旧肌肉车不能过水落地容易坠机"
+  }
+ ],
+ "2614": [
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:23.8 瑠璃光寺 2:00.7  180MM的前胎有时候会推头 整体难度高 纯冲刺车 弯速较慢 依旧心情悬挂 有时容易弹车尾坠机 落地需谨慎"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.4"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.7"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:05.8 控油简单 手感较推头 街车变速箱建议4 5档驾驶"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta+",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Zookiiwi",
+   "note": "包揽冲刺图WR  超级冲刺车 动力极强 但是推头较难控制"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:34.7 瑠璃光寺 2:09.7 越野胎推重比与原厂胎相差无几的逆天肌肉车 180MM的前胎有时候会推头 但是整体难度并不高 心情悬挂 有时容易弹车尾坠机 落地需谨慎"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1968 Ford Mustang GT 2+2 Fastback",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "线上四驱最强车 全空均衡 无空上限更高"
+  }
+ ],
+ "3692": [
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "2022 Ford F-150 Lightning",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.5 瑠璃光寺 2:00.4  缺一点动力 弯速很快 均衡图很强"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta",
+   "m": "2022 Ford F-150 Lightning",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "瑠璃光寺 2:06.9 世界纪录 (han) 高城 2:36.0(限速320) 加速还行 限速280/320两个版本 前者前中段更快适合线上 后者则应对更需要后段的长冲刺图 前中段变慢"
+  }
+ ],
+ "3750": [
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1995 Mitsubishi Montero Exceed 2800 TD",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:23.8 琉璃光寺 2:00.2 南岸57.2 偏动力的车全段加速非常快 低速机械抓地力较差 高速弯有魔法 弯速奇快 有一定难度 陷地摧毁META梦"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T3",
+   "m": "1995 Mitsubishi Montero Exceed 2800 TD",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "冈城1:23.9 琉璃光寺2:04.8 偏一点动力的环道车 比较全能 但机械抓地力较差"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "1995 Montero Exceed 2800 TD",
+   "s": 0.887,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": ""
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "1995 Mitsubishi Montero Exceed 2800 TD",
+   "s": 1.05,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.7 琉璃光寺 2:08.9  全段加速快 低速机械抓地力较差 有一定难度"
+  }
+ ],
+ "2822": [
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1985 Nissan Safari Turbo",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "lphanhan",
+   "note": "环道越野图很强 操控很好  某些特定情况下会比较难控车 需要一定驾驶经验"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "1985 Nissan Safari Turbo",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:25.1 瑠璃光寺 2:01.0  加速很快 弯速也没很慢 短轴车＋不稳定的悬挂 驾驶难度偏高 冲刺图很快"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1985 Nissan Safari Turbo",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.0 石部56.9 前中段加速不错 泥地弯速很快 公路段稍慢  短轴车注意甩尾"
+  }
+ ],
+ "281": [
+  {
+   "g": "A 700越野",
+   "t": "T0.5",
+   "m": "1968 Plymouth Barracuda Formula S",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "南岸57.3 悬挂不错 加速快 与其他肌肉车比车尾略滑 以及肌肉车祖传过水"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1968 Plymouth Barracuda Formula S",
+   "s": 1.038,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:05.7 控油较简单"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1968 Plymouth Barracuda Formula S",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "伊根1:10.8 比较均衡 没明显短板 加速不错 刹车需要注意"
+  }
+ ],
+ "3518": [
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2020 BMW M8 Competition Coupe",
+   "s": 1.005,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:25.2 瑠璃光寺 2:00.8 弯速不错 加速一般般 后段非常快 公路段车尾微滑 悬挂在低底盘中数一数二 落地保速能力非常强 不过通病不能涉水 暴力压缩容易用完行程被弹飞"
+  }
+ ],
+ "1522": [
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2012 Jeep Wrangler Rubicon",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "高城 2:26.4 瑠璃光寺 2:01.8 南岸57.5 圈图优势明显 线上稳定性高"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "2012 Jeep Wrangler Rubicon",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:35.9 瑠璃光寺 2:08.1  加速很快 后段一般 弯速一般 短轴+机抓很差 容易甩尾 需要一定控车技巧"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "2012 Jeep Wrangler Rubicon",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "原厂胎低速图一般般  冲刺图很快 空力强高速弯不错"
+  }
+ ],
+ "3590": [
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "1972 Chevrolet K-10 Custom",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "5.5 V8版本 需要一定控车要求及越野理解 长冲刺劣势 请尽可能稳住高转速以获得动力"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "1972 Chevrolet K-10 Custom",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:25.6 瑠璃光寺 2:01.6 7.2 V8版本 需要一定控车要求及越野理解 车尾较甩 比5.5V8版本更适合长冲刺"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1972 Chevrolet K-10 Custom",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.6 前中段加速很快"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1972 Chevrolet K-10 Custom",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "综合好开"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta+",
+   "m": "1972 Chevrolet K-10 Custom",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:34.9 瑠璃光寺 2:06.2  前中段加速非常快 阻力极高没有后段 刚性略微欠缺 手感可能有些奇怪 车尾有些甩 有一点驾驶难度"
+  }
+ ],
+ "4278": [
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2025 Toyota Land Cruiser",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "瑠璃光寺 2:01.3 高城2:25.2  高速弯极快 悬挂还行 极低的阻力淡化了相对一般的推重比 加速表现很强 后段很快"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta",
+   "m": "2025 Toyota Land Cruiser",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:33.8 瑠璃光寺 2:07.8  虽然推重一般般 但是阻力低加速不慢 原厂胎机械抓地极差 侧滑非常明显 需要较强的手法控车"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "2025 Toyota Land Cruiser",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.4 瑠璃光寺 2:06.7  虽然推重一般般 但是阻力低加速不慢  弯速不错 抓地手感良好"
+  }
+ ],
+ "2743": [
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2016 Toyota Land Cruiser \nArctic Trucks AT37",
+   "s": 1.058,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.6 瑠璃光寺 2:01.8 鸣尾1:03.8 和FH5差不多 没有后段纯冲刺图较弱 操控较好 动力一般需要抓地跑法 不能漂移 漂移掉速严重"
+  },
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "2016 Toyota Land Cruiser \nArctic Trucks AT37",
+   "s": 1.058,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.8 瑠璃光寺 2:01.0 没有后段纯冲刺图较弱 操控较好 动力一般需要抓地跑法 不能漂移 漂移掉速严重 4.8V10版本 解了变速箱 操控也更好 对比RV8版本更加简单"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2016 Toyota Land Cruiser \nArctic Trucks AT37",
+   "s": 1.058,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:37.9 瑠璃光寺 2:06.9  加速弯速还可以 手感较为奇怪  车尾外抛 不是很好开"
+  }
+ ],
+ "2652": [
+  {
+   "g": "A 700越野",
+   "t": "T1",
+   "m": "1997 Mitsubishi Montero Evolution",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:25.1 瑠璃光寺 2:01.2  全段加速很快 高速弯很快 短轴车 需要一定控车手法"
+  }
+ ],
+ "3849": [
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2023 Ford F-150 Raptpr R",
+   "s": 0.957,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:26.8 瑠璃光寺 2:01.6  弯速还不错 后段稍慢 悬挂很不错"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2023 F-150 Raptor R",
+   "s": 0.909,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:37.4 瑠璃光寺 2:08.1  加速还可以 弯速很不错 强度意外的高"
+  }
+ ],
+ "1627": [
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2013 Mercedes-Benz G 65 AMG",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "lphanhan",
+   "note": "高城 2:26.0 瑠璃光寺 2:02.0  加速还行 高速弯抓地力很强 上手难度较低"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2013 Mercedes-Benz G 65 AMG",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:37.0 瑠璃光寺 2:07.8 加速还可以 弯速非常不错  原厂胎但是抓地力非常好"
+  }
+ ],
+ "3850": [
+  {
+   "g": "A 700越野",
+   "t": "T2",
+   "m": "2021 Dodge Durango STR Hellcat",
+   "s": 0.993,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:27.4 瑠璃光寺 2:02.6  弯速快 加速不错 底盘低有点颠簸"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T2",
+   "m": "2021 Dodge Durango SRT Hellcat",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3722": [
+  {
+   "g": "A 700越野",
+   "t": "T3",
+   "m": "2022 GMC Hummer EV Pickup",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": ""
+  }
+ ],
+ "3580": [
+  {
+   "g": "A 700越野",
+   "t": "T3",
+   "m": "2021 Aston Martin DBX",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:28.7 瑠璃光寺 2:02.8  弯速很快 操控很好 上手简单  底盘较低 通过性略差 有时可能会有点颠簸"
+  }
+ ],
+ "2566": [
+  {
+   "g": "A 700越野",
+   "t": "T3",
+   "m": "1979 Toyota FJ40",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:28.2 瑠璃光寺 2:02.9  前中段加速很快 后段一般 超大马力"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1979 Toyota FJ40",
+   "s": 0.935,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.4  加速弯速都还可以 短轴车原厂悬挂有一点点驾驶难度"
+  }
+ ],
+ "3737": [
+  {
+   "g": "A 700越野",
+   "t": "T3",
+   "m": "2022 BMW iX xDrive50",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:28.9 瑠璃光寺 2:02.4  高速弯表现不错 295胎宽撑不住2.5吨的车身 有些甩尾 比较容易外抛 有一定难度"
+  }
+ ],
+ "2636": [
+  {
+   "g": "A 700越野",
+   "t": "未知",
+   "m": "1993 Toyota #1 T100 Baja Truck",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Seako",
+   "note": "动力太弱把操控浪费掉了 过水多的图能比Honda E快点 （竟然跟下面那个车坐一桌）"
+  }
+ ],
+ "2987": [
+  {
+   "g": "B 600公路",
+   "t": "Meta+",
+   "m": "1962 Peel P50",
+   "s": 0.882,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "全热熔",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:02.2 世界纪录 加无敌，拐还行 入弯靠时机，出弯靠狠戾 过弯需熟巧，方能夺第一！"
+  },
+  {
+   "g": "B 600公路",
+   "t": "Meta+",
+   "m": "1962 Peel P50",
+   "s": 0.882,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "半热熔",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:02.6 加无敌 拐中高速还行 驾驶难度比较高！！！！！！ 强制打开TC驾驶！！！"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1962 Peel P50",
+   "s": 0.882,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.8 前中段加速很快 注意翻车"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta+",
+   "m": "1962 Peel P50",
+   "s": 0.882,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "漂移胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "白川 1:07.5 世界纪录 加无敌，拐无敌 驾驶难度超级无敌高！！！！！！ 强制打开TC驾驶！！！"
+  }
+ ],
+ "1291": [
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1970 Chevrolet El Camino Super Sport 454",
+   "s": 1.053,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:04.8"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1970 Chevrolet EI Camino Super Sport 454",
+   "s": 1.027,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "高速路52.8(53.0干净) 加速非常快 相对好控油"
+  }
+ ],
+ "299": [
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1970 Chevrolet Chevelle Super Sport 454",
+   "s": 1.052,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:04.8"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1970 Chevrolet Chevelle Super Sport 454",
+   "s": 1.052,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.4 均衡稳定好开"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1970 Chevrolet Chevelle Super Sport 454",
+   "s": 1.052,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "CaiGou YYY",
+   "note": "伊根1:10.2 标题为Sprint的调校 冲刺图更快 肌肉车不减重 刚性一般 弯中姿态多变 较难开快 重刹时打死方向可以甩起来辅助过弯"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1970 Chevrolet Chevelle Super Sport 454",
+   "s": 1.052,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根1:10.1 标题为Full Aero的调校 比Sprint的更简单  小圈图更快 肌肉车不减重 刚性一般 弯中姿态多变  重刹时打死方向可以甩起来辅助过弯"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1970 Chevrolet Chevelle Super Sport 454",
+   "s": 1.052,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "更均衡的68野马 全空均衡 无空上限更高"
+  }
+ ],
+ "1459": [
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1957 Chevrolet Bel Air",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:04.8"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1957 Chevrolet Bel Air",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Lnvrtebrate",
+   "note": "操控还行"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1957 Chevrolet Bel Air",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路54.0 稳定好开"
+  }
+ ],
+ "1568": [
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.2  前段加速非常快 弯速不错 可轻点手刹辅助过弯"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T1",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "大马力前驱 高速路54.5"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "C 500泥地",
+   "t": "T2",
+   "m": "1974 Honda Civic RS",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "樱桃园2:32.946 线上起步优势"
+  }
+ ],
+ "2119": [
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1984 Honda Civic CRX Mugen",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:04.8"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1984 Honda Civic CRX Mugen",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Ane3tr",
+   "note": "白川1:05.7"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1984 Honda Civic CRX Mugen",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "ZVTCJAU",
+   "note": "伊根1:10.5"
+  }
+ ],
+ "1282": [
+  {
+   "g": "B 600公路",
+   "t": "T0.5",
+   "m": "1993 Nissan 240SX",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Mian",
+   "note": "1.7G 更均衡 白川1:04.6 1.8G 偏操控 白川1:04.7"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1993 Nissan 240SX",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Ane3tr",
+   "note": "白川1:05.4 操控不错有后段"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1993 Nissan 240SX",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.2  加速还行 弯速快 非常抓地而且不推头 很好开"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "1993 Nissan 240SX",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:17.4  操控不错 后段还好 反应有些迟钝 动力羸弱 抓地开"
+  }
+ ],
+ "2017": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1968 Abarth 595 esseesse",
+   "s": 1.004,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "Cirno1X",
+   "note": "四季彩2:16.9 低速弯优秀"
+  }
+ ],
+ "2489": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2016 Abarth 695 Biposto",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.9"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "2016 Abarth 695 Biposto",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.6  加速一般 没后段 操控很不错"
+  }
+ ],
+ "1269": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1973 BMW 2002 Turbo",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:05.9 高速公路43.8（脏） 加速很快 弯速不错 低速弯出弯较牢"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1973 BMW 2002 Turbo",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.4"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1973 BMW 2002 Turbo",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.0  加速弯速都很不错 比较好开 后段也比较快"
+  },
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1973 BMW 2002 Turbo",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "全段加速和操控优秀"
+  }
+ ],
+ "312": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1967 Chevrolet Corvette Stingray 427",
+   "s": 1.045,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.8"
+  }
+ ],
+ "289": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1969 Chevrolet Camaro Super Sport Coupe",
+   "s": 1.052,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "白川1:05.3 相对好控 加速很快 没多少后段"
+  }
+ ],
+ "639": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1970 Dodge Challenger R/T",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Pyke",
+   "note": "白川1:05.1 操控不错"
+  }
+ ],
+ "1273": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1997 Honda Civic Type R",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:05.8"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1997 Honda Civic Type R",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.5"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1997 Honda Civic Type R",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.2  前中段加速较快 弯速快 非常好控"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1997 Honda Civic Type R",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:11.8 简单好开，均衡偏操控"
+  }
+ ],
+ "320": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1991 Honda CR-X SiR",
+   "s": 0.968,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.9"
+  }
+ ],
+ "1650": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1986 Honda Civic Si",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.7"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "1986 Honda Civic Si",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Atelieze",
+   "note": "向日葵1:03.5"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1986 Honda Civic Si",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "前中段加速很快 推荐线上驾驶"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T3",
+   "m": "1986 Honda Civic Si",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "季节赛调校 EZ Car"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "Meta+",
+   "m": "1986 Honda Civic Si",
+   "s": 0.968,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "GreetedDust8",
+   "note": "地平线攀爬赛世界纪录 59.9"
+  }
+ ],
+ "1586": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1962 LINCOLN Continental",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.9"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1962 Lincoln Continental",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "伊根1:10.6 单后空偏冲刺 悬挂有点船 车有点重 开起来笨笨的"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "1962 LINCOLN Continental",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Seako",
+   "note": "高城 2:36.4 瑠璃光寺 2:09.5  加速还行 弯速很快 悬挂落地掉速较多 不能走水路 不是很全能但是不慢"
+  }
+ ],
+ "3978": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1987 Fiat Panda",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "K1Z Bard",
+   "note": "白川 1:05.6  前中段加速很不错 悬挂较软  刹车一般导致动态有些多变 有一点难度"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "1987 Fiat Panda",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:09.8  前中段加速很快 弯速很快 205胎宽但是出弯速度并不慢 机抓足够 悬挂有点Q弹 但是手感并不差  难度不高"
+  }
+ ],
+ "2512": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1987 Nissan Skyline GTS-R",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:05.9"
+  },
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1987 Nissan Skyline GTS-R",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速公路42.1 阻力低后段好"
+  }
+ ],
+ "344": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2003 Nissan Fairlady Z",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.5"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "2003 Nissan Fairlady Z",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.4  加速比较慢 弯速快 公路段手感还可以"
+  }
+ ],
+ "4238": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1983 Nissan Skyline 2000 Turbo RS",
+   "s": 1.038,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速公路42.3 弯速操控不错"
+  }
+ ],
+ "2216": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1958 Plymouth Fury",
+   "s": 0.959,
+   "d": "RWD",
+   "diff": "困难",
+   "tire": "复古白胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "白川1:05.2 弯速优势"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1958 Plymouth Fury",
+   "s": 0.959,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路53.9 嘉年华冲刺38.8"
+  }
+ ],
+ "1323": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2011 Subaru WRX STi",
+   "s": 0.968,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.8"
+  }
+ ],
+ "398": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "1995 Toyota MR2 GT",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Ane3tr",
+   "note": ""
+  },
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1995 Toyota MR2 GT",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "MSR Sola",
+   "note": "白川1:06.9 操控很好 加速孱弱 开起来像beat 又推又拐"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1995 Toyota MR2 GT",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.0  加速一般 后段很快 弯速不错 整体很好控"
+  }
+ ],
+ "278": [
+  {
+   "g": "B 600公路",
+   "t": "T1",
+   "m": "2006 Vauxhall Astra VXR",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:05.8"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "2006 Vauxhall Astra VXR",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.9  非常均衡 手感还不错 车头重量较大有时推头 整体非常好上手 开腻了META不妨试试这个"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "2006 Vauxhall Astra VXR",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "2006 Vauxhall Astra VXR",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "GreetedDust8",
+   "note": ""
+  }
+ ],
+ "253": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1994 Ferrari F355 Berlinetta",
+   "s": 1.022,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.2"
+  }
+ ],
+ "3476": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2020 Super Duty F-450 DRW PLATINUM",
+   "s": 1.002,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.4"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "2020 Super Duty F-450 DRW PLATINUM",
+   "s": 1.002,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "TheDannny",
+   "note": "操控版本 赛用变速箱"
+  },
+  {
+   "g": "B 600越野",
+   "t": "Meta+",
+   "m": "2020 Super Duty F-450 DRW PLATINUM",
+   "s": 1.002,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:37.8干净 越野胎冲刺快 越野圈图也同样非常快 而且非常好开 强烈推荐"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T3",
+   "m": "2020 Super Duty F-450 DRW PLATINUM",
+   "s": 1.002,
+   "d": "AWD",
+   "diff": "稍微困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "1750匹 但是圈速很慢 建议开越野胎版本"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "2020 Super Duty F-450 DRW PLATINUM",
+   "s": 1.002,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "FuzzyTexas81292",
+   "note": "起步加速非常快 推荐线上使用"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "Meta",
+   "m": "2020 Super Duty F-450 DRW PLATINUM",
+   "s": 1.002,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "FuzzyTexas81292",
+   "note": "北部WR 2:20.314 倒转19.7 入弯略推略笨重 加速无敌快 半滑过弯"
+  }
+ ],
+ "302": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2004 Honda Civic Type R",
+   "s": 0.998,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "白川1:06.4"
+  }
+ ],
+ "1658": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2013 Mercedes-Benz A 45 AMG",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.1"
+  }
+ ],
+ "3257": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1990 Nissan Pulsar GTI-R",
+   "s": 1.004,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.2"
+  }
+ ],
+ "3134": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "2018 Renault Megane R.S.",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.2"
+  }
+ ],
+ "3851": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1991 Toyota Sera",
+   "s": 0.935,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速公路 44.0"
+  }
+ ],
+ "3783": [
+  {
+   "g": "B 600公路",
+   "t": "T1.5",
+   "m": "1989 Volkswagen Rallye Golf",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.2 非常综合好开"
+  },
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1989 Volkswagen Rallye Golf",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.5 弯速还可以 后胎325需要手刹 动力一般 中段较快 得益于宽胎 低速出弯不算差"
+  }
+ ],
+ "1493": [
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1995 BMW 850CSi",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.6"
+  }
+ ],
+ "2121": [
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "1994 Honda Prelude Si",
+   "s": 0.985,
+   "d": "FWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:07.1"
+  }
+ ],
+ "1204": [
+  {
+   "g": "B 600公路",
+   "t": "T2",
+   "m": "2010 Renault Megane RS 250",
+   "s": 1.014,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "拉力胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "白川1:06.6"
+  }
+ ],
+ "1293": [
+  {
+   "g": "B 600公路",
+   "t": "T3",
+   "m": "1987 Ford Sierra Cosworth Rs500",
+   "s": 1.032,
+   "d": "RWD",
+   "diff": "简单",
+   "tire": "街车胎",
+   "role": "全能",
+   "tuner": "MSR Sam",
+   "note": "操控很舒服但是加速太差"
+  }
+ ],
+ "1379": [
+  {
+   "g": "B 600公路",
+   "t": "未知",
+   "m": "1996 Chevrolet Impala Super Sport",
+   "s": 1.038,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "拉力胎",
+   "role": "操控",
+   "tuner": "Noa Seako",
+   "note": "实在没活了可以开"
+  }
+ ],
+ "2157": [
+  {
+   "g": "B 600泥地",
+   "t": "Meta",
+   "m": "1970 Citroen 2CV",
+   "s": 0.861,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:09.9 石部世界纪录 前中段加速很快 泥地弯速还行 公路段有些坐牢  有些地方可能会翻车 注意姿态"
+  }
+ ],
+ "1104": [
+  {
+   "g": "B 600泥地",
+   "t": "T0.5",
+   "m": "1970 Datsun 510",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.3 前中段加速快 全段弯速快 上手简单"
+  }
+ ],
+ "3937": [
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "1970 Honda N600",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:10.9  加速很快 弯速还行  车头太重有时候推头 需要一定控车"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1970 Honda N600",
+   "s": 0.92,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3255": [
+  {
+   "g": "B 600泥地",
+   "t": "T1",
+   "m": "2020 Jeep JT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "TheDannny",
+   "note": "向日葵04.8"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "2020 Jeep JT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.8 瑠璃光寺2:07.7 南岸1.02.4  前中段不错 后段一般 弯速还可以"
+  },
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "2020 Jeep JT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2020 Jeep JT",
+   "s": 0.857,
+   "d": "AWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "lphanhan",
+   "note": "高城2:33.1 非常之抽象 超级偏科车 只有直线 弯道手感很差 不建议新手尝试"
+  }
+ ],
+ "1662": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1965 Mini Cooper S",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "前中段加速极快，出弯很快，前驱平台＋宽后胎，部分情况下会推头，整体操控比较简单"
+  }
+ ],
+ "2272": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1969 Datsun 2000 Roadster",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3929": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1989 Nissan PAO",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "前段加速还可以，后段一般，前驱平台有一点推头，不过很好控"
+  }
+ ],
+ "1537": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1974 Toyota Corolla SR5",
+   "s": 0.998,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.8  弯速不错 后段没有 225后胎低速出弯注意油门 整体好开不慢"
+  }
+ ],
+ "1517": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1992 Toyota Celica GT-Four RC ST185",
+   "s": 1.043,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.8  空力数值非常不错 加速一般 弯速很快 非常轮椅 好开"
+  }
+ ],
+ "1034": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1994 Toyota Celica GT-Four ST205",
+   "s": 1.035,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:11.6  很好开 比92款后段更快"
+  }
+ ],
+ "3235": [
+  {
+   "g": "B 600泥地",
+   "t": "T2",
+   "m": "1982 Volkswagen Pickup LX",
+   "s": 1.009,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "2740": [
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "2017 Abarth 124 Spider",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:12.8  弯速比较快 单后但是不会很推 比较好控"
+  }
+ ],
+ "4205": [
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "1972 Nissan Patrol",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:13.4  比较好开的小吉普 加速和弯速都一般般 比较均衡"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "1972 Nissan Patrol",
+   "s": 0.959,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3190": [
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "2003 Ford F-150 SVT Lightning",
+   "s": 1.026,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:13.5  平平无奇 比Ram好开一点"
+  }
+ ],
+ "3865": [
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "1994 Honda Acty",
+   "s": 0.92,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "3395": [
+  {
+   "g": "B 600泥地",
+   "t": "T3",
+   "m": "1967 Renault 8 Gordini",
+   "s": 0.992,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "伊根 1:13.6 向日葵 1:07.4 自行车胎宽转向抓不住容易侧滑 需限制滑移角度 不然轮胎抓不住"
+  }
+ ],
+ "2986": [
+  {
+   "g": "B 600泥地",
+   "t": "未知",
+   "m": "2014 Mercedes-Benz Unimog U5023",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "7吨车重 娱乐调校 线上谨慎选择"
+  },
+  {
+   "g": "B 600越野",
+   "t": "未知",
+   "m": "2014 Mercedes-Benz Unimog U5023",
+   "s": 1.032,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "越野胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "7吨车重 娱乐调校 线上谨慎选择"
+  }
+ ],
+ "3373": [
+  {
+   "g": "B 600越野",
+   "t": "T0.5",
+   "m": "2019 Toyota 4Runner TRD Pro",
+   "s": 1.018,
+   "d": "AWD",
+   "diff": "困难",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:36.4 瑠璃光寺 2:06.7 集BUG于一身的车 车尾外抛 落地可能陷地 滞空时全油每升1档会抬头一定幅度 反之低头 熟练情况可以修正姿态 如果你摸清楚了它的动态 那它还真是一台有强度的车"
+  }
+ ],
+ "1350": [
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2011 BMW X5 M",
+   "s": 0.882,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:37.0 瑠璃光寺 2:07.9  弯速非常快 加速一般  很好开 和揽胜有点像"
+  }
+ ],
+ "3955": [
+  {
+   "g": "B 600越野",
+   "t": "T1",
+   "m": "2024 Ram 1500 TRX",
+   "s": 0.948,
+   "d": "AWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "CaiGou YYY",
+   "note": "高城 2:38.3 瑠璃光寺 2:08.6  前中段加速很快 弯速还行 阻力高没有后段 无宽体车尾有一点点甩 但是上限更高"
+  }
+ ],
+ "3439": [
+  {
+   "g": "B 600越野",
+   "t": "T2",
+   "m": "2019 DeBerti Ford Super Duty F-250\nLariat'Transformer'",
+   "s": 1.06,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "操控",
+   "tuner": "CaiGou YYY",
+   "note": "瑠璃光寺 2:10.9 高城 2:39.9 完全没有后段 不需要后段的图表现还可以 原厂小越野胎操控不算难 1/2档齿比密集 起步注意升档"
+  }
+ ],
+ "2563": [
+  {
+   "g": "C 500公路",
+   "t": "Meta+",
+   "m": "1972 Reliant Supervan III",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "多个环道以及冲刺图世界纪录"
+  },
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1972 Reliant Supervan III",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "街车胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "中高速弯转向掉速比越野胎版本少 其他方面则不如越野胎版本"
+  },
+  {
+   "g": "C 500泥地",
+   "t": "Meta+",
+   "m": "1972 Reliant Supervan III",
+   "s": 1.009,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "越野胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "多图世界纪录"
+  }
+ ],
+ "1481": [
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "1965 Austin-Healey 3000 MKIII",
+   "s": 1.026,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "MSR Sam",
+   "note": "高速路49.9 三轮之下第一车"
+  }
+ ],
+ "3665": [
+  {
+   "g": "C 500公路",
+   "t": "Meta",
+   "m": "2021 SIERRA Cars 700R",
+   "s": 0.985,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "操控",
+   "tuner": "AhriGaTouX",
+   "note": "峠道世界纪录"
+  }
+ ],
+ "1514": [
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1973 Mazda RX-3",
+   "s": 0.92,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路53.2 弯速比肌肉车快很多"
+  }
+ ],
+ "3855": [
+  {
+   "g": "C 500公路",
+   "t": "T0.5",
+   "m": "1991 Nissan Figaro",
+   "s": 0.959,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "C 500公路",
+   "t": "T3",
+   "m": "1991 Nissan Figaro",
+   "s": 0.959,
+   "d": "FWD",
+   "diff": "中等",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "MSR Sola",
+   "note": "可爱小车，注意控油"
+  }
+ ],
+ "3860": [
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1989 Nissan S-Cargo",
+   "s": 0.968,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  },
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1989 Nissan S-Cargo",
+   "s": 0.968,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "2151": [
+  {
+   "g": "C 500公路",
+   "t": "T2",
+   "m": "1963 Volkswagen Type 2 De Luxe",
+   "s": 1.029,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "复古白胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": ""
+  }
+ ],
+ "4311": [
+  {
+   "g": "C 500公路",
+   "t": "T3",
+   "m": "2025 Citroen Ami",
+   "s": 0.861,
+   "d": "FWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路56.0"
+  }
+ ],
+ "3548": [
+  {
+   "g": "C 500公路",
+   "t": "T3",
+   "m": "2013 Wuling Sunshine S",
+   "s": 0.992,
+   "d": "RWD",
+   "diff": "非常困难",
+   "tire": "原厂胎",
+   "role": "动力",
+   "tuner": "Noa Miyako",
+   "note": "高速路56.5"
+  }
+ ],
+ "2149": [
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "1993 Renault Clio Williams",
+   "s": 1.014,
+   "d": "FWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "Noa Miyako",
+   "note": "地平线攀爬赛1:01.368 轮椅操控车"
+  }
+ ],
+ "2613": [
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "1970 GMC Jimmy",
+   "s": 0.903,
+   "d": "AWD",
+   "diff": "简单",
+   "tire": "原厂胎",
+   "role": "全能",
+   "tuner": "Noa Miyako",
+   "note": "均衡好开"
+  }
+ ],
+ "1124": [
+  {
+   "g": "C 500泥地",
+   "t": "T1",
+   "m": "1980 Abarth Fiat 131",
+   "s": 0.977,
+   "d": "AWD",
+   "diff": "非常简单",
+   "tire": "越野胎",
+   "role": "操控",
+   "tuner": "FuzzyTexas81292",
+   "note": "伊根1:18.285"
+  }
+ ]
+}

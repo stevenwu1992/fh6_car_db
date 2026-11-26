@@ -27,6 +27,14 @@ TEMPLATE = r"""<!DOCTYPE html>
 <style>
   /* ── 基础 ───────────────────────────────────────────── */
   *,*::before,*::after{box-sizing:border-box}
+  /* Selawik：微软以 SIL OFL 1.1 发布的开源字体，与 Segoe UI 度量兼容，
+     可以自由嵌入网页与商用。只用来兜底非 Windows 平台（Bahnschrift / Segoe UI 缺席时），
+     Windows 上仍然优先用系统字体，不额外下载。 */
+  @font-face{font-family:"Selawik";src:url("assets/fonts/selawik-300.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+  @font-face{font-family:"Selawik";src:url("assets/fonts/selawik-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:"Selawik";src:url("assets/fonts/selawik-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+  @font-face{font-family:"Selawik";src:url("assets/fonts/selawik-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
   :root{
     --paper:#ffffff; --paper-2:#f4f4f5; --white:#ffffff;
     --ink:#111114; --ink-2:#2d2d33; --steel:#65656d; --steel-2:#6e6e76;
@@ -40,8 +48,8 @@ TEMPLATE = r"""<!DOCTYPE html>
     --maxw:1320px;
     --navh:56px; --barh:66px;
     --r:2px;
-    --disp:"Bahnschrift","Segoe UI Variable Display","Segoe UI","Microsoft YaHei UI","PingFang SC","Hiragino Sans GB",sans-serif;
-    --text:"Segoe UI Variable Text","Segoe UI","Microsoft YaHei UI","PingFang SC","Hiragino Sans GB",sans-serif;
+    --disp:"Bahnschrift","Segoe UI Variable Display","Segoe UI","Selawik","Microsoft YaHei UI","PingFang SC","Hiragino Sans GB",sans-serif;
+    --text:"Segoe UI Variable Text","Segoe UI","Selawik","Microsoft YaHei UI","PingFang SC","Hiragino Sans GB",sans-serif;
     --mono:"Cascadia Mono",Consolas,"Courier New",monospace;
   }
   html[data-theme="dark"]{
@@ -214,6 +222,32 @@ TEMPLATE = r"""<!DOCTYPE html>
   }
   .chip[data-cls=""]::before{display:none}
 
+  /* 等级下拉：一个按钮 + 分组菜单（组别按等级配色） */
+  .clsdd{position:relative}
+  #clsBtn{display:inline-flex;align-items:center;gap:8px;min-width:120px;justify-content:space-between;
+    height:34px;padding:0 12px;border:1px solid var(--rule);border-radius:var(--r);background:none;
+    cursor:pointer;font:600 12.5px/1 var(--disp);letter-spacing:.03em;color:var(--ink)}
+  #clsBtn::after{content:"";width:0;height:0;border:4px solid transparent;border-top-color:currentColor;
+    margin-top:3px;opacity:.55}
+  #clsBtn .dot{width:7px;height:7px;border-radius:50%;background:var(--cc,var(--steel));flex:none}
+  #clsBtn.on{background:var(--cc,var(--ink));color:var(--ct,#fff);border-color:transparent}
+  #clsBtn.on .dot{background:currentColor}
+  .clsmenu{position:absolute;z-index:40;top:calc(100% + 6px);left:0;width:236px;max-height:340px;overflow:auto;
+    background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);
+    box-shadow:0 14px 34px var(--shadow);padding:6px;display:none}
+  .clsdd.open .clsmenu{display:block}
+  .clsmenu .all{display:block;width:100%;text-align:left;padding:8px 10px;border:0;background:none;
+    cursor:pointer;font:500 13px/1.2 var(--text);color:var(--ink-2);border-radius:3px}
+  .clsmenu .all:hover{background:var(--paper-2)}
+  .clsmenu .gh{display:flex;align-items:center;gap:8px;padding:9px 10px 5px;font:600 11px/1 var(--mono);
+    letter-spacing:.1em;color:var(--steel-2)}
+  .clsmenu .gh::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+  .clsmenu .gi{display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;border:0;background:none;
+    cursor:pointer;text-align:left;font:500 12.5px/1.2 var(--text);color:var(--ink-2);border-radius:3px}
+  .clsmenu .gi:hover{background:var(--paper-2)}
+  .clsmenu .gi .dot{width:7px;height:7px;border-radius:50%;background:var(--cc);flex:none}
+  .clsmenu .gi.on{background:var(--cc);color:var(--ct,#fff)}
+  .clsmenu .gi.on .dot{background:currentColor}
   .sel{position:relative;flex:none}
   select{
     appearance:none;-webkit-appearance:none;
@@ -374,6 +408,77 @@ TEMPLATE = r"""<!DOCTYPE html>
     transition:transform .5s cubic-bezier(.2,.7,.2,1);transform-origin:50% 85%;
   }
   .car:hover .car-stage img,.car:focus-within .car-stage img{transform:translateY(-7px) scale(1.02)}
+  .nav-auth{margin-left:4px;padding:5px 12px;border:1px solid var(--rule);border-radius:99px;
+    background:none;cursor:pointer;font:500 13px/1 var(--text);color:var(--ink)}
+  .nav-auth:hover{border-color:var(--ink)}
+  .dact{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:16px 0 0;
+    padding:12px 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+  .dact .afav{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border:1px solid var(--rule);
+    border-radius:99px;background:none;cursor:pointer;font:500 13.5px/1 var(--text);color:var(--ink-2)}
+  .dact .afav[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--sel)}
+  .dact .arate{display:inline-flex;align-items:center;gap:3px}
+  .dact .arate button{width:26px;height:26px;border:0;background:none;cursor:pointer;font-size:17px;
+    line-height:1;color:var(--rule);padding:0}
+  .dact .arate button.on{color:#f5b301}
+  .dact .astat{font-size:12.5px;color:var(--steel)}
+  .dact .astat b{color:var(--ink);font-weight:600}
+  .dact .alogin{font-size:12.5px;color:var(--steel);cursor:pointer;text-decoration:underline}
+  #loginBox{position:fixed;inset:0;z-index:120;background:rgba(8,8,10,.55);display:grid;place-items:center;padding:24px}
+  #loginBox .lb-card{width:min(420px,100%);background:var(--paper);color:var(--ink);border-radius:6px;
+    padding:26px 26px 20px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  #loginBox h3{font:600 20px/1.25 var(--disp);margin:0 0 8px}
+  #loginBox p{font-size:13px;color:var(--steel);margin:0 0 6px;line-height:1.6}
+  #loginBox .row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  #loginBox input{flex:1;min-width:180px;padding:10px 12px;border:1px solid var(--rule);border-radius:var(--r);
+    background:var(--paper);color:var(--ink);font:400 14px/1.2 var(--text)}
+  #loginBox button{padding:10px 16px;border:0;border-radius:var(--r);background:var(--ink);color:var(--paper);
+    font:500 13.5px/1 var(--text);cursor:pointer}
+  #loginBox button.ghost{background:none;color:var(--steel);border:1px solid var(--rule)}
+  #loginBox .lb-msg{min-height:18px;font-size:12.5px;color:var(--steel);margin-top:10px}
+  .tuneform{margin-top:12px;display:grid;gap:8px}
+  .tuneform .row{display:flex;gap:8px;flex-wrap:wrap}
+  .tuneform input,.tuneform select{flex:1;min-width:150px;padding:8px 10px;border:1px solid var(--rule);
+    border-radius:var(--r);background:var(--paper);color:var(--ink);font:400 13px/1.3 var(--text)}
+  .tuneform button{padding:8px 16px;border:0;border-radius:var(--r);background:var(--ink);color:var(--paper);
+    font:500 13px/1 var(--text);cursor:pointer}
+  .tuneform .tunemsg{margin:0;font-size:12px;color:var(--steel);min-height:16px}
+  .tunelist .ti-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .tunelist .ti-h code{font:600 12.5px/1 var(--mono);color:var(--ink);background:var(--paper-2);
+    padding:3px 7px;border-radius:3px;letter-spacing:.06em}
+  .tunelist .ti-h span{color:var(--steel-2)}
+  .tunelist .ti p{margin:6px 0 0;color:var(--ink-2);font-size:12.5px;line-height:1.55}
+  .lb-steam{display:block;text-align:center;width:100%;padding:10px 16px;border:1px solid var(--rule);
+    border-radius:var(--r);color:var(--ink);text-decoration:none;font:500 13.5px/1 var(--text)}
+  .lb-steam:hover{border-color:var(--ink)}
+  .tunebox{margin-top:14px}
+  .tunebox summary{cursor:pointer;font:500 13px/1.4 var(--text);color:var(--ink-2)}
+  .tunebox .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .tunebox input,.tunebox textarea{flex:1;min-width:180px;padding:8px 10px;border:1px solid var(--rule);
+    border-radius:var(--r);background:var(--paper);color:var(--ink);font:400 13px/1.4 var(--text)}
+  .tunebox button{padding:8px 14px;border:0;border-radius:var(--r);background:var(--ink);
+    color:var(--paper);font:500 13px/1 var(--text);cursor:pointer}
+  .tunelist{margin-top:10px;display:grid;gap:8px}
+  .tunelist .ti{border:1px solid var(--rule);border-radius:var(--r);padding:9px 12px;font-size:12.5px;color:var(--steel)}
+  .tunelist .ti b{color:var(--ink);font-size:13.5px;font-weight:600}
+  .gh-badge{display:block;height:64px;width:auto}
+  .car-meta .tierb{margin-left:auto}
+  .tierb{display:inline-flex;align-items:center;flex:0 0 auto}
+  .tierb img{display:block;height:22px;width:43px;object-fit:contain}
+  #tbl td.tier{text-align:left}
+  #tbl th.tier,#tbl td.tier{white-space:nowrap}
+  #tbl th.tt,#tbl td.tt{display:none}
+  body.tiermode #tbl th.tt,body.tiermode #tbl td.tt{display:table-cell;white-space:nowrap}
+  body.tiermode #tbl td.tt{font-size:12px;color:var(--ink-2)}
+  #tbl .tcell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;width:100%}
+  #tbl th.tier,#tbl td.tier{text-align:center;vertical-align:middle}
+  #tbl .tcell .tierb{flex:0 0 auto}
+  #tbl .tcell .tierb img{height:21px;width:41px}
+  #tbl .tcell i{display:block;font-style:normal;font-size:12.5px;line-height:1.2;font-weight:600;color:var(--ink-2);white-space:nowrap}
+  .dtier{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+  .dtier .dti{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid var(--rule);border-radius:var(--r)}
+  .dtier .dti img{height:26px;width:51px;object-fit:contain;display:block}
+  .dtier .dti span{font-size:12.5px;color:var(--steel);line-height:1.35}
+  .dtier .dti b{display:block;font-size:13.5px;color:var(--ink);font-weight:600}
   .car-meta{display:flex;align-items:center;gap:9px;margin-top:16px;font-size:12.5px;color:var(--steel);letter-spacing:.02em}
   /* 只作用于色牌本身：数据表里 <td class="cls"> 同名，若不限定会把整格涂成等级色 */
   span.cls{
@@ -438,7 +543,18 @@ TEMPLATE = r"""<!DOCTYPE html>
   .tbl-hint{display:flex;align-items:baseline;gap:8px;color:var(--steel);font-size:13.5px;margin:0 0 14px}
   .tbl-hint b{color:var(--ink);font-weight:600}
   table{width:100%;border-collapse:separate;border-spacing:0}
-  #tbl{table-layout:fixed}
+  /* 用自动布局：fixed 模式的列宽只认第一行（分组表头是 colspan），
+     强度列会被压到 50px 导致组别文字截断 */
+  #tbl{table-layout:auto;min-width:1700px}
+  /* 列宽跟随内容，两侧各留半个中文字符（约 7px） */
+  #tbl thead th.tier{width:1%}
+  #tbl th.tier,#tbl td.tier{padding-left:7px;padding-right:7px}
+  /* 驱动/配置列也按内容收窄，并居中（原来带 .l 是左对齐且被拉宽） */
+  #tbl th.drv,#tbl td.drv{width:1%;white-space:nowrap;text-align:center;padding-left:7px;padding-right:7px}
+  #tbl thead th.tt{width:1%}
+  /* 多出 4 列后不能让 fixed 布局把每列压扁：撑开到可横向滚动 */
+  body.tiermode #tbl{table-layout:auto;min-width:1720px}
+  body.tiermode #tbl th.tt,body.tiermode #tbl td.tt{min-width:0;text-align:center;padding-left:7px;padding-right:7px}
   thead th{
     position:sticky;top:var(--barh);z-index:6;background:var(--paper);
     text-align:right;white-space:nowrap;
@@ -702,6 +818,21 @@ TEMPLATE = r"""<!DOCTYPE html>
   .wbody tr.stock td{color:var(--steel);background:var(--paper-2)}
   .wbody tr.stock .lv{color:var(--steel)}
 
+  /* 详情页选项：折叠全库统一字段 + 空力套件表 */
+  .duni{display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+    font:500 12.5px/1 var(--text);color:var(--steel);cursor:pointer;user-select:none}
+  .duni b{font-weight:600;color:var(--ink-2)}
+  .kv.off{display:none}
+  .sec--empty{display:none}
+  .ttune .tbadge{height:22px;width:43px;object-fit:contain;display:block}
+  .ttune td{vertical-align:top}
+  .ttune td.nt{white-space:normal;min-width:220px;color:var(--steel);font-size:12px;line-height:1.5}
+  .awing th em{display:block;margin-top:3px;font-style:normal;font-size:10.5px;font-weight:400;
+    color:var(--steel-2);letter-spacing:0}
+  .awing td{white-space:nowrap}
+  .awing td i{font-style:normal;color:var(--steel-2);margin-left:2px}
+  .awing td em{display:block;margin-top:2px;font-style:normal;font-size:11px;color:var(--accent)}
+
   /* ── 网站说明（窄卡片，纯文本） ─────────────────────── */
   .about-box{max-width:660px}
   .about-body{padding:30px 32px 34px}
@@ -958,6 +1089,7 @@ TEMPLATE = r"""<!DOCTYPE html>
       <a href="#catalogue" data-view="table">数据表</a>
       <button id="navCompare">并排比对</button>
       <button id="navGlossary">字段说明</button>
+      <button id="navAuth" class="nav-auth" aria-haspopup="dialog">登录</button>
     </div>
   </nav>
 
@@ -1040,7 +1172,7 @@ TEMPLATE = r"""<!DOCTYPE html>
       <div class="seg" id="groupBy" role="group" aria-label="车鉴分组方式">
         <button data-g="brand" class="on" aria-pressed="true">品牌</button>
         <button data-g="bucket" aria-pressed="false">类型</button>
-        <button data-g="date" aria-pressed="false">新增</button>
+        <button data-g="tier" aria-pressed="false">强度分级</button>
         <button data-g="acq" aria-pressed="false">获取</button>
       </div>
       <span class="catbar-sep"></span>
@@ -1072,15 +1204,17 @@ TEMPLATE = r"""<!DOCTYPE html>
         <thead>
           <tr class="grp">
             <th colspan="3" data-cols="pick,yr,nm">车辆</th>
-            <th colspan="6" data-cols="cls,pi,hp,tq,kg,pwr">动力与分级</th>
+            <th colspan="7" data-cols="tier,cls,pi,hp,tq,kg,pwr">动力与分级</th>
             <th colspan="4" data-cols="t60,tsm,latg,brk">性能</th>
             <th colspan="2" data-cols="drv,eng">配置</th>
+            <th colspan="4" class="tt" data-cols="tdrv,tdiff,ttire,trole">Meta 改装后数据</th>
             <th colspan="1" data-cols="acq">获取方式</th>
           </tr>
           <tr class="cols">
             <th class="pick"></th>
             <th class="yr l" data-k="year">年份</th>
             <th class="nm l" data-k="name">车名</th>
+            <th class="tier" data-k="tier">强度分级</th>
             <th data-k="cls">等级</th>
             <th data-k="pi">PI</th>
             <th class="hp" data-k="hp">马力<i>hp</i></th>
@@ -1093,6 +1227,10 @@ TEMPLATE = r"""<!DOCTYPE html>
             <th class="brk" data-k="brk">刹车<i>m</i></th>
             <th class="drv l" data-k="drv">驱动</th>
             <th class="l eng" data-k="eng">引擎</th>
+            <th class="tt" data-k="tdrv">驱动<i>Meta</i></th>
+            <th class="tt" data-k="tdiff">难度</th>
+            <th class="tt" data-k="ttire">轮胎</th>
+            <th class="tt" data-k="trole">定位</th>
             <th class="l acq" data-k="acq">车辆获取方式</th>
           </tr>
         </thead>
@@ -1221,6 +1359,9 @@ TEMPLATE = r"""<!DOCTYPE html>
         <div><dt>语言主题</dt><dd>简体 / 繁体两套页面 × 明暗两套配色，车名与品牌名可随时切换中英显示。</dd></div>
       </dl>
       <p class="about-note">车辆数据与车辆渲染图来自游戏内原始素材，版权归 Microsoft / Playground Games 所有。</p>
+      <p class="about-note">车辆线上强度评级数据来自社区玩家总结的
+        <a href="https://docs.qq.com/sheet/DYWZVRWR0dnh3aHhZ" target="_blank" rel="noopener noreferrer">《地平线6线上车辆调校推荐》</a>
+        表格，感谢原表作者 Noa Miyako 及所有参与整理的调校师。分级仅代表线上强度参考，随版本与调校更新会变化。</p>
       <div class="about-author">
         <p>本站由 <b>STWU</b> 独立制作与维护，数据与功能仍在持续更新。发现数据错误、想补充车型，或有任何使用问题与建议，欢迎到 B 站主页留言反馈。</p>
         <a class="about-link" href="https://space.bilibili.com/883100" target="_blank" rel="noopener noreferrer">关注 STWU 的 B 站主页<i aria-hidden="true">↗</i></a>
@@ -1245,6 +1386,31 @@ const DATA = __DATA__;
 const DEFAULT_LANG = "__LANG__", DEFAULT_THEME = "__THEME__";
 const COLS = DATA.cols, ROWS = DATA.rows, FULL = DATA.full, FROWS = DATA.fullRows, GROUPS = DATA.groups;
 const FI = {}; FULL.forEach((f, i) => FI[f.n] = i);
+/* 全库 691 台取值完全相同的字段（25 个）：详情页默认折叠 */
+const UNIFORM = new Set(DATA.uniform || []);
+
+/* 强度分级（来自调校推荐表）：tier[cid] = [[强度序号, 组别序号], ...]，首个是主标签 */
+const TIER = DATA.tier || {};
+const TIER_NAMES = DATA.tierNames || [];
+const TIER_GROUPS = DATA.tierGroups || [];
+const TIER_IMG = ["meta-plus", "meta", "t0-5", "t1", "t1-5", "t2", "t3", "unknown"];
+const tierOf = c => { const t = TIER[String(c.id)]; return t && t.length ? t[0][0] : 99; };
+const tierGroupOf = c => { const t = TIER[String(c.id)]; return t && t.length ? TIER_GROUPS[t[0][1]] || "" : ""; };
+const tierName = c => (tierOf(c) < 99 ? TIER_NAMES[tierOf(c)] : "未分级");
+const tierImg = c => (tierOf(c) < 99 ? `assets/tier/${TIER_IMG[tierOf(c)]}.png` : "");
+/* 漂移分级：只有 S–D 五档，徽章是另一套图 */
+const DRIFT_IMG = { S: "s", A: "a", B: "b", C: "c", D: "d" };
+const DRIFT_TIERS = ["S", "A", "B", "C", "D"];
+/* 车卡红框位置的小徽章 */
+const tierBadge = c => (tierOf(c) < 99
+  ? `<span class="tierb" title="${esc(tierTip(c))}"><img src="assets/tier/${TIER_IMG[tierOf(c)]}.png" alt="${esc(tierName(c))}" loading="lazy"></span>`
+  : "");
+/* 徽章悬浮说明：强度 + 组别 + 原表备注 */
+function tierTip(c) {
+  const n = (DATA.tierRows || {})[String(c.id)];
+  const note = n && n.length && n[0][6] ? `｜${n[0][6]}` : "";
+  return `竞速强度 ${tierName(c)} · ${tierGroupOf(c) || "未分组"}${note}`;
+}
 const cars = ROWS.map(r => { const o = {}; COLS.forEach((k, i) => o[k] = r[i]); return o; });
 const byId = new Map();
 cars.forEach((c, i) => { c._i = i; byId.set(c.id, c); });
@@ -1274,7 +1440,17 @@ cars.forEach(c => {
 });
 const brands = [...brandMap.values()];
 
-const S = {q: "", cls: "", drv: "", place: "", brand: "", ctry: "", bk: "", acq: "", eng: "", engName: "", sort: "pi", desc: true, view: "gallery", sel: new Set(), lang: "zh", group: "brand", npc: false, wide: false};
+const S = {q: "", cls: "", tgrp: "", drift: "", drv: "", place: "", brand: "", ctry: "", bk: "", acq: "", eng: "", engName: "", sort: "pi", desc: true, view: "gallery", sel: new Set(), lang: "zh", group: "brand", npc: false, wide: false};
+
+/* 分级（含后台覆盖）取值，供筛选与车鉴分组共用 */
+const effRace = c => {
+  const o = OVR[String(c.id)], t = TIER[String(c.id)];
+  return {
+    tier: (o && o.race_tier) || (t ? TIER_NAMES[t[0][0]] : ""),
+    group: (o && o.race_group) || (t ? TIER_GROUPS[t[0][1]] : ""),
+  };
+};
+const effDrift = c => (OVR[String(c.id)] || {}).drift_tier || "";
 
 /* 每台车可用（原厂 + 可换装）的引擎集合，点引擎时用来筛车 */
 const ENG_BY_CAR = new Map();
@@ -1378,14 +1554,81 @@ $("count").innerHTML = `<b>${cars.length}</b> / ${cars.length} 台`;
 
 /* ── 筛选器 ───────────────────────────────────────── */
 const chips = $("chips");
-chips.innerHTML = `<button class="chip on" data-cls="">全部</button>` +
-  Object.keys(CLASS).filter(c => cars.some(x => x.cls === c))
-    .map(c => `<button class="chip" data-cls="${c}" style="--cc:${ccOf(c)};--ct:${ctOf(c)}">${c}</button>`).join("");
-chips.addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if (!b) return;
-  S.cls = b.dataset.cls;
-  [...chips.children].forEach(x => x.classList.toggle("on", x === b));
-  apply();
+/* 等级筛选：按钮下拉，菜单里按等级分组列出「线上强度组别」（S1 → S1 800公路/泥地/越野） */
+const clsClasses = Object.keys(CLASS).filter(c => cars.some(x => x.cls === c));
+const grpOfCls = c => TIER_GROUPS.filter(g => g.split(/\s+/)[0] === c);
+
+function buildClsMenu() {
+  const rows = [`<button class="all" data-cls="" data-grp="">全部等级</button>`];
+  clsClasses.forEach(c => {
+    const groups = grpOfCls(c);
+    if (!groups.length) {
+      rows.push(`<button class="gi" data-cls="${c}" data-grp="" style="--cc:${ccOf(c)};--ct:${ctOf(c)}">
+        <span class="dot"></span>${c} 级 · 全部</button>`);
+      return;
+    }
+    rows.push(`<div class="gh" style="--cc:${ccOf(c)}">${c} 级</div>`);
+    rows.push(`<button class="gi" data-cls="${c}" data-grp="" style="--cc:${ccOf(c)};--ct:${ctOf(c)}">
+      <span class="dot"></span>${c} 级 · 全部</button>`);
+    groups.forEach(g => rows.push(
+      `<button class="gi" data-cls="${c}" data-grp="${esc(g)}" style="--cc:${ccOf(c)};--ct:${ctOf(c)}">
+        <span class="dot"></span>${esc(g)}</button>`));
+  });
+  return rows.join("");
+}
+
+chips.innerHTML = `<div class="clsdd" id="clsDD">
+    <button class="chip on" id="clsBtn" aria-haspopup="listbox" aria-expanded="false">
+      <span class="dot" style="--cc:var(--ink)"></span><span id="clsLbl">全部等级</span>
+    </button>
+    <div class="clsmenu" id="clsMenu" role="listbox">${buildClsMenu()}</div>
+  </div>
+  <div class="clsdd" id="driftDD">
+    <button class="chip" id="driftBtn" aria-haspopup="listbox" aria-expanded="false">
+      <span class="dot" style="--cc:var(--steel)"></span><span id="driftLbl">漂移强度</span>
+    </button>
+    <div class="clsmenu" id="driftMenu" role="listbox" style="width:180px">
+      <button class="all" data-drift="">全部漂移强度</button>
+      ${DRIFT_TIERS.map(t => `<button class="gi" data-drift="${t}">
+        <img src="assets/tier/drift/${DRIFT_IMG[t]}.png" alt="" style="height:16px;width:31px;object-fit:contain">
+        ${t} 级</button>`).join("")}
+    </div>
+  </div>`;
+
+const closeDD = () => document.querySelectorAll(".clsdd.open").forEach(d => {
+  d.classList.remove("open");
+  d.querySelector("button").setAttribute("aria-expanded", "false");
+});
+document.addEventListener("click", e => { if (!e.target.closest(".clsdd")) closeDD(); });
+
+$("clsBtn").onclick = e => {
+  e.stopPropagation();
+  const dd = $("clsDD"); const open = dd.classList.toggle("open");
+  $("clsBtn").setAttribute("aria-expanded", String(open));
+  $("driftDD").classList.remove("open");
+};
+$("driftBtn").onclick = e => {
+  e.stopPropagation();
+  const dd = $("driftDD"); const open = dd.classList.toggle("open");
+  $("driftBtn").setAttribute("aria-expanded", String(open));
+  $("clsDD").classList.remove("open");
+};
+$("clsMenu").addEventListener("click", e => {
+  const b = e.target.closest("[data-cls]"); if (!b) return;
+  S.cls = b.dataset.cls; S.tgrp = b.dataset.grp || "";
+  const lbl = S.tgrp || (S.cls ? `${S.cls} 级` : "全部等级");
+  $("clsLbl").textContent = lbl;
+  const cc = S.cls ? ccOf(S.cls) : "var(--ink)";
+  $("clsBtn").style.setProperty("--cc", cc);
+  $("clsBtn").classList.toggle("on", !!S.cls);
+  closeDD(); apply();
+});
+$("driftMenu").addEventListener("click", e => {
+  const b = e.target.closest("[data-drift]"); if (!b) return;
+  S.drift = b.dataset.drift || "";
+  $("driftLbl").textContent = S.drift ? `漂移 ${S.drift}` : "漂移强度";
+  $("driftBtn").classList.toggle("on", !!S.drift);
+  closeDD(); apply();
 });
 
 [["fBk", "bk"], ["fDrv", "drv"], ["fBrand", "brand"], ["fCtry", "ctry"], ["fAcq", "acq"]].forEach(([id, key]) => {
@@ -1574,7 +1817,7 @@ function cardHTML(c) {
   return `<article class="car" data-id="${c.id}" style="--cc:${ccOf(c.cls)};--ct:${ctOf(c.cls)}">
     <a class="car-link" href="#id=${c.id}" data-open="${c.id}" aria-label="${esc(nm(c))} 详情">
       <div class="car-stage"><img src="assets/car/${c.id}.webp" alt="" loading="lazy" decoding="async" style="--mh:${c.mh || 110}px" onerror="this.style.visibility='hidden'"><div class="car-flags">${flagsHTML(c)}</div></div>
-      <div class="car-meta"><span class="plate"><b>${c.cls || "–"}</b><i>${c.pi ?? "—"}</i></span><span>${c.year}</span><span>${c.drv || "—"}</span></div>
+      <div class="car-meta"><span class="plate"><b>${c.cls || "–"}</b><i>${c.pi ?? "—"}</i></span><span>${c.year}</span><span>${c.drv || "—"}</span>${tierBadge(c)}<span class="csoc"></span></div>
       <h4 class="car-name">${esc(nm(c))}</h4>
       <dl class="car-nums">
         <div><dt>马力</dt><dd>${nf(c.hp)}</dd></div>
@@ -1635,6 +1878,25 @@ function groupList() {
       key: "b" + b.id, title: bkName(b), en: S.lang === "en" ? "" : b.en, cars: map.get(b.id),
     }));
   }
+  if (S.group === "tier") {
+    /* 按竞速强度分级分组：Meta+ → 未知，未收录的单独一段排最后 */
+    const map = new Map();
+    pool.forEach(c => {
+      const k = tierOf(c);
+      if (!map.has(k)) map.set(k, []);
+      map.get(k).push(c);
+    });
+    return [...map.keys()].sort((a, b) => a - b).map(k => {
+      const list = map.get(k).slice().sort((a, b) => (b.pi || 0) - (a.pi || 0) || carCmp(a, b));
+      return {
+        key: "t" + k,
+        title: k < 99 ? TIER_NAMES[k] : "未分级",
+        img: k < 99 ? TIER_IMG[k] : null,
+        en: S.lang === "en" ? `${list.length} cars` : `${list.length} 台 · 竞速强度`,
+        cars: list,
+      };
+    });
+  }
   if (S.group === "date") {
     const map = new Map();
     pool.forEach(c => {
@@ -1676,7 +1938,7 @@ function makeSection(g) {
   const brandAttr = g.brand ? ` data-brand="${g.brand.id}"` : "";
   sec.innerHTML = `<header class="brand-h">
       ${logo}
-      <h3 class="brand-name"><span class="cn">${esc(g.title)}</span>${en}</h3>
+      <h3 class="brand-name">${g.img ? `<img class="gh-badge" src="assets/tier/${g.img}.png" alt="${esc(g.title)}">` : `<span class="cn">${esc(g.title)}</span>`}${en}</h3>
       <span class="brand-line"></span>
       <button class="brand-n"${brandAttr}><b>${g.cars.length}</b> 台</button>
     </header><div class="cars"></div>`;
@@ -1708,21 +1970,33 @@ function renderGallery() {
 
 /* ── 数据表 ───────────────────────────────────────── */
 let tblBuilt = false;
+let builtMode = null;
+let TROWS = [];
+const TIER_ROWS = DATA.tierRows || {};
+const rowsOf = c => TIER_ROWS[String(c.id)] || [];
+const tierMode = () => !!(S.tgrp || S.cls);
 const rowOf = new Map();
 
 /* 一列同时承载 Acquired via 与 Car Pass 加入日期：主行获取方式，小字补日期 */
 const acqTip = c => `${acqText(c)}${c.dt ? " · 加入 " + c.dt : ""}`;
 const acqHTML = c => `${esc(acqText(c))}${c.dt ? `<em class="sub">加入 ${esc(c.dt)}</em>` : ""}`;
 
-function buildTable() {
-  if (tblBuilt) return;
-  const body = $("tbody");
-  body.innerHTML = cars.map(c => {
-    const v = Math.max(4, Math.min(100, (c.pi - 100) / 898 * 100)).toFixed(0);
-    return `<tr data-id="${c.id}" style="--cc:${ccOf(c.cls)};--ct:${ctOf(c.cls)}">
+function rowHTML(c, e, mode) {
+  const v = Math.max(4, Math.min(100, (c.pi - 100) / 898 * 100)).toFixed(0);
+  const ti = e ? e[0] : tierOf(c);
+  const grp = e ? (TIER_GROUPS[e[1]] || "") : tierGroupOf(c);
+  const badge = ti < 99
+    ? `<span class="tierb"><img src="assets/tier/${TIER_IMG[ti]}.png" alt="${esc(TIER_NAMES[ti])}"></span>` : "";
+  const note = e && e[6] ? ` title="${esc(e[6])}"` : "";
+  const tt = mode
+    ? `<td class="tt">${esc(e && e[2] || "—")}</td><td class="tt">${esc(e && e[3] || "—")}</td>
+       <td class="tt">${esc(e && e[4] || "—")}</td><td class="tt">${esc(e && e[5] || "—")}</td>`
+    : `<td class="tt"></td><td class="tt"></td><td class="tt"></td><td class="tt"></td>`;
+  return `<tr data-id="${c.id}" data-ti="${ti}" style="--cc:${ccOf(c.cls)};--ct:${ctOf(c.cls)}">
       <td class="pick"><input type="checkbox" class="chk" data-sel="${c.id}" aria-label="选择 ${esc(nm(c))}"></td>
       <td class="yr">${c.year}</td>
       <td class="nm" title="${esc(nm(c))}"><div class="thumbcell"><img src="assets/car/${c.id}.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"><span class="nmtext">${esc(nm(c))}</span></div></td>
+      <td class="tier"${note}><div class="tcell">${badge}<i>${esc(grp || "—")}</i></div></td>
       <td class="cls"><span class="cls">${c.cls || "–"}</span></td>
       <td class="pi"><b>${c.pi ?? "—"}</b><i style="--v:${v}%"></i></td>
       <td class="hp">${nf(c.hp)}</td>
@@ -1735,14 +2009,36 @@ function buildTable() {
       <td class="brk">${Number(c.brk).toFixed(1)}</td>
       <td class="drv">${c.drv || "—"}</td>
       <td class="eng" title="${esc(c.eng || "—")}">${esc(c.eng || "—")}${c.eg ? `<sup class="guess" title="${engGuessTip}">*</sup>` : ""}</td>
+      ${tt}
       <td class="acq" title="${esc(acqTip(c))}">${acqHTML(c)}</td>
     </tr>`;
-  }).join("");
-  body.querySelectorAll("tr").forEach(tr => rowOf.set(+tr.dataset.id, {
-    tr, nameEl: tr.querySelector(".nmtext"), nmTd: tr.querySelector("td.nm"),
-    chk: tr.querySelector("input.chk"), acqEl: tr.querySelector("td.acq"),
-  }));
-  tblBuilt = true;
+}
+
+/* 表格行：普通模式一车一行；启用等级/组别筛选后改为「一车一等级一行」，
+   并露出右侧「Meta 改装后数据」四列（驱动/难度/轮胎/定位） */
+function buildTable(force) {
+  const mode = tierMode();
+  if (tblBuilt && !force && mode === builtMode) return;
+  builtMode = mode; tblBuilt = true;
+  document.body.classList.toggle("tiermode", mode);
+  TROWS = [];
+  cars.filter(matches).forEach(c => {
+    const list = rowsOf(c);
+    if (!mode || !list.length) { TROWS.push({ c, e: null }); return; }
+    list.forEach(e => {
+      if (S.tgrp && TIER_GROUPS[e[1]] !== S.tgrp) return;
+      TROWS.push({ c, e });
+    });
+  });
+  const body = $("tbody");
+  body.innerHTML = TROWS.map(r => rowHTML(r.c, r.e, mode)).join("");
+  [...body.children].forEach((tr, i) => {
+    TROWS[i].tr = tr;
+    if (!rowOf.has(+tr.dataset.id)) rowOf.set(+tr.dataset.id, {
+      tr, nameEl: tr.querySelector(".nmtext"), nmTd: tr.querySelector("td.nm"),
+      chk: tr.querySelector("input.chk"), acqEl: tr.querySelector("td.acq"),
+    });
+  });
   sortTable();
 }
 
@@ -1750,29 +2046,39 @@ function sortTable() {
   if (!tblBuilt) return;
   const k = S.sort;
   document.querySelectorAll("#tbl thead th").forEach(x => x.classList.remove("on", "asc"));
-  const head = document.querySelector(`#tbl thead th[data-k="${k === "name" ? "name" : k}"]`);
+  const head = document.querySelector(`#tbl thead th[data-k="${k}"]`);
   if (head) { head.classList.add("on"); if (!S.desc) head.classList.add("asc"); }
-  const list = cars.slice().sort((a, b) => {
+  const TT = { tdrv: 2, tdiff: 3, ttire: 4, trole: 5 };
+  const cmp = (a, b) => {
+    if (k === "tier") {
+      const ta = a.e ? a.e[0] : 99, tb = b.e ? b.e[0] : 99;
+      return ta - tb || (b.c.pi || 0) - (a.c.pi || 0);
+    }
+    if (k in TT) {
+      const ia = a.e ? TT[k] : null, ib = b.e ? TT[k] : null;
+      const va = ia === null ? "\uffff" : String(a.e[ia] || "\uffff");
+      const vb = ib === null ? "\uffff" : String(b.e[ib] || "\uffff");
+      return va.localeCompare(vb, COLL());
+    }
     if (k === "name") {
-      const r = sortName(a).localeCompare(sortName(b), COLL(), {numeric: true})
-        || nm(a).localeCompare(nm(b), COLL());
-      return S.desc ? -r : r;
+      return sortName(a.c).localeCompare(sortName(b.c), COLL(), {numeric: true})
+        || nm(a.c).localeCompare(nm(b.c), COLL());
     }
     if (k === "acq") {
-      /* 按显示出来的「获取方式」排，而不是按 Excel 英文原文；未收录的排最后 */
-      const r = (a.acq ? acqText(a) : "\uffff").localeCompare(b.acq ? acqText(b) : "\uffff", COLL(), {numeric: true});
-      return S.desc ? -r : r;
+      const r = (a.c.acq ? acqText(a.c) : "\uffff").localeCompare(b.c.acq ? acqText(b.c) : "\uffff", COLL(), {numeric: true});
+      return r;
     }
-    let va = a[k], vb = b[k];
+    let va = a.c[k], vb = b.c[k];
     if (k === "t60") { va = va || 999; vb = vb || 999; }
     if (typeof va === "string" || typeof vb === "string") {
       va = String(va || ""); vb = String(vb || "");
-      return S.desc ? vb.localeCompare(va, COLL()) : va.localeCompare(vb, COLL());
+      return va.localeCompare(vb, COLL());
     }
-    return S.desc ? (vb - va) : (va - vb);
-  });
+    return (va || 0) - (vb || 0);
+  };
+  TROWS.sort((a, b) => (S.desc ? -cmp(a, b) : cmp(a, b)));
   const body = $("tbody");
-  body.append(...list.map(c => rowOf.get(c.id).tr));
+  body.append(...TROWS.map(r => r.tr));
 }
 
 document.querySelectorAll("#tbl thead th[data-k]").forEach(th => {
@@ -1806,7 +2112,10 @@ function featText(c) { return FEAT_OF.get(c.id) || ""; }
 function matches(c) {
   if (!S.npc && c.npc) return false;
   if (S.wide && !c.wide) return false;   // 宽体筛选：只看有可选车身套件的车
-  if (S.cls && c.cls !== S.cls) return false;
+  /* 选了具体组别时只按组别筛（车子的原厂等级可能与该组别不同） */
+  if (S.tgrp) { if (effRace(c).group !== S.tgrp) return false; }
+  else if (S.cls && c.cls !== S.cls) return false;
+  if (S.drift && effDrift(c) !== S.drift) return false;
   if (S.ctry && String(c.ctry) !== S.ctry) return false;
   if (S.bk && String(c.bk) !== S.bk) return false;
   if (S.eng) {
@@ -1835,6 +2144,7 @@ function matches(c) {
 let visible = 0;
 
 function apply() {
+  if (tblBuilt) buildTable(true);
   const q = S.q.trim();
   let n = 0;
   cars.forEach(c => {
@@ -1860,12 +2170,13 @@ function apply() {
      数据表模式会被悄悄顶回车鉴。 */
   gallery.hidden = S.view === "table" || n === 0;
 
-  const active = !!(q || S.cls || S.drv || S.place || S.brand || S.ctry || S.bk || S.acq || S.eng || S.wide);
+  const active = !!(q || S.cls || S.tgrp || S.drift || S.drv || S.place || S.brand || S.ctry || S.bk || S.acq || S.eng || S.wide);
   $("result").classList.toggle("on", active);
   if (active) {
     const bits = [];
     if (q) bits.push(`“${esc(q)}”`);
-    if (S.cls) bits.push(`${S.cls} 级`);
+    if (S.tgrp) bits.push(S.tgrp); else if (S.cls) bits.push(`${S.cls} 级`);
+    if (S.drift) bits.push(`漂移 ${S.drift}`);
     if (S.drv) bits.push(`${DRIVE_LABEL[S.drv] || S.drv} ${S.drv}`);
     if (S.place) bits.push(placeCode(+S.place));
     if (S.brand) {
@@ -1885,7 +2196,7 @@ function apply() {
 }
 
 function clearFilters() {
-  S.q = ""; S.cls = ""; S.drv = ""; S.place = ""; S.brand = ""; S.ctry = ""; S.bk = ""; S.acq = ""; S.eng = ""; S.engName = "";
+  S.q = ""; S.cls = ""; S.tgrp = ""; S.drift = ""; S.drv = ""; S.place = ""; S.brand = ""; S.ctry = ""; S.bk = ""; S.acq = ""; S.eng = ""; S.engName = "";
   S.wide = false; $("fWide").checked = false;
   $("q").value = ""; $("fDrv").value = ""; $("fPlace").value = ""; $("fBrand").value = ""; $("fCtry").value = "";
   $("fBk").value = ""; $("fAcq").value = "";
@@ -2166,10 +2477,18 @@ function openCar(id) {
       <div><dt>0–60</dt><dd>${Number(c.t60).toFixed(2)}<span>s</span></dd></div>
       <div><dt>极速</dt><dd>${nf(c.tsm)}<span>km/h</span></dd></div>
     </dl>
+    ${tierOf(c) < 99 ? `<div class="dtier">
+      <span class="dti"><img src="${tierImg(c)}" alt=""><span><b>竞速强度 ${esc(tierName(c))}</b>${esc(tierGroupOf(c))} · 改装等级</span></span>
+      ${(TIER[String(c.id)] || []).slice(1).map(([ti, gi]) => `<span class="dti"><img src="assets/tier/${TIER_IMG[ti]}.png" alt=""><span><b>${esc(TIER_NAMES[ti])}</b>${esc(TIER_GROUPS[gi] || "")}</span></span>`).join("")}
+    </div>` : ""}
     <div class="dfind">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
       <input id="dfilter" type="search" placeholder="在这台车的 151 项字段里找，例如 下压力" aria-label="筛选字段">
-    </div>`;
+    </div>
+    <label class="duni"><input type="checkbox" id="dUni" class="chk" checked>
+      折叠全库统一数据 <b>${UNIFORM.size}</b></label>
+    <div class="dact" id="dAct"></div>
+    <details class="tunebox" id="dTune"></details>`;
 
   /* 字段分组不在这里渲染：改装件（引擎 / 宽体 / 轮胎）要先上，见下方 */
 
@@ -2267,6 +2586,53 @@ function openCar(id) {
     html += `</tbody></table><p class="hint">点任意一行查看该配方的完整 92 项曲线参数<span class="only-m"> · 表格可左右滑动</span></p></div></section>`;
   }
 
+  /* 线上分级明细：一台车可能出现在多张分级表里，逐行列出驱动/难度/轮胎/定位/备注 */
+  const trs = rowsOf(c);
+  if (trs.length) {
+    html += `<section class="sec"><h3><span>线上强度分级</span><em>${trs.length} 个组别</em></h3><div class="tirewrap">
+      <table class="tire ttune"><thead><tr>
+        <th>强度</th><th>性能组别</th><th>驱动</th><th>难度</th><th>轮胎</th><th>定位</th><th class="nt">备注</th>
+      </tr></thead><tbody>
+      ${trs.map(r => `<tr>
+        <td><img class="tbadge" src="assets/tier/${TIER_IMG[r[0]]}.png" alt="${esc(TIER_NAMES[r[0]])}"></td>
+        <td>${esc(TIER_GROUPS[r[1]] || "—")}</td>
+        <td>${esc(r[2] || "—")}</td><td>${esc(r[3] || "—")}</td>
+        <td>${esc(r[4] || "—")}</td><td>${esc(r[5] || "—")}</td>
+        <td class="nt">${esc(r[6] || "—")}</td></tr>`).join("")}
+      </tbody></table>
+      <p class="hint">同一台车若在不同改装等级下都有推荐，会分多行列出；备注为原表作者对该调校的说明。</p></div></section>`;
+  }
+
+  /* 空气动力学套件：尾翼改装的阻力/下压力曲线（List_UpgradeRearWing + List_AeroPhysics） */
+  const ae = (DATA.aero || {})[String(c.id)];
+  if (ae && ae.k.length) {
+    const num = v => (v === null || v === undefined ? 0 : Number(v));
+    const pair = (a, b) => (Math.abs(a) < 1e-9 && Math.abs(b) < 1e-9
+      ? "—" : `${num(a).toFixed(1)} <i>→</i> ${num(b).toFixed(1)}`);
+    const dsCell = (v) => {
+      const d = (num(v) - 1) * 100;
+      return `×${num(v).toFixed(3)}${Math.abs(d) < 0.05 ? "" : `<em>${d > 0 ? "+" : ""}${d.toFixed(1)}%</em>`}`;
+    };
+    const st = ae.s;
+    const rowOf = (r, stock) => `<tr class="${stock ? "isstock" : ""}">
+        <td><span class="lv">${stock ? "原厂" : "Lv " + r[0]}</span></td>
+        <td>${stock ? "—" : nf(r[1])}</td>
+        <td>${stock ? "—" : (r[2] > 0 ? "+" : "") + num(r[2]).toFixed(1)}</td>
+        <td>${dsCell(r[3])}</td>
+        <td>${num(r[4]).toFixed(2)}</td>
+        <td>${pair(r[7], r[8])}</td>
+        <td>${pair(r[5], r[6])}</td>
+        <td>${num(r[9]).toFixed(1)}<i>°</i></td></tr>`;
+    html += `<section class="sec"><h3><span>空气动力学套件</span><em>${ae.k.length} 档可选</em></h3><div class="tirewrap">
+      <table class="tire swp awing">
+      <thead><tr><th>套件</th><th>价格</th><th>质量</th><th>风阻缩放</th><th>稳定性</th>
+      <th>下压力<em>低 → 高攻角</em></th><th>空气阻力<em>低 → 高攻角</em></th><th>零攻角</th></tr></thead><tbody>
+      ${st ? rowOf(st, true) : ""}${ae.k.map(r => rowOf(r, false)).join("")}
+      </tbody></table>
+      <p class="hint">下压力与空气阻力取自 List_AeroPhysics，是尾翼攻角滑杆两端的标定值；
+      风阻缩放为该套件对整车风阻的乘数（&lt;1 表示更省风），稳定性数值越低越不易被侧风扰动。</p></div></section>`;
+  }
+
   /* 车辆悬挂：前后结构 / 转向手感 / 后轮转向（支持的车型才出标签块） */
   const spx = (DATA.susp || {})[String(c.id)];
   if (spx) {
@@ -2330,10 +2696,12 @@ function openCar(id) {
   ]);
   GROUPS.forEach((g, gi) => {
     if (!secs[gi].length) return;
-    html += `<section class="sec"><h3><span>${g.replace(/^[①-⑫]\s*/, "")}</span><em>${secs[gi].length} 项</em></h3><div class="grid2">`;
+    html += `<section class="sec" data-n="${secs[gi].length}"><h3><span>${g.replace(/^[①-⑫]\s*/, "")}</span><em>${secs[gi].length} 项</em></h3><div class="grid2">`;
     secs[gi].forEach(([f, v]) => {
       const key = KEY_FIELDS.has(f.n);
-      html += `<div class="kv${key ? " kv--key" : ""}" data-k="${esc(f.cn)}${esc(f.n)}" title="${esc(f.d || "")}">
+      /* 全库统一取值的字段默认折叠，省出空间给真正有差异的数据 */
+      const uni = UNIFORM.has(f.n) ? " uni" : "";
+      html += `<div class="kv${key ? " kv--key" : ""}${uni}" data-k="${esc(f.cn)}${esc(f.n)}" title="${esc(f.d || "")}">
         <span>${esc(f.cn)}</span><b>${fmtField(f, v)}${f.s && f.s !== "—" ? `<em>${esc(f.s)}</em>` : ""}</b></div>`;
     });
     /* 「质量、轮胎与尺寸」末尾补四行改装胎宽上限：胎宽档位挂在车身上，
@@ -2363,6 +2731,27 @@ function openCar(id) {
   syncAdd();
 
   $("dBody").innerHTML = html;
+  /* 折叠全库统一字段：勾选时把 .kv.uni 隐掉，整段都被隐掉的分组直接不显示，
+     分组标题上的「N 项」跟着可见条数走，避免数字和内容对不上 */
+  const applyUni = () => {
+    const box = $("dUni");
+    const on = !box || box.checked;
+    document.querySelectorAll("#dBody .kv.uni").forEach(el => el.classList.toggle("off", on));
+    document.querySelectorAll("#dBody section.sec[data-n]").forEach(sec => {
+      const all = [...sec.querySelectorAll(".kv")];
+      const vis = all.filter(el => !el.classList.contains("off") && !el.classList.contains("hide"));
+      sec.classList.toggle("sec--empty", all.length > 0 && vis.length === 0);
+      const em = sec.querySelector("h3 em");
+      if (em) em.textContent = `${vis.length} / ${sec.dataset.n} 项`;
+    });
+  };
+  const uniBox = $("dUni");
+  if (uniBox) uniBox.onchange = applyUni;
+  applyUni();
+  renderSocial(c);
+  paintDrift(c);
+  const tuneEl = $("dTune");
+  if (tuneEl) tuneEl.addEventListener("toggle", () => { if (tuneEl.open) renderTunes(c); }, { once: true });
   $("dBody").scrollTop = 0;
   drawer.classList.add("on"); scrim.classList.add("on");
   drawer.setAttribute("aria-hidden", "false");
@@ -2375,6 +2764,7 @@ function openCar(id) {
     document.querySelectorAll("#dBody .kv").forEach(el => {
       el.classList.toggle("hide", !!s && !el.dataset.k.toLowerCase().includes(s));
     });
+    applyUni();
   };
 }
 
@@ -2664,6 +3054,241 @@ if (cm) {
 if (location.hash === "#fields") setTimeout(openGlossary, 100);
 if (location.hash.startsWith("#curves")) { const cid = location.hash.split("=")[1]; setTimeout(() => openCurves(cid ? +cid : undefined), 100); }
 if (location.hash === "#table") setTimeout(() => setView("table"), 60);
+/* ── 玩家账号 / 收藏 / 评分 / 调校 ─────────────────────
+   接口见 server/server.mjs；同源部署时 API_BASE 留空即可。
+   服务端不可用时整块静默降级，站点核心功能（查车）不受影响。 */
+const API_BASE = window.__FH6_API__ || "";
+let ME = null;
+const SOCIAL = {};                 // carId -> {fav, owned, wish, votes, avg}
+const MY = { garage: new Map(), ratings: new Map() };
+const OVR = {};                        // 后台改过的分级：carId -> {race_tier, race_group, drift_tier}
+
+async function api(path, opt = {}) {
+  const res = await fetch(API_BASE + path, {
+    credentials: "include",
+    ...opt,
+    headers: { "Content-Type": "application/json", "X-CSRF": "1", ...(opt.headers || {}) },
+  });
+  if (!res.ok) throw Object.assign(new Error("HTTP " + res.status), { status: res.status });
+  return res.json();
+}
+
+let API_OK = true;
+async function bootAuth() {
+  try { ME = await api("/api/me"); } catch { ME = null; API_OK = false; }
+  if (ME) {
+    try {
+      const g = await api("/api/garage");
+      g.garage.forEach(x => MY.garage.set(String(x.car_id), x.state));
+      g.ratings.forEach(x => MY.ratings.set(String(x.car_id), x.score));
+    } catch { /* 忽略：只影响「我的」状态 */ }
+  }
+  try {
+    const t = await api("/api/tiers");
+    (t.overrides || []).forEach(o => { OVR[String(o.car_id)] = o; });
+  } catch { /* 无 API 时用静态分级 */ }
+  paintAuth();
+  loadStats();
+}
+
+async function loadStats() {
+  const ids = cars.map(c => c.id);
+  for (let i = 0; i < ids.length; i += 300) {
+    try {
+      const r = await api("/api/stats?ids=" + ids.slice(i, i + 300).join(","));
+      Object.assign(SOCIAL, r.stats || {});
+    } catch { return; }
+  }
+  paintStats();
+}
+
+function paintStats() {
+  document.querySelectorAll(".car").forEach(el => {
+    const s = SOCIAL[el.dataset.id];
+    const box = el.querySelector(".csoc");
+    if (!box) return;
+    if (!s || (!s.fav && !s.votes)) { box.textContent = ""; return; }
+    box.textContent = (s.fav ? "★ " + s.fav : "") + (s.votes ? (s.fav ? " · " : "") + s.avg.toFixed(1) + "★" : "");
+  });
+}
+
+function paintAuth() {
+  const b = $("navAuth");
+  if (!b) return;
+  if (!API_OK) { b.hidden = true; return; }
+  if (!ME) { b.textContent = "登录"; b.onclick = () => openLogin(); return; }
+  const admin = ME.user.is_admin;
+  b.textContent = admin ? "管理员" : (ME.user.is_display_name || ME.user.display_name || "我的");
+  b.onclick = () => (admin ? (location.href = "admin.html") : openLogin());
+}
+
+function openLogin() {
+  if (document.getElementById("loginBox")) return;
+  const box = document.createElement("div");
+  box.id = "loginBox";
+  box.innerHTML = `<div class="lb-card">
+      <h3>同步你的收藏</h3>
+      <p>用邮箱收一个一次性登录链接，收藏、评分与调校就会跟账号绑定。</p>
+      <div class="row"><input id="lbEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+      <div class="row"><button id="lbGo">发送登录链接</button><button id="lbClose" class="ghost">稍后再说</button></div>
+      <div class="row"><a class="lb-steam" href="${API_BASE}/auth/steam/start?next=${encodeURIComponent(location.pathname + location.search)}">使用 Steam 登录</a></div>
+      <p class="lb-msg" id="lbMsg"></p>
+    </div>`;
+  document.body.appendChild(box);
+  const close = () => box.remove();
+  box.addEventListener("click", e => { if (e.target === box) close(); });
+  $("lbClose").onclick = close;
+  $("lbGo").onclick = async () => {
+    const email = $("lbEmail").value.trim();
+    const msg = $("lbMsg");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = "邮箱格式不对"; return; }
+    msg.textContent = "发送中…";
+    try {
+      const r = await api("/auth/email/start", { method: "POST", body: JSON.stringify({ email, next: location.pathname + location.search }) });
+      msg.textContent = r.dev_link
+        ? "开发模式：点这里登录 → " 
+        : "已发送，请查收邮箱（链接 15 分钟内有效）";
+      if (r.dev_link) {
+        const a = document.createElement("a");
+        a.href = r.dev_link; a.textContent = "打开登录链接"; a.style.cssText = "color:var(--accent);text-decoration:underline";
+        msg.append(a);
+      }
+    } catch (e) { msg.textContent = e.status === 429 ? "请求太频繁，稍后再试" : "发送失败，请稍后重试"; }
+  };
+}
+
+function renderSocial(c) {
+  const box = $("dAct");
+  if (!box) return;
+  const id = String(c.id);
+  const s = SOCIAL[id] || { fav: 0, votes: 0, avg: 0 };
+  const fav = MY.garage.get(id) === "favorite";
+  const myScore = MY.ratings.get(id) || 0;
+  const canRate = ME && !ME.user.is_anonymous;
+  box.innerHTML = `
+    <button class="afav" id="dFav" aria-pressed="${fav}">★ <span>${fav ? "已收藏" : "收藏"}</span><b>${s.fav || 0}</b></button>
+    <span class="arate" id="dRate" title="${canRate ? "点击评分" : "登录后可评分"}">
+      ${[1, 2, 3, 4, 5].map(i => `<button data-s="${i}" class="${myScore >= i ? "on" : ""}" aria-label="${i} 星">★</button>`).join("")}
+    </span>
+    <span class="astat">${s.votes ? `<b>${s.avg.toFixed(1)}</b> · ${s.votes} 人评分` : "暂无评分"}</span>
+    ${!canRate ? `<span class="alogin" id="dLoginTip">登录后可评分 / 上传调校</span>` : ""}
+    ${ME && ME.user.is_admin ? `<a class="alogin" href="admin.html">分级后台</a>` : ""}`;
+
+  $("dFav").onclick = async () => {
+    if (!ME) return openLogin();
+    const now = MY.garage.get(id) === "favorite";
+    try {
+      if (now) { await api("/api/garage/" + id, { method: "DELETE" }); MY.garage.delete(id); s.fav = Math.max(0, (s.fav || 0) - 1); }
+      else { await api("/api/garage/" + id, { method: "PUT", body: JSON.stringify({ state: "favorite" }) }); MY.garage.set(id, "favorite"); s.fav = (s.fav || 0) + 1; }
+      SOCIAL[id] = s;
+      renderSocial(c); paintStats();
+    } catch { alert("操作失败，请稍后再试"); }
+  };
+  $("dRate").querySelectorAll("button").forEach(b => {
+    b.onclick = async () => {
+      if (!canRate) return openLogin();
+      try {
+        const r = await api("/api/ratings/" + id, { method: "PUT", body: JSON.stringify({ score: +b.dataset.s }) });
+        MY.ratings.set(id, +b.dataset.s);
+        Object.assign(s, { votes: r.votes, avg: r.avg });
+        SOCIAL[id] = s;
+        renderSocial(c); paintStats();
+      } catch { alert("评分失败，请稍后再试"); }
+    };
+  });
+  const tip = $("dLoginTip");
+  if (tip) tip.onclick = openLogin;
+}
+
+/* 漂移分级：只有后台配过才显示，用独立的 S/A/B/C/D 徽章 */
+function paintDrift(c) {
+  const o = OVR[String(c.id)];
+  if (!o) return;
+  /* 后台改过的竞速分级优先于静态表 */
+  if (o.race_tier && TIER_NAMES.includes(o.race_tier)) {
+    const first = document.querySelector("#dBody .dtier .dti");
+    const img = TIER_IMG[TIER_NAMES.indexOf(o.race_tier)];
+    if (first) {
+      first.innerHTML = `<img src="assets/tier/${img}.png" alt="">
+        <span><b>竞速强度 ${esc(o.race_tier)}</b>${esc(o.race_group || "")} · 改装等级</span>`;
+    }
+  }
+  if (!o.drift_tier) return;
+  const img = DRIFT_IMG[o.drift_tier];
+  if (!img) return;
+  const wrap = document.createElement("div");
+  wrap.className = "dtier";
+  wrap.innerHTML = `<span class="dti"><img src="assets/tier/drift/${img}.png" alt="">
+      <span><b>漂移强度 ${esc(o.drift_tier)}</b>${o.race_group ? esc(o.race_group) : "漂移分级"}</span></span>`;
+  const host = document.querySelector("#dBody .dtier");
+  if (host) host.appendChild(wrap.firstElementChild);
+  else $("dAct").after(wrap);
+}
+
+/* 调校：详情页里折叠一块，按需拉取。
+   结构按设计文档：9 位分享码 + 作者游戏 ID + 适用强度分级 + ≤100 字说明。 */
+async function renderTunes(c) {
+  const host = $("dTune");
+  if (!host) return;
+  const groups = [...(DATA.tierGroups || []), "漂移神车", "通用"];
+  host.innerHTML = `<summary>玩家调校</summary>
+    <div class="tunelist" id="tuneList"><span class="ti">加载中…</span></div>`;
+  if (ME && !ME.user.is_anonymous) {
+    host.insertAdjacentHTML("beforeend", `
+      <div class="tuneform">
+        <div class="row">
+          <input id="tuneCode" inputmode="numeric" autocomplete="off" maxlength="9" placeholder="9 位调校分享码（游戏内 FH6 分享码）">
+          <input id="tuneAuthor" autocomplete="off" maxlength="32" placeholder="调校作者游戏 ID">
+        </div>
+        <div class="row">
+          <select id="tuneTier">${groups.map(g => `<option>${esc(g)}</option>`).join("")}</select>
+          <input id="tuneNote" maxlength="100" placeholder="说明（最多 100 字，所有玩家可见）">
+          <button id="tunePost">上传</button>
+        </div>
+        <p class="tunemsg" id="tuneMsg"></p>
+      </div>`);
+    const msg = $("tuneMsg");
+    $("tuneCode").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9); });
+    $("tuneNote").addEventListener("input", e => {
+      const n = Array.from(e.target.value).length;
+      msg.textContent = `${n} / 100`;
+      if (n > 100) e.target.value = Array.from(e.target.value).slice(0, 100).join("");
+    });
+    $("tunePost").onclick = async () => {
+      const share_code = $("tuneCode").value.trim();
+      const author_id = $("tuneAuthor").value.trim();
+      const tier_group = $("tuneTier").value;
+      const note = $("tuneNote").value.trim();
+      if (!/^\d{9}$/.test(share_code)) { msg.textContent = "分享码必须是 9 位数字"; return; }
+      if (Array.from(author_id).length < 2) { msg.textContent = "请填写作者游戏 ID"; return; }
+      $("tunePost").disabled = true;
+      try {
+        await api("/api/tunes", { method: "POST", body: JSON.stringify({ car_id: c.id, share_code, author_id, tier_group, note, payload: {} }) });
+        renderTunes(c);
+        const d = $("dTune"); if (d) d.open = true;
+      } catch (e) {
+        msg.textContent = e.status === 409 ? "这台车已收录过该分享码" : e.status === 429 ? "上传过于频繁，稍后再试" : "上传失败，请检查填写内容";
+        $("tunePost").disabled = false;
+      }
+    };
+  }
+  try {
+    const r = await api("/api/tunes?carId=" + c.id);
+    const list = $("tuneList");
+    if (!list) return;
+    host.querySelector("summary").textContent = r.tunes.length ? `玩家调校（${r.tunes.length}）` : "玩家调校";
+    list.innerHTML = r.tunes.length ? r.tunes.map(t => `<div class="ti">
+        <div class="ti-h"><b>${esc(t.tier_group)}</b><code>${esc(String(t.share_code).replace(/(\d{3})(?=\d)/g, "$1 "))}</code>
+        <span>作者 ${esc(t.author_id)}</span></div>
+        ${t.note ? `<p>${esc(t.note)}</p>` : ""}
+      </div>`).join("") : `<span class="ti">还没有收录这台车的调校，来做第一个。</span>`;
+  } catch {
+    const list = $("tuneList"); if (list) list.innerHTML = `<span class="ti">调校服务暂不可用</span>`;
+  }
+}
+
+bootAuth();
+
 </script>
 </body>
 </html>
