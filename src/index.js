@@ -1,6 +1,7 @@
 import { handleContact } from "./contact.js";
 import { routeAuth } from "./auth.js";
 import { routeAdmin } from "./admin.js";
+import { routeApp } from "./app.js";
 import { ensureSchema } from "./schema.js";
 
 const json = (code, body) =>
@@ -26,6 +27,9 @@ export default {
 
     const adminRes = await routeAdmin(request, env, url);
     if (adminRes) return adminRes;
+
+    const appRes = await routeApp(request, env, url);
+    if (appRes) return appRes;
 
     const authRes = await routeAuth(request, env, url);
     if (authRes) return authRes;

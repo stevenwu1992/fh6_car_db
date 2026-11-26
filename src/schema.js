@@ -30,6 +30,20 @@ const DDL = [
   `CREATE TABLE IF NOT EXISTS tier_overrides (
      car_id TEXT PRIMARY KEY, race_tier TEXT, race_group TEXT, drift_tier TEXT,
      updated_by TEXT, updated_at INTEGER NOT NULL)`,
+  `CREATE TABLE IF NOT EXISTS garage (
+     user_id TEXT NOT NULL, car_id TEXT NOT NULL, state TEXT NOT NULL,
+     updated_at INTEGER NOT NULL, PRIMARY KEY(user_id, car_id))`,
+  `CREATE INDEX IF NOT EXISTS idx_garage_car ON garage(car_id, state)`,
+  `CREATE TABLE IF NOT EXISTS ratings (
+     user_id TEXT NOT NULL, car_id TEXT NOT NULL, score INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL, PRIMARY KEY(user_id, car_id))`,
+  `CREATE INDEX IF NOT EXISTS idx_ratings_car ON ratings(car_id)`,
+  `CREATE TABLE IF NOT EXISTS tunes (
+     id TEXT PRIMARY KEY, user_id TEXT NOT NULL, car_id TEXT NOT NULL,
+     share_code TEXT NOT NULL, author_id TEXT NOT NULL, tier_group TEXT NOT NULL,
+     note TEXT, payload TEXT, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL,
+     UNIQUE(car_id, share_code))`,
+  `CREATE INDEX IF NOT EXISTS idx_tunes_car ON tunes(car_id, created_at DESC)`,
 ];
 
 export async function ensureSchema(env) {

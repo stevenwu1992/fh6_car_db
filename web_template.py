@@ -3258,7 +3258,7 @@ async function renderTunes(c) {
   const host = $("dTune");
   if (!host) return;
   const groups = [...(DATA.tierGroups || []), "漂移神车", "通用"];
-  host.innerHTML = `<summary>玩家调校</summary>
+  host.innerHTML = `<summary>车辆调校</summary>
     <div class="tunelist" id="tuneList"><span class="ti">加载中…</span></div>`;
   if (ME && !ME.user.is_anonymous) {
     host.insertAdjacentHTML("beforeend", `
@@ -3303,7 +3303,7 @@ async function renderTunes(c) {
     const r = await api("/api/tunes?carId=" + c.id);
     const list = $("tuneList");
     if (!list) return;
-    host.querySelector("summary").textContent = r.tunes.length ? `玩家调校（${r.tunes.length}）` : "玩家调校";
+    host.querySelector("summary").textContent = r.tunes.length ? `车辆调校（${r.tunes.length}）` : "车辆调校";
     list.innerHTML = r.tunes.length ? r.tunes.map(t => `<div class="ti">
         <div class="ti-h"><b>${esc(t.tier_group)}</b><code>${esc(String(t.share_code).replace(/(\d{3})(?=\d)/g, "$1 "))}</code>
         <span>作者 ${esc(t.author_id)}</span></div>

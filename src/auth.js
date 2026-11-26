@@ -123,7 +123,7 @@ async function issueSession(env, userId, request) {
   return token;
 }
 
-async function currentUser(request, env) {
+export async function currentUser(request, env) {
   const token = readCookie(request, COOKIE);
   if (!token) return null;
   const row = await env.DB.prepare(
