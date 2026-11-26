@@ -1,0 +1,5 @@
+# Cloudflare Workers 静态资源重写规则
+# 因为 assets.html_handling = "none"（保留 .html 后缀、不做扩展名重定向），
+# 根路径 `/` 不再自动映射到 index.html，这里显式补一条内部重写到跳转桩。
+
+/ /index.html 200
