@@ -2785,8 +2785,8 @@ function openCar(id) {
   applyUni();
   renderSocial(c);
   paintDrift(c);
-  const tuneEl = $("dTune");
-  if (tuneEl) tuneEl.addEventListener("toggle", () => { if (tuneEl.open) renderTunes(c); }, { once: true });
+  /* 调校区改为常显：改成 section 后没有 toggle 事件，这里直接渲染 */
+  renderTunes(c);
   $("dBody").scrollTop = 0;
   drawer.classList.add("on"); scrim.classList.add("on");
   drawer.setAttribute("aria-hidden", "false");
