@@ -26,3 +26,6 @@ database_id = "eefbe651-81aa-4640-9548-00dc5e7be209"
 # 优先级高于控制台的 ADMIN_PASSWORD 密钥：这样不登录控制台也能轮换密码。
 # 生成方式：node -e "..."（见 docs/admin-credentials.md）
 ADMIN_PASSWORD_HASH = "pbkdf2$10000$4Nn7D6DTeaHSFjaC3wkmJA$VsFhdhyXbHM8WHunYY9yG4quqbniVzmpaJ8uh56TcMY"
+
+# 漂移管理员：只能改漂移强度分级 + 管理调校，改不了竞速分级
+DRIFT_ADMIN_PASSWORD_HASH = "pbkdf2$10000$jXvwt6m3NHy7TuYPUX9pqg$Oho52he_KYYm4th-ogBeozazmHjjx3j8jYro-fVJONg"

@@ -453,13 +453,26 @@ TEMPLATE = r"""<!DOCTYPE html>
   .lb-steam{display:block;text-align:center;width:100%;padding:10px 16px;border:1px solid var(--rule);
     border-radius:var(--r);color:var(--ink);text-decoration:none;font:500 13.5px/1 var(--text)}
   .lb-steam:hover{border-color:var(--ink)}
-  .tunebox{margin-top:14px}
+  .tunebox{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule)}
+  .tunebox .tune-title{margin:0 0 12px;font:600 21px/1.25 var(--disp);letter-spacing:.02em;color:var(--ink)}
   .tunebox summary{cursor:pointer;font:500 13px/1.4 var(--text);color:var(--ink-2)}
   .tunebox .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
   .tunebox input,.tunebox textarea{flex:1;min-width:180px;padding:8px 10px;border:1px solid var(--rule);
     border-radius:var(--r);background:var(--paper);color:var(--ink);font:400 13px/1.4 var(--text)}
   .tunebox button{padding:8px 14px;border:0;border-radius:var(--r);background:var(--ink);
     color:var(--paper);font:500 13px/1 var(--text);cursor:pointer}
+  /* 分级下拉：直接用首页 .clsdd/.clsmenu 的皮肤，只调宽度 */
+  .tunebox .tsel{flex:none;min-width:196px}
+  .tunebox .tsel .chip{width:100%;justify-content:flex-start;font:500 13px/1 var(--text)}
+  .tunebox .tsel .clsmenu{width:224px}
+  /* 分享码点击复制 */
+  .tune-code{cursor:pointer;transition:background .15s,color .15s}
+  .tune-code:hover{background:var(--ink);color:var(--paper)}
+  .tune-code.copied{background:var(--accent);color:#fff}
+  .copytip{position:fixed;z-index:400;transform:translate(-50%,-100%);background:var(--ink);color:var(--paper);
+    font:500 12px/1 var(--text);padding:6px 10px;border-radius:5px;pointer-events:none;
+    box-shadow:0 6px 18px rgba(0,0,0,.18);animation:tipIn .16s ease-out}
+  @keyframes tipIn{from{opacity:0;transform:translate(-50%,-88%)}to{opacity:1;transform:translate(-50%,-100%)}}
   .tunelist{margin-top:10px;display:grid;gap:8px}
   .tunelist .ti{border:1px solid var(--rule);border-radius:var(--r);padding:9px 12px;font-size:12.5px;color:var(--steel)}
   .tunelist .ti b{color:var(--ink);font-size:13.5px;font-weight:600}
@@ -1187,6 +1200,7 @@ TEMPLATE = r"""<!DOCTYPE html>
       <div class="sel"><select id="fAcq" aria-label="按获取途径筛选"><option value="">全部获取</option></select></div>
       <div class="toggrp">
         <label class="npctog"><input type="checkbox" id="fWide" class="chk"> 仅宽体套件 <b id="wideN">0</b></label>
+        <label class="npctog"><input type="checkbox" id="fFav" class="chk"> 只看收藏 <b id="favN">0</b></label>
         <label class="npctog"><input type="checkbox" id="showNpc" class="chk"> 显示 NPC / 街车 <b id="npcN">24</b></label>
       </div>
     </div>
@@ -1444,7 +1458,7 @@ cars.forEach(c => {
 });
 const brands = [...brandMap.values()];
 
-const S = {q: "", cls: "", tgrp: "", drift: "", drv: "", place: "", brand: "", ctry: "", bk: "", acq: "", eng: "", engName: "", sort: "pi", desc: true, view: "gallery", sel: new Set(), lang: "zh", group: "brand", npc: false, wide: false};
+const S = {q: "", cls: "", tgrp: "", drift: "", drv: "", place: "", brand: "", ctry: "", bk: "", acq: "", eng: "", engName: "", sort: "pi", desc: true, view: "gallery", sel: new Set(), lang: "zh", group: "brand", npc: false, wide: false, fav: false};
 
 /* 分级（含后台覆盖）取值，供筛选与车鉴分组共用 */
 const effRace = c => {
@@ -2116,6 +2130,7 @@ function featText(c) { return FEAT_OF.get(c.id) || ""; }
 function matches(c) {
   if (!S.npc && c.npc) return false;
   if (S.wide && !c.wide) return false;   // 宽体筛选：只看有可选车身套件的车
+  if (S.fav && MY.garage.get(String(c.id)) !== "favorite") return false;  // 只看收藏
   /* 选了具体组别时只按组别筛（车子的原厂等级可能与该组别不同） */
   if (S.tgrp) { if (effRace(c).group !== S.tgrp) return false; }
   else if (S.cls && c.cls !== S.cls) return false;
@@ -2202,6 +2217,7 @@ function apply() {
 function clearFilters() {
   S.q = ""; S.cls = ""; S.tgrp = ""; S.drift = ""; S.drv = ""; S.place = ""; S.brand = ""; S.ctry = ""; S.bk = ""; S.acq = ""; S.eng = ""; S.engName = "";
   S.wide = false; $("fWide").checked = false;
+  S.fav = false; $("fFav").checked = false;
   $("q").value = ""; $("fDrv").value = ""; $("fPlace").value = ""; $("fBrand").value = ""; $("fCtry").value = "";
   $("fBk").value = ""; $("fAcq").value = "";
   [...chips.children].forEach((x, i) => x.classList.toggle("on", i === 0));
@@ -2258,6 +2274,20 @@ $("fWide").addEventListener("change", e => {
   S.wide = e.target.checked;
   apply();
 });
+
+/* 只看收藏：收藏状态来自 /api/garage，未登录时数量为 0 */
+$("fFav").addEventListener("change", e => {
+  S.fav = e.target.checked;
+  apply();
+});
+
+function syncFavN() {
+  const n = [...MY.garage.values()].filter(v => v === "favorite").length;
+  const el = $("favN");
+  if (el) el.textContent = n;
+  if (!n && S.fav) { S.fav = false; const cb = $("fFav"); if (cb) cb.checked = false; }
+}
+syncFavN();
 
 /* 开关旁的台数必须和勾选后的结果一致：NPC / 街车默认隐藏，
    若按全库 111 写死，勾上却只剩 106，会被当成漏筛。 */
@@ -2492,7 +2522,7 @@ function openCar(id) {
     <label class="duni"><input type="checkbox" id="dUni" class="chk" checked>
       折叠全库统一数据 <b>${UNIFORM.size}</b></label>
     <div class="dact" id="dAct"></div>
-    <details class="tunebox" id="dTune"></details>`;
+    <section class="tunebox" id="dTune"></section>`;
 
   /* 字段分组不在这里渲染：改装件（引擎 / 宽体 / 轮胎）要先上，见下方 */
 
@@ -3087,6 +3117,7 @@ async function bootAuth() {
       g.ratings.forEach(x => MY.ratings.set(String(x.car_id), x.score));
     } catch { /* 忽略：只影响「我的」状态 */ }
   }
+  syncFavN();
   try {
     const t = await api("/api/tiers");
     (t.overrides || []).forEach(o => { OVR[String(o.car_id)] = o; });
@@ -3208,7 +3239,8 @@ function renderSocial(c) {
       if (now) { await api("/api/garage/" + id, { method: "DELETE" }); MY.garage.delete(id); s.fav = Math.max(0, (s.fav || 0) - 1); }
       else { await api("/api/garage/" + id, { method: "PUT", body: JSON.stringify({ state: "favorite" }) }); MY.garage.set(id, "favorite"); s.fav = (s.fav || 0) + 1; }
       SOCIAL[id] = s;
-      renderSocial(c); paintStats();
+      renderSocial(c); paintStats(); syncFavN();
+      if (S.fav) apply();
     } catch { alert("操作失败，请稍后再试"); }
   };
   $("dRate").querySelectorAll("button").forEach(b => {
@@ -3252,13 +3284,49 @@ function paintDrift(c) {
   else $("dAct").after(wrap);
 }
 
-/* 调校：详情页里折叠一块，按需拉取。
+/* 调校：详情页里常显一块，按需拉取。
    结构按设计文档：9 位分享码 + 作者游戏 ID + 适用强度分级 + ≤100 字说明。 */
+const fmtCode = v => String(v).replace(/\D/g, "").slice(0, 9).replace(/(\d{3})(?=\d)/g, "$1 ");
+
+function tierMenuHTML(groups) {
+  return groups.map(g => {
+    const cls = g.split(/\s+/)[0];
+    return `<button class="gi" type="button" data-grp="${esc(g)}" style="--cc:${ccOf(cls)};--ct:${ctOf(cls)}"><span class="dot"></span>${esc(g)}</button>`;
+  }).join("");
+}
+
+function copyTip(anchor, text) {
+  const r = anchor.getBoundingClientRect();
+  const t = document.createElement("span");
+  t.className = "copytip";
+  t.textContent = text;
+  t.style.left = r.left + r.width / 2 + "px";
+  t.style.top = r.top - 8 + "px";
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 1200);
+}
+
+async function copyCode(el) {
+  const code = el.dataset.code || "";
+  try {
+    await navigator.clipboard.writeText(code);
+  } catch {
+    const ta = document.createElement("textarea");
+    ta.value = code; ta.style.cssText = "position:fixed;opacity:0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch {}
+    ta.remove();
+  }
+  el.classList.add("copied");
+  copyTip(el, "已复制 " + code);
+  setTimeout(() => el.classList.remove("copied"), 1200);
+}
+
 async function renderTunes(c) {
   const host = $("dTune");
   if (!host) return;
   const groups = [...(DATA.tierGroups || []), "漂移神车", "通用"];
-  host.innerHTML = `<summary>车辆调校</summary>
+  host.innerHTML = `<h3 class="tune-title">车辆调校</h3>
     <div class="tunelist" id="tuneList"><span class="ti">加载中…</span></div>`;
   if (ME && !ME.user.is_anonymous) {
     host.insertAdjacentHTML("beforeend", `
@@ -3268,23 +3336,58 @@ async function renderTunes(c) {
           <input id="tuneAuthor" autocomplete="off" maxlength="32" placeholder="调校作者游戏 ID">
         </div>
         <div class="row">
-          <select id="tuneTier">${groups.map(g => `<option>${esc(g)}</option>`).join("")}</select>
+          <div class="clsdd tsel" id="tuneDD">
+            <button class="chip" type="button" id="tuneBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span class="dot" style="--cc:${ccOf(groups[0].split(/\s+/)[0])}"></span><span id="tuneLbl">${esc(groups[0])}</span>
+            </button>
+            <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML(groups)}</div>
+          </div>
           <input id="tuneNote" maxlength="100" placeholder="说明（最多 100 字，所有玩家可见）">
           <button id="tunePost">上传</button>
         </div>
         <p class="tunemsg" id="tuneMsg"></p>
       </div>`);
     const msg = $("tuneMsg");
-    $("tuneCode").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9); });
+    /* 分享码输入：显示成 123 456 789，提交时仍取 9 位纯数字 */
+    const codeEl = $("tuneCode");
+    codeEl.addEventListener("input", () => {
+      const d = codeEl.value.replace(/\D/g, "").slice(0, 9);
+      codeEl.value = d.replace(/(\d{3})(?=\d)/g, "$1 ");
+    });
     $("tuneNote").addEventListener("input", e => {
       const n = Array.from(e.target.value).length;
       msg.textContent = `${n} / 100`;
       if (n > 100) e.target.value = Array.from(e.target.value).slice(0, 100).join("");
     });
+
+    /* 分级下拉：复用首页 .clsdd / .clsmenu 的样式与彩色圆点 */
+    const dd = $("tuneDD"), dbtn = $("tuneBtn"), dmenu = $("tuneMenu");
+    dd.dataset.grp = groups[0];
+    dbtn.onclick = () => {
+      dd.classList.toggle("open");
+      dbtn.setAttribute("aria-expanded", dd.classList.contains("open") ? "true" : "false");
+    };
+    dmenu.onclick = ev => {
+      const b = ev.target.closest(".gi");
+      if (!b) return;
+      dd.dataset.grp = b.dataset.grp;
+      $("tuneLbl").textContent = b.dataset.grp;
+      dbtn.querySelector(".dot").style.setProperty("--cc", b.style.getPropertyValue("--cc") || "var(--ink)");
+      dmenu.querySelectorAll(".gi").forEach(x => x.classList.toggle("on", x === b));
+      dd.classList.remove("open");
+    };
+    if (!window.__tuneDDClose) {
+      window.__tuneDDClose = true;
+      document.addEventListener("click", ev => {
+        const d = $("tuneDD");
+        if (d && !d.contains(ev.target)) d.classList.remove("open");
+      });
+    }
+
     $("tunePost").onclick = async () => {
-      const share_code = $("tuneCode").value.trim();
+      const share_code = codeEl.value.replace(/\D/g, "");
       const author_id = $("tuneAuthor").value.trim();
-      const tier_group = $("tuneTier").value;
+      const tier_group = dd.dataset.grp;
       const note = $("tuneNote").value.trim();
       if (!/^\d{9}$/.test(share_code)) { msg.textContent = "分享码必须是 9 位数字"; return; }
       if (Array.from(author_id).length < 2) { msg.textContent = "请填写作者游戏 ID"; return; }
@@ -3292,7 +3395,6 @@ async function renderTunes(c) {
       try {
         await api("/api/tunes", { method: "POST", body: JSON.stringify({ car_id: c.id, share_code, author_id, tier_group, note, payload: {} }) });
         renderTunes(c);
-        const d = $("dTune"); if (d) d.open = true;
       } catch (e) {
         msg.textContent = e.status === 409 ? "这台车已收录过该分享码" : e.status === 429 ? "上传过于频繁，稍后再试" : "上传失败，请检查填写内容";
         $("tunePost").disabled = false;
@@ -3303,12 +3405,15 @@ async function renderTunes(c) {
     const r = await api("/api/tunes?carId=" + c.id);
     const list = $("tuneList");
     if (!list) return;
-    host.querySelector("summary").textContent = r.tunes.length ? `车辆调校（${r.tunes.length}）` : "车辆调校";
+    const title = host.querySelector(".tune-title");
+    if (title) title.textContent = r.tunes.length ? `车辆调校（${r.tunes.length}）` : "车辆调校";
     list.innerHTML = r.tunes.length ? r.tunes.map(t => `<div class="ti">
-        <div class="ti-h"><b>${esc(t.tier_group)}</b><code>${esc(String(t.share_code).replace(/(\d{3})(?=\d)/g, "$1 "))}</code>
+        <div class="ti-h"><b>${esc(t.tier_group)}</b>
+        <code class="tune-code" data-code="${esc(t.share_code)}" title="点击复制分享码">${esc(fmtCode(t.share_code))}</code>
         <span>作者 ${esc(t.author_id)}</span></div>
         ${t.note ? `<p>${esc(t.note)}</p>` : ""}
       </div>`).join("") : `<span class="ti">还没有收录这台车的调校，来做第一个。</span>`;
+    list.querySelectorAll(".tune-code").forEach(el => { el.onclick = () => copyCode(el); });
   } catch {
     const list = $("tuneList"); if (list) list.innerHTML = `<span class="ti">调校服务暂不可用</span>`;
   }

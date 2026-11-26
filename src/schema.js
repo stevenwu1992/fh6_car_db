@@ -25,8 +25,10 @@ const DDL = [
      bucket TEXT PRIMARY KEY, window_start INTEGER NOT NULL, count INTEGER NOT NULL)`,
   `CREATE TABLE IF NOT EXISTS admin_sessions (
      token_hash TEXT PRIMARY KEY, created_at INTEGER NOT NULL, expires_at INTEGER NOT NULL,
-     ip_hash TEXT, ua_hash TEXT)`,
+     ip_hash TEXT, ua_hash TEXT, role TEXT NOT NULL DEFAULT 'full')`,
   `CREATE INDEX IF NOT EXISTS idx_admin_sessions_exp ON admin_sessions(expires_at)`,
+  // 老库补列：新库上会报 duplicate column，交给下面的容错分支忽略
+  `ALTER TABLE admin_sessions ADD COLUMN role TEXT NOT NULL DEFAULT 'full'`,
   `CREATE TABLE IF NOT EXISTS tier_overrides (
      car_id TEXT PRIMARY KEY, race_tier TEXT, race_group TEXT, drift_tier TEXT,
      updated_by TEXT, updated_at INTEGER NOT NULL)`,
@@ -52,8 +54,8 @@ export async function ensureSchema(env) {
     try {
       await env.DB.prepare(sql).run();
     } catch (e) {
-      // 并发冷启动时可能撞上重复建表，忽略即可；其它错误抛出去便于排查
-      if (!/already exists/i.test(String(e?.message || e))) throw e;
+      // 并发冷启动可能撞上重复建表/重复列，忽略即可；其它错误抛出去便于排查
+      if (!/already exists|duplicate column/i.test(String(e?.message || e))) throw e;
     }
   }
   ready = true;

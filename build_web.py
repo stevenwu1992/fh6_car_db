@@ -867,6 +867,21 @@ ADMIN_HTML = """<!DOCTYPE html>
     background:var(--ink);color:#fff;font:inherit;cursor:pointer}
   .gate button:disabled{opacity:.4;cursor:default}
   .gate .err{min-height:18px;margin-top:10px;color:#c01048;font-size:12.5px}
+  .tunemgr{margin-top:44px;border-top:1px solid var(--rule);padding-top:24px}
+  .tunemgr h2{font-size:16px;font-weight:600;margin:0 0 12px}
+  .tunemgr .bar{display:flex;gap:8px;margin-bottom:12px}
+  .tunemgr .bar input{flex:1;padding:9px 12px;border:1px solid var(--rule);border-radius:4px;font:inherit}
+  .tunemgr .bar button{padding:9px 16px;border:0;border-radius:4px;background:var(--ink);color:#fff;font:inherit;cursor:pointer}
+  .titem{border:1px solid var(--rule);border-radius:6px;padding:12px;margin-bottom:10px}
+  .titem .hd{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--steel);margin-bottom:9px}
+  .titem .hd b{color:var(--ink);font-size:13.5px}
+  .titem .grid{display:grid;grid-template-columns:150px 1fr 200px;gap:8px;margin-bottom:8px}
+  .titem input,.titem select{padding:8px 10px;border:1px solid var(--rule);border-radius:4px;font:inherit;width:100%;background:var(--paper)}
+  .titem .acts{display:flex;gap:8px}
+  .titem .acts button{padding:7px 14px;border-radius:4px;font:inherit;cursor:pointer}
+  .titem .acts .sv{background:var(--ink);color:#fff;border:0}
+  .titem .acts .dl{background:none;border:1px solid var(--rule);color:#c01048}
+  .titem .acts button:disabled{opacity:.45;cursor:default}
   [hidden]{display:none !important}
 </style></head>
 <body>
@@ -886,10 +901,21 @@ ADMIN_HTML = """<!DOCTYPE html>
   <table><thead><tr><th style="width:44%">车辆</th><th style="width:15%">竞速强度</th>
     <th style="width:19%">组别</th><th style="width:11%">漂移强度</th><th></th></tr></thead>
     <tbody id="rows"></tbody></table>
+
+  <section class="tunemgr" id="tuneMgr">
+    <h2>调校管理</h2>
+    <div class="bar">
+      <input id="tq" type="search" placeholder="车辆 ID（如 247），或分享码 / 作者 ID 关键词；留空列出最近 60 条">
+      <button id="tqGo">查询</button>
+    </div>
+    <div id="tmsg" class="msg"></div>
+    <div id="tlist"></div>
+  </section>
 </main>
 <script>
 const CARS = __CARS__, RACE = __RACE__, GROUPS = __GROUPS__, DRIFT = __DRIFT__;
 const OVR = {};
+let ROLE = "full";
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const api = async (p, o = {}) => {
@@ -903,10 +929,12 @@ async function boot() {
   try { me = await api("/api/me"); }
   catch { $("#who").textContent = "无法连接 API"; return; }
   if (!me.user.is_admin) { showGate(""); return; }
+  try { const s = await api("/auth/admin/session"); ROLE = s.role || "full"; } catch {}
   $("#gate").hidden = true; $("#app").hidden = false; $("#signout").hidden = false;
-  $("#who").textContent = (me.user.display_name || "管理员") + " · 管理员";
+  $("#who").textContent = (me.user.display_name || "管理员") + (ROLE === "full" ? " · 管理员" : " · 漂移管理员");
   try { const r = await api("/api/tiers"); r.overrides.forEach(o => OVR[o.car_id] = o); } catch {}
   paint();
+  loadTunes();
 }
 function showGate(msg) {
   $("#app").hidden = true; $("#signout").hidden = true; $("#gate").hidden = false;
@@ -950,8 +978,8 @@ function paint() {
     const drift = o.drift_tier || "";
     return `<tr data-id="${c.id}">
       <td><b>${esc(c.n)}</b><br><span class="cur">ID ${c.id} · ${c.cls} ${c.pi} · 现：${esc(c.rt || "未分级")}${c.rg ? " / " + esc(c.rg) : ""}</span></td>
-      <td><select class="rt">${["", ...RACE].map(t => `<option ${t === race ? "selected" : ""}>${t}</option>`).join("")}</select></td>
-      <td><select class="rg">${["", ...GROUPS].map(t => `<option ${t === group ? "selected" : ""}>${t}</option>`).join("")}</select></td>
+      <td><select class="rt" ${ROLE === "full" ? "" : 'disabled title="漂移管理员无权限" '}>${["", ...RACE].map(t => `<option ${t === race ? "selected" : ""}>${t}</option>`).join("")}</select></td>
+      <td><select class="rg" ${ROLE === "full" ? "" : 'disabled title="漂移管理员无权限" '}>${["", ...GROUPS].map(t => `<option ${t === group ? "selected" : ""}>${t}</option>`).join("")}</select></td>
       <td><select class="dt">${["", ...DRIFT].map(t => `<option ${t === drift ? "selected" : ""}>${t}</option>`).join("")}</select></td>
       <td><button class="save">保存</button></td></tr>`;
   }).join("");
@@ -972,6 +1000,79 @@ function paint() {
   $("#msg").textContent = list.length ? `显示 ${list.length} 台（最多 400）` : "没有匹配的车辆";
 }
 $("#q").oninput = () => { clearTimeout(window.__t); window.__t = setTimeout(paint, 150); };
+
+/* ── 调校管理 ───────────────────────────────────────── */
+const fmtCode = v => String(v).replace(/\D/g, "").slice(0, 9).replace(/(\d{3})(?=\d)/g, "$1 ");
+
+async function loadTunes() {
+  const q = ($("#tq").value || "").trim();
+  $("#tmsg").textContent = "查询中…";
+  try {
+    const url = /^\d{1,6}$/.test(q) ? "/api/admin/tunes?carId=" + q
+      : "/api/admin/tunes" + (q ? "?q=" + encodeURIComponent(q) : "");
+    const r = await api(url);
+    renderTunes(r.tunes || []);
+    $("#tmsg").textContent = r.tunes.length ? `共 ${r.tunes.length} 条` : "没有匹配的调校";
+  } catch (e) {
+    $("#tmsg").textContent = e.status === 403 ? "无权限" : "查询失败，请稍后重试";
+    $("#tlist").innerHTML = "";
+  }
+}
+
+function renderTunes(list) {
+  if (!list.length) { $("#tlist").innerHTML = ""; return; }
+  $("#tlist").innerHTML = list.map(t => `<div class="titem" data-id="${esc(t.id)}">
+      <div class="hd"><b>车辆 ${esc(t.car_id)}</b><span>ID ${esc(t.id)}</span></div>
+      <div class="grid">
+        <input class="f-code" value="${esc(fmtCode(t.share_code))}" maxlength="11" placeholder="9 位分享码">
+        <input class="f-author" value="${esc(t.author_id)}" maxlength="32" placeholder="作者 ID">
+        <select class="f-tier">${GROUPS.map(g => `<option ${g === t.tier_group ? "selected" : ""}>${esc(g)}</option>`).join("")}</select>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr">
+        <input class="f-note" value="${esc(t.note || "")}" maxlength="100" placeholder="说明（≤100 字）">
+      </div>
+      <div class="acts"><button class="sv">保存</button><button class="dl">删除</button></div>
+    </div>`).join("");
+
+  document.querySelectorAll(".titem").forEach(el => {
+    const id = el.dataset.id;
+    const codeEl = el.querySelector(".f-code");
+    codeEl.addEventListener("input", () => {
+      const d = codeEl.value.replace(/\D/g, "").slice(0, 9);
+      codeEl.value = d.replace(/(\d{3})(?=\d)/g, "$1 ");
+    });
+    const sv = el.querySelector(".sv");
+    sv.onclick = async () => {
+      const code = codeEl.value.replace(/\D/g, "");
+      if (!/^\d{9}$/.test(code)) { $("#tmsg").textContent = "分享码必须是 9 位数字"; return; }
+      sv.disabled = true;
+      try {
+        await api("/api/admin/tunes/" + encodeURIComponent(id), { method: "PUT", body: JSON.stringify({
+          share_code: code,
+          author_id: el.querySelector(".f-author").value.trim(),
+          tier_group: el.querySelector(".f-tier").value,
+          note: el.querySelector(".f-note").value.trim()
+        }) });
+        sv.textContent = "已保存";
+        setTimeout(() => { sv.textContent = "保存"; sv.disabled = false; }, 1200);
+      } catch (e) {
+        sv.disabled = false;
+        $("#tmsg").textContent = e.status === 403 ? "无权限" : "保存失败";
+      }
+    };
+    el.querySelector(".dl").onclick = async () => {
+      if (!confirm("确定删除这条调校？")) return;
+      try {
+        await api("/api/admin/tunes/" + encodeURIComponent(id), { method: "DELETE" });
+        el.remove();
+        $("#tmsg").textContent = "已删除";
+      } catch { $("#tmsg").textContent = "删除失败"; }
+    };
+  });
+}
+
+$("#tqGo").onclick = loadTunes;
+$("#tq").addEventListener("keydown", e => { if (e.key === "Enter") loadTunes(); });
 </script></body></html>"""
 
 

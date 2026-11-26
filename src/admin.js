@@ -75,24 +75,24 @@ export async function adminValid(request, env) {
   const t = readCookie(request, COOKIE);
   if (!t) return false;
   const h = await sha256hex(t);
-  const row = await env.DB.prepare("SELECT expires_at FROM admin_sessions WHERE token_hash=?").bind(h).first();
+  const row = await env.DB.prepare("SELECT expires_at, role FROM admin_sessions WHERE token_hash=?").bind(h).first();
   if (!row) return false;
   if (row.expires_at <= now()) {
     await env.DB.prepare("DELETE FROM admin_sessions WHERE token_hash=?").bind(h).run();
     return false;
   }
-  return true;
+  return row.role || "full";   // 'full' | 'drift'
 }
 
-async function issue(request, env) {
+async function issue(request, env, role) {
   const token = b64url(crypto.getRandomValues(new Uint8Array(32)));
   const ttl = TTL_HOURS * 3600;
   const t = now();
   await env.DB.prepare(
-    "INSERT INTO admin_sessions(token_hash,created_at,expires_at,ip_hash,ua_hash) VALUES(?,?,?,?,?)"
+    "INSERT INTO admin_sessions(token_hash,created_at,expires_at,ip_hash,ua_hash,role) VALUES(?,?,?,?,?,?)"
   ).bind(await sha256hex(token), t, t + ttl,
          await sha256hex(request.headers.get("cf-connecting-ip") || ""),
-         await sha256hex(request.headers.get("user-agent") || "")).run();
+         await sha256hex(request.headers.get("user-agent") || ""), role).run();
   await env.DB.prepare("DELETE FROM admin_sessions WHERE expires_at <= ?").bind(t).run();
   return { token, ttl };
 }
@@ -129,15 +129,29 @@ async function listTiers(env) {
 
 async function putTier(request, env, url) {
   if (badOrigin(request, url)) return json(403, { error: "来源不被允许" });
-  if (!await adminValid(request, env)) return json(403, { error: "需要管理员权限" });
+  const role = await adminValid(request, env);
+  if (!role) return json(403, { error: "需要管理员权限" });
 
   const carId = url.pathname.split("/")[3] || "";
   if (!CAR_RE.test(carId)) return json(400, { error: "车辆 ID 不合法" });
 
   const body = await request.json().catch(() => ({}));
+  const driftTier = body.drift_tier ? String(body.drift_tier).slice(0, 12) : null;
+
+  // 漂移管理员只能改漂移强度，竞速分级保持原值
+  if (role !== "full") {
+    const cur = await env.DB.prepare("SELECT race_tier, race_group FROM tier_overrides WHERE car_id=?").bind(carId).first();
+    await env.DB.prepare(
+      `INSERT INTO tier_overrides(car_id,race_tier,race_group,drift_tier,updated_by,updated_at)
+       VALUES(?,?,?,?,?,?)
+       ON CONFLICT(car_id) DO UPDATE SET drift_tier=excluded.drift_tier,
+         updated_by=excluded.updated_by, updated_at=excluded.updated_at`
+    ).bind(carId, cur?.race_tier ?? null, cur?.race_group ?? null, driftTier, "drift-admin", now()).run();
+    return json(200, { ok: true, car_id: carId, role });
+  }
+
   const raceTier = body.race_tier ? String(body.race_tier).slice(0, 12) : null;
   const raceGroup = body.race_group ? String(body.race_group).slice(0, 24) : null;
-  const driftTier = body.drift_tier ? String(body.drift_tier).slice(0, 12) : null;
 
   await env.DB.prepare(
     `INSERT INTO tier_overrides(car_id,race_tier,race_group,drift_tier,updated_by,updated_at)
@@ -146,15 +160,14 @@ async function putTier(request, env, url) {
        drift_tier=excluded.drift_tier, updated_by=excluded.updated_by, updated_at=excluded.updated_at`
   ).bind(carId, raceTier, raceGroup, driftTier, "admin", now()).run();
 
-  return json(200, { ok: true, car_id: carId });
+  return json(200, { ok: true, car_id: carId, role });
 }
 
 /* ---------- 登录 ---------- */
 async function login(request, env, url) {
   if (badOrigin(request, url)) return json(403, { error: "来源不被允许" });
-  if (!env.ADMIN_PASSWORD && !env.ADMIN_PASSWORD_HASH) {
-    return json(503, { error: "服务端未配置 ADMIN_PASSWORD" });
-  }
+  const anyPw = env.ADMIN_PASSWORD || env.ADMIN_PASSWORD_HASH || env.DRIFT_ADMIN_PASSWORD || env.DRIFT_ADMIN_PASSWORD_HASH;
+  if (!anyPw) return json(503, { error: "服务端未配置后台密码" });
 
   const ip = request.headers.get("cf-connecting-ip") || "0.0.0.0";
   const bucket = "admin:login:" + await sha256hex(ip);
@@ -163,21 +176,83 @@ async function login(request, env, url) {
 
   const body = await request.json().catch(() => ({}));
   const pw = String(body.password ?? "");
-  // 优先级：仓库里的哈希变量 > 控制台密钥。这样在拿不到控制台时也能轮换密码。
-  const ok = env.ADMIN_PASSWORD_HASH
-    ? await verifyPbkdf2(pw, env.ADMIN_PASSWORD_HASH)
-    : eqHash(await sha256hex(pw), await sha256hex(env.ADMIN_PASSWORD || ""));
-  if (!ok) return json(401, { error: "密码不正确" });
 
-  const { token, ttl } = await issue(request, env);
+  const matchHash = async (h) => h ? await verifyPbkdf2(pw, h) : false;
+  const matchPlain = async (p) => p ? eqHash(await sha256hex(pw), await sha256hex(p)) : false;
+
+  let role = null;
+  if (env.ADMIN_PASSWORD_HASH) { if (await matchHash(env.ADMIN_PASSWORD_HASH)) role = "full"; }
+  else if (await matchPlain(env.ADMIN_PASSWORD)) role = "full";
+
+  if (!role) {
+    if (env.DRIFT_ADMIN_PASSWORD_HASH) { if (await matchHash(env.DRIFT_ADMIN_PASSWORD_HASH)) role = "drift"; }
+    else if (await matchPlain(env.DRIFT_ADMIN_PASSWORD)) role = "drift";
+  }
+
+  if (!role) return json(401, { error: "密码不正确" });
+
+  const { token, ttl } = await issue(request, env, role);
   await env.DB.prepare("DELETE FROM auth_rate_limits WHERE bucket=?").bind(bucket).run();
-  return json(200, { ok: true, expires_at: now() + ttl }, { "set-cookie": cookieHeader(token, ttl) });
+  return json(200, { ok: true, role, expires_at: now() + ttl }, { "set-cookie": cookieHeader(token, ttl) });
 }
 
 async function logout(request, env) {
   const t = readCookie(request, COOKIE);
   if (t) await env.DB.prepare("DELETE FROM admin_sessions WHERE token_hash=?").bind(await sha256hex(t)).run();
   return json(200, { ok: true }, { "set-cookie": cookieHeader("", 0) });
+}
+
+/* ---------- 调校管理（管理员） ---------- */
+async function listTunesAdmin(env, url) {
+  const carId = String(url.searchParams.get("carId") || "").trim();
+  const kw = String(url.searchParams.get("q") || "").trim();
+  let rows;
+  if (CAR_RE.test(carId)) {
+    rows = await env.DB.prepare(
+      "SELECT id,car_id,share_code,author_id,tier_group,note,created_at FROM tunes WHERE car_id=? ORDER BY created_at DESC LIMIT 100"
+    ).bind(carId).all();
+  } else if (kw) {
+    rows = await env.DB.prepare(
+      `SELECT id,car_id,share_code,author_id,tier_group,note,created_at FROM tunes
+       WHERE share_code LIKE ? OR author_id LIKE ? ORDER BY created_at DESC LIMIT 60`
+    ).bind(`%${kw}%`, `%${kw}%`).all();
+  } else {
+    rows = await env.DB.prepare(
+      "SELECT id,car_id,share_code,author_id,tier_group,note,created_at FROM tunes ORDER BY created_at DESC LIMIT 60"
+    ).all();
+  }
+  return json(200, { tunes: rows.results || [] });
+}
+
+async function updateTune(request, env, url) {
+  if (badOrigin(request, url)) return json(403, { error: "来源不被允许" });
+  if (!await adminValid(request, env)) return json(403, { error: "需要管理员权限" });
+  const id = url.pathname.split("/")[4] || "";
+  const row = await env.DB.prepare("SELECT id, car_id FROM tunes WHERE id=?").bind(id).first();
+  if (!row) return json(404, { error: "调校不存在" });
+
+  const b = await request.json().catch(() => ({}));
+  const shareCode = String(b.share_code ?? "").replace(/\D/g, "");
+  const authorId = String(b.author_id ?? "").replace(/\s+/g, " ").trim();
+  const tierGroup = String(b.tier_group ?? "").trim();
+  const note = String(b.note ?? "").replace(/[\u0000-\u001f]/g, " ").trim();
+
+  if (!SHARE_RE.test(shareCode)) return json(400, { error: "分享码必须是 9 位数字" });
+  if (Array.from(authorId).length < 2 || Array.from(authorId).length > 32) return json(400, { error: "作者 ID 需 2–32 字" });
+  if (Array.from(note).length > 100) return json(400, { error: "说明最多 100 字" });
+
+  await env.DB.prepare(
+    "UPDATE tunes SET share_code=?, author_id=?, tier_group=?, note=?, updated_at=? WHERE id=?"
+  ).bind(shareCode, authorId, tierGroup.slice(0, 24), note, now(), id).run();
+  return json(200, { ok: true, id });
+}
+
+async function deleteTune(request, env, url) {
+  if (badOrigin(request, url)) return json(403, { error: "来源不被允许" });
+  if (!await adminValid(request, env)) return json(403, { error: "需要管理员权限" });
+  const id = url.pathname.split("/")[4] || "";
+  await env.DB.prepare("DELETE FROM tunes WHERE id=?").bind(id).run();
+  return json(200, { ok: true, id });
 }
 
 /* ---------- 路由 ---------- */
@@ -188,11 +263,19 @@ export async function routeAdmin(request, env, url) {
   if (p === "/auth/admin/login" && m === "POST") return login(request, env, url);
   if (p === "/auth/admin/logout" && m === "POST") return logout(request, env);
   if (p === "/auth/admin/session" && m === "GET") {
-    return (await adminValid(request, env)) ? json(200, { ok: true }) : json(401, { error: "未登录" });
+    const role = await adminValid(request, env);
+    return role ? json(200, { ok: true, role }) : json(401, { error: "未登录" });
   }
 
   if (p === "/api/tiers" && m === "GET") return listTiers(env);
   if (p.startsWith("/api/tiers/") && m === "PUT") return putTier(request, env, url);
+
+  if (p === "/api/admin/tunes" && m === "GET") {
+    if (!await adminValid(request, env)) return json(403, { error: "需要管理员权限" });
+    return listTunesAdmin(env, url);
+  }
+  if (p.startsWith("/api/admin/tunes/") && m === "PUT") return updateTune(request, env, url);
+  if (p.startsWith("/api/admin/tunes/") && m === "DELETE") return deleteTune(request, env, url);
 
   return null;
 }
