@@ -23,11 +23,29 @@
   .cur{color:var(--steel);font-size:12px;white-space:nowrap}
   .ok{color:#0a7f43}
   .msg{padding:10px 2px;color:var(--steel)}
+  .gate{max-width:380px;margin:12vh auto 0;padding:26px 24px;background:var(--paper);
+    border:1px solid var(--rule);border-radius:6px}
+  .gate h2{margin:0 0 8px;font-size:15px;font-weight:600}
+  .gate p{margin:0 0 16px;color:var(--steel);font-size:12.5px;line-height:1.65}
+  .gate input{width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:4px;font:inherit}
+  .gate button{width:100%;margin-top:12px;padding:9px;border:0;border-radius:4px;
+    background:var(--ink);color:#fff;font:inherit;cursor:pointer}
+  .gate button:disabled{opacity:.4;cursor:default}
+  .gate .err{min-height:18px;margin-top:10px;color:#c01048;font-size:12.5px}
+  [hidden]{display:none !important}
 </style></head>
 <body>
 <header><h1>分级后台</h1><span class="cur" id="who">检查登录状态…</span><span class="sp"></span>
+  <a href="#" id="signout" hidden>退出</a>
   <a href="zh-hans.html">返回站点</a></header>
-<main>
+<div class="gate" id="gate" hidden>
+  <h2>需要管理密码</h2>
+  <p>这个页面只对管理员开放。密码由服务端校验，页面本身不含任何凭据；连续输错 5 次会锁定 15 分钟。</p>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="管理密码">
+  <button id="go">进入</button>
+  <div class="err" id="err"></div>
+</div>
+<main id="app" hidden>
   <div class="bar"><input id="q" type="search" placeholder="搜车名 / 品牌 / ID"></div>
   <div id="msg" class="msg"></div>
   <table><thead><tr><th style="width:44%">车辆</th><th style="width:15%">竞速强度</th>
@@ -45,12 +63,48 @@ const api = async (p, o = {}) => {
   if (!r.ok) throw Object.assign(new Error("HTTP " + r.status), { status: r.status });
   return r.json();
 };
-(async () => {
-  try { const me = await api("/api/me"); if (!me.user.is_admin) { $("#who").textContent = "当前账号不是管理员"; return; } $("#who").textContent = me.user.display_name + " · 管理员"; }
+async function boot() {
+  let me;
+  try { me = await api("/api/me"); }
   catch { $("#who").textContent = "无法连接 API"; return; }
+  if (!me.user.is_admin) { showGate(""); return; }
+  $("#gate").hidden = true; $("#app").hidden = false; $("#signout").hidden = false;
+  $("#who").textContent = (me.user.display_name || "管理员") + " · 管理员";
   try { const r = await api("/api/tiers"); r.overrides.forEach(o => OVR[o.car_id] = o); } catch {}
   paint();
-})();
+}
+function showGate(msg) {
+  $("#app").hidden = true; $("#signout").hidden = true; $("#gate").hidden = false;
+  $("#who").textContent = "未登录";
+  $("#err").textContent = msg || "";
+  setTimeout(() => $("#pw").focus(), 40);
+}
+$("#go").onclick = async () => {
+  const pw = $("#pw").value;
+  if (!pw) { $("#err").textContent = "请输入密码"; return; }
+  const btn = $("#go");
+  btn.disabled = true; btn.textContent = "校验中…"; $("#err").textContent = "";
+  try {
+    await api("/auth/admin/login", { method: "POST", body: JSON.stringify({ password: pw }) });
+    $("#pw").value = ""; btn.disabled = false; btn.textContent = "进入";
+    await boot();
+  } catch (e) {
+    btn.disabled = false; btn.textContent = "进入";
+    $("#err").textContent =
+      e.status === 429 ? "尝试过于频繁，请 15 分钟后再试" :
+      e.status === 503 ? "服务端尚未配置 ADMIN_PASSWORD" :
+      e.status === 403 ? "来源校验失败，请检查 SITE_ORIGIN 与 X-CSRF 头" :
+      "密码不正确";
+  }
+};
+$("#pw").addEventListener("keydown", e => { if (e.key === "Enter") $("#go").click(); });
+$("#signout").onclick = async e => {
+  e.preventDefault();
+  try { await api("/auth/admin/logout", { method: "POST" }); } catch {}
+  Object.keys(OVR).forEach(k => delete OVR[k]);
+  showGate("已退出");
+};
+boot();
 function paint() {
   const q = ($("#q").value || "").trim().toLowerCase();
   const list = CARS.filter(c => !q || c.n.toLowerCase().includes(q) || String(c.id).includes(q)).slice(0, 400);

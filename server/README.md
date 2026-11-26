@@ -43,9 +43,39 @@ DEV=1 SITE_ORIGIN=http://localhost:8787 ADMIN_EMAILS=you@example.com \
 | `SITE_ORIGIN` | `http://localhost:8787` | 允许的写操作来源，**必须与访问域名一致** |
 | `API_ORIGIN` | 空 | 仅当 API 独立子域时填写，用于拼登录链接 |
 | `ADMIN_EMAILS` | 空 | 逗号分隔；命中即 `is_admin=1` |
+| `ADMIN_PASSWORD` | 空 | 后台管理密码；**留空则后台无法登录**（返回 503） |
+| `ADMIN_TTL_HOURS` | 12 | 后台会话有效期，1–72 |
 | `NODE_ENV=production` | — | 开启 `Secure` Cookie |
 | `DEV=1` | — | 登录链接直出，便于本地联调 |
 | `STATIC_DIR` | `output` | 静态文件根目录 |
+
+## 后台登录（密码 + 防护）
+
+`output/admin.html` 是纯静态页面，**页面里不存任何密码**——密码只在服务端比对。
+页面打开后先问 `/api/me`，非管理员就显示密码框；密码通过后拿到一枚独立的
+`fh6_admin` 会话 cookie，才渲染表格。
+
+```bash
+# 生成一个够强的密码
+node -e "console.log(require('crypto').randomBytes(24).toString('base64url'))"
+# 写进环境（docker-compose 的 environment 或 .env）
+ADMIN_PASSWORD=<上面生成的值>
+```
+
+防护链路：
+
+| 层 | 做法 |
+|---|---|
+| 密码比对 | 两侧 sha256 后 `timingSafeEqual`，定长常量时间，不泄露长度与内容 |
+| 会话 | 独立 cookie `fh6_admin`，`HttpOnly` + `SameSite=Strict`，默认 12 小时 |
+| 爆破 | 单 IP 5 次失败锁 15 分钟，全局 100 次/小时；成功即清零 |
+| 提权范围 | 只签 `admin_sessions`，**不写 `users.is_admin`**，不污染玩家账号 |
+| 审计 | 成功/失败都写 `audit_log`（`admin_login_ok` / `admin_login_fail`），只记 IP 哈希 |
+| 写接口 | `/api/tiers/:carId` 需管理员；所有写操作仍要 Origin 白名单 + `X-CSRF` + JSON |
+
+> `SameSite=Strict` 只在**同站**请求里发送。若把 API 放到另一个注册域（不是 `*.forzacardb.top`），
+> 后台会话会失效——那种情况要改回 `Lax` 并补 CSRF token 校验。
+
 
 ## 调校上传约定
 
@@ -62,6 +92,7 @@ DEV=1 SITE_ORIGIN=http://localhost:8787 ADMIN_EMAILS=you@example.com \
 `PUT /api/ratings/:carId` · `GET /api/stats?ids=1,2,3`
 `GET|POST /api/tunes` · `DELETE /api/tunes/:id`
 `GET /auth/steam/start` · `GET /auth/steam/callback`（Steam OpenID 2.0）
+`GET /auth/admin/session` · `POST /auth/admin/login` · `POST /auth/admin/logout`（后台密码）
 `GET /api/tiers` · `PUT /api/tiers/:carId`（管理员）
 `POST /auth/email/start` · `GET /auth/verify` · `POST /auth/logout`
 

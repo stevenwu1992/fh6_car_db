@@ -100,3 +100,15 @@ CREATE TABLE IF NOT EXISTS audit_log (
   detail        TEXT,
   created_at    INTEGER NOT NULL
 );
+
+-- 管理员密码会话：与玩家会话完全分离。
+-- 独立 cookie（fh6_admin）、短时效、不写 users.is_admin，
+-- 这样密码泄露的最后影响面是一段时间的管理权限，而不是某个账号被永久提权。
+CREATE TABLE IF NOT EXISTS admin_sessions (
+  token_hash    TEXT PRIMARY KEY,
+  created_at    INTEGER NOT NULL,
+  expires_at    INTEGER NOT NULL,
+  ip_hash       TEXT,
+  ua_hash       TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_admin_sessions_exp ON admin_sessions(expires_at);

@@ -15,6 +15,9 @@ output/~$*
 *.zip
 fh6-car-index-deploy/
 
+# Cloudflare Pages 构建产物（本地试跑用，不要入库）
+dist/
+
 # 游戏原始表的导出中间件（.str 字符串表 / schema 转储）
 work/
 

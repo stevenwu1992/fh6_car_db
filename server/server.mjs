@@ -10,7 +10,9 @@
  *  - 写操作：Origin 白名单 + X-CSRF: 1 + JSON content-type，缺一 403
  *  - 限流：IP 维度滑动窗口（写 60/10min、登录 5/10min、建匿名用户 20/天）
  *  - 请求体上限 32KB（调校 64KB），字段白名单校验，car_id 只接受纯数字
- *  - 管理端：ADMIN_EMAILS 白名单，命中才把 users.is_admin 置 1
+ *  - 管理端：两条路并行 —— ① ADMIN_PASSWORD 密码登录，签发独立短效 admin 会话
+ *              ② ADMIN_EMAILS 邮箱白名单，命中才把 users.is_admin 置 1
+ *              两者都只影响「改分级标签」这一个写接口，且写操作一律进 audit_log
  */
 import { createServer } from "node:http";
 import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
@@ -30,6 +32,8 @@ const CFG = {
   sessionDays: 365,
   secure: process.env.NODE_ENV === "production",
   adminEmails: (process.env.ADMIN_EMAILS || "").split(",").map(s => s.trim().toLowerCase()).filter(Boolean),
+  adminPassword: process.env.ADMIN_PASSWORD || "",
+  adminTtlHours: Math.max(1, Math.min(72, Number(process.env.ADMIN_TTL_HOURS || 12))),
   dev: process.env.DEV === "1",
   steamKey: process.env.STEAM_API_KEY || "",
   staticDir: process.env.STATIC_DIR || join(ROOT, "output"),
@@ -108,6 +112,42 @@ function issueSession(res, userId, req) {
 const clientIp = req =>
   String(req.headers["cf-connecting-ip"] || req.headers["x-forwarded-for"] || "").split(",")[0].trim()
   || req.socket.remoteAddress || "0.0.0.0";
+
+/* ---------- 管理员密码会话 ---------- */
+const ADMIN_COOKIE = "fh6_admin";
+const adminCookie = (val, maxAge) =>
+  `${ADMIN_COOKIE}=${val}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${maxAge}${CFG.secure ? "; Secure" : ""}`;
+
+function hasAdmin(req) {
+  const t = parseCookies(req)[ADMIN_COOKIE];
+  if (!t) return false;
+  const h = sha(t);
+  const row = db.prepare("SELECT expires_at FROM admin_sessions WHERE token_hash=?").get(h);
+  if (!row) return false;
+  if (row.expires_at <= now()) {
+    db.prepare("DELETE FROM admin_sessions WHERE token_hash=?").run(h);
+    return false;
+  }
+  return true;
+}
+
+function issueAdminSession(req, res) {
+  const t = token();
+  const ttl = CFG.adminTtlHours * 3600;
+  const exp = now() + ttl;
+  db.prepare("INSERT INTO admin_sessions(token_hash,created_at,expires_at,ip_hash,ua_hash) VALUES(?,?,?,?,?)")
+    .run(sha(t), now(), exp, sha(clientIp(req)), sha(String(req.headers["user-agent"] || "")));
+  db.prepare("DELETE FROM admin_sessions WHERE expires_at <= ?").run(now());
+  res.setHeader("set-cookie", adminCookie(t, ttl));
+  return exp;
+}
+
+// 两侧都先做 sha256 再比较：长度恒为 32 字节，timingSafeEqual 才是真正的定长比较。
+const passwordMatches = input => {
+  const a = createHash("sha256").update(String(input ?? "")).digest();
+  const b = createHash("sha256").update(CFG.adminPassword).digest();
+  return timingSafeEqual(a, b);
+};
 
 function ensureAnon(req, res) {
   const u = userOf(req);
@@ -202,6 +242,35 @@ const server = createServer(async (req, res) => {
   try {
     if (path === "/health") return json(res, 200, { ok: true, db: "ok", ts: now() });
 
+    /* --- 管理端密码登录 --- */
+    if (path === "/auth/admin/session" && method === "GET") {
+      return hasAdmin(req) ? json(res, 200, { ok: true }) : err(res, 401, "NO_ADMIN", "未登录");
+    }
+
+    if (path === "/auth/admin/login" && method === "POST") {
+      if (!guardWrite(req, res)) return;
+      if (!CFG.adminPassword) return err(res, 503, "NOT_CONFIGURED", "服务端尚未配置 ADMIN_PASSWORD");
+      const ipKey = "admin:login:" + sha(clientIp(req));
+      if (!rateLimit(ipKey, 5, 900)) return err(res, 429, "RATE_LIMITED", "尝试过于频繁，请 15 分钟后再试");
+      if (!rateLimit("admin:login:global", 100, 3600)) return err(res, 429, "RATE_LIMITED", "登录尝试过多，请稍后再试");
+      const body = await readBody(req, 1024);
+      const exp = passwordMatches(body.password) ? issueAdminSession(req, res) : 0;
+      db.prepare("INSERT INTO audit_log(id,user_id,action,detail,created_at) VALUES(?,?,?,?,?)")
+        .run(uid("a_"), null, exp ? "admin_login_ok" : "admin_login_fail",
+             JSON.stringify({ ip: sha(clientIp(req)) }), now());
+      if (!exp) return err(res, 401, "BAD_PASSWORD", "密码不正确");
+      db.prepare("DELETE FROM rate_limits WHERE bucket=?").run(ipKey);
+      return json(res, 200, { ok: true, expires_at: exp });
+    }
+
+    if (path === "/auth/admin/logout" && method === "POST") {
+      if (!guardWrite(req, res)) return;
+      const t = parseCookies(req)[ADMIN_COOKIE];
+      if (t) db.prepare("DELETE FROM admin_sessions WHERE token_hash=?").run(sha(t));
+      res.setHeader("set-cookie", adminCookie("", 0));
+      return json(res, 200, { ok: true });
+    }
+
     /* --- 身份 --- */
     if (path === "/api/me" && method === "GET") {
       const u = ensureAnon(req, res);
@@ -210,7 +279,7 @@ const server = createServer(async (req, res) => {
         "SELECT state, COUNT(*) n FROM garage WHERE user_id=? GROUP BY state").all(u.id);
       const identities = db.prepare("SELECT provider, email FROM identities WHERE user_id=?").all(u.id);
       return json(res, 200, {
-        user: { id: u.id, display_name: u.name || "游客", is_anonymous: u.isAnonymous, is_admin: u.isAdmin },
+        user: { id: u.id, display_name: u.name || "游客", is_anonymous: u.isAnonymous, is_admin: u.isAdmin || hasAdmin(req) },
         identities: identities.map(i => ({ provider: i.provider, email: i.email })),
         stats: Object.fromEntries(stats.map(r => [r.state, r.n])),
         csrf: 1,
@@ -494,8 +563,9 @@ const server = createServer(async (req, res) => {
     if (path.startsWith("/api/tiers/") && method === "PUT") {
       if (!guardWrite(req, res)) return;
       const u = userOf(req);
-      if (!u) return err(res, 401, "NO_SESSION", "请刷新页面后重试");
-      if (!u.isAdmin) return err(res, 403, "FORBIDDEN", "需要管理员权限");
+      const admin = (u && u.isAdmin) || hasAdmin(req);
+      if (!admin) return u ? err(res, 403, "FORBIDDEN", "需要管理员权限")
+                           : err(res, 401, "NO_SESSION", "请刷新页面后重试");
       const carId = path.split("/")[3];
       if (!CAR_RE.test(carId)) return err(res, 400, "BAD_CAR", "车辆 ID 不合法");
       const body = await readBody(req, 2048);
@@ -506,9 +576,9 @@ const server = createServer(async (req, res) => {
                   VALUES(?,?,?,?,?,?)
                   ON CONFLICT(car_id) DO UPDATE SET race_tier=excluded.race_tier, race_group=excluded.race_group,
                     drift_tier=excluded.drift_tier, updated_by=excluded.updated_by, updated_at=excluded.updated_at`)
-        .run(carId, raceTier, raceGroup, driftTier, u.id, now());
+        .run(carId, raceTier, raceGroup, driftTier, u ? u.id : null, now());
       db.prepare("INSERT INTO audit_log(id,user_id,action,detail,created_at) VALUES(?,?,?,?,?)")
-        .run(uid("a_"), u.id, "tier_update", JSON.stringify({ carId, raceTier, raceGroup, driftTier }), now());
+        .run(uid("a_"), u ? u.id : null, "tier_update", JSON.stringify({ carId, raceTier, raceGroup, driftTier }), now());
       return json(res, 200, { ok: true, car_id: carId });
     }
 
@@ -529,4 +599,7 @@ const server = createServer(async (req, res) => {
 server.listen(CFG.port, () => {
   console.log(`FH6 API + 静态站: http://localhost:${CFG.port}  (static=${CFG.staticDir})`);
   if (CFG.dev) console.log("DEV=1：magic link 会打印到控制台，并随响应返回 dev_link");
+  if (!CFG.adminPassword) console.warn("[WARN] 未设置 ADMIN_PASSWORD —— 后台密码登录会返回 503");
+  else if (CFG.adminPassword.length < 12) console.warn("[WARN] ADMIN_PASSWORD 少于 12 位，建议换成更长的随机串");
+  else console.log(`后台密码登录已启用，会话有效期 ${CFG.adminTtlHours} 小时`);
 });

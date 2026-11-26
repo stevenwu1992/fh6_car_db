@@ -634,9 +634,9 @@ FIELDS: Final[dict[str, Field]] = {
                 "乘 `GameTorqueScale` 后才是最终输出。",
     },
     "SimPeakAngVel": {
-        "cn": "峰值功率转速", "typ": "REAL", "unit": "rad/s", "rng": "209.4 ~ 1665.0",
-        "desc": "达到峰值功率时的曲轴角速度。换算：rpm = rad/s × 9.5493。"
-                "库内中位数 680 rad/s ≈ 6500 rpm。",
+        "cn": "峰值功率转速", "typ": "REAL", "unit": "rpm", "rng": "2000 ~ 15900",
+        "desc": "达到峰值功率时的曲轴转速。库里原始值是 rad/s，展示时按 rpm = rad/s × 9.5493 换算。"
+                "库内中位数约 6500 rpm。",
     },
     "SimPeakTorque": {
         "cn": "峰值扭矩", "typ": "REAL", "unit": "×100 N·m（数值 ×100 = N·m）", "rng": "0.075 ~ 40.0",
@@ -644,14 +644,14 @@ FIELDS: Final[dict[str, Field]] = {
                 "与功率的关系为 P = T × ω，可据此交叉验证数据是否自洽。",
     },
     "SimPeakTorqueAngVel": {
-        "cn": "峰值扭矩转速", "typ": "REAL", "unit": "rad/s", "rng": "0.0 ~ 1068.1",
-        "desc": "达到最大扭矩时的曲轴角速度，换算方式同上。"
+        "cn": "峰值扭矩转速", "typ": "REAL", "unit": "rpm", "rng": "0 ~ 10200",
+        "desc": "达到最大扭矩时的曲轴转速（rpm），由 rad/s × 9.5493 换算而来。"
                 "它与 `SimPeakAngVel` 的差距反映引擎的「高转特性」——差距越大越偏高转。",
     },
     "SimRedlineAngVel": {
-        "cn": "断油转速", "typ": "REAL", "unit": "rad/s", "rng": "261.8 ~ 2199.1",
-        "desc": "引擎断油（红线）转速，rad/s（×9.5493 = rpm）。"
-                "中位数 733 rad/s ≈ 7000 rpm，最高 2199 rad/s ≈ 21000 rpm 属 F1 级。",
+        "cn": "断油转速", "typ": "REAL", "unit": "rpm", "rng": "2500 ~ 21000",
+        "desc": "引擎断油（红线）转速，展示为 rpm（由 rad/s × 9.5493 换算）。"
+                "中位数约 7000 rpm，最高约 21000 rpm 属 F1 级。",
     },
     "SimTimeTo60MPH": {
         "cn": "仿真 0-60 mph", "typ": "REAL", "unit": "秒", "rng": "0.0 ~ 27.18",

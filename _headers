@@ -1,0 +1,41 @@
+# Cloudflare Pages 自定义响应头
+# 位置：构建输出目录根部（本项目由构建命令把本文件拷进 dist/）
+# 语法：路径模式顶格，头部行两空格缩进；多个模式同时命中时，最具体的模式胜出
+# 限制：最多 100 条规则，单行不超过 2000 字符
+#
+# 路径基准提醒：线上资源位于 /output/assets/ 下，不是根 /assets/。
+# 站点 HTML 用的是相对路径（assets/car/1006.webp），解析结果必然是 /output/assets/...
+
+# ── 1. 全局兜底 ────────────────────────────────────────────────
+# 主要命中 /index.html 与 /output/*.html。600 秒与站点当前行为一致；
+# 边缘缓存由控制台的 Cache Rules 另外接管。
+/*
+  Cache-Control: public, max-age=600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=15552000
+
+# ── 2. 字体 ────────────────────────────────────────────────────
+# 文件名稳定、内容不会变，可以放心 immutable
+/output/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── 3. 站内图片 ────────────────────────────────────────────────
+# 重要：文件名是车辆/品牌 ID（1006.webp、ABA.webp），不带内容哈希。
+# 所以这里绝对不能写 immutable —— 一旦重导出同一张图，老访客一年内都看不到新图，
+# 而且 immutable 会连强制刷新都跳过。用 30 天 + 后台静默续期。
+/output/assets/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+# ── 4. 后台页面 ────────────────────────────────────────────────
+# noindex：别被搜索引擎收录（admin.html 目前还被首页导航直接链着）
+# no-store：共用电脑上别留下页面缓存；同时保证改版后拿到的是新版后台
+/output/admin.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+
+# ── 5. 预览域不收录 ────────────────────────────────────────────
+# 防止 *.pages.dev 的预览部署被搜索引擎收录，稀释正式域权重
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
