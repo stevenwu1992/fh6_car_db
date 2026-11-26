@@ -3119,13 +3119,29 @@ async function bootAuth() {
     } catch { /* 忽略：只影响「我的」状态 */ }
   }
   syncFavN();
-  try {
-    const t = await api("/api/tiers");
-    (t.overrides || []).forEach(o => { OVR[String(o.car_id)] = o; });
-  } catch { /* 无 API 时用静态分级 */ }
+  await refreshTiers();
   paintAuth();
   loadStats();
 }
+
+/* 分级覆盖：后台改完后必须重绘卡片，否则页面还是构建时烘焙的静态分级 */
+async function refreshTiers() {
+  try {
+    const t = await api("/api/tiers");
+    const list = t.overrides || [];
+    Object.keys(OVR).forEach(k => delete OVR[k]);
+    list.forEach(o => { OVR[String(o.car_id)] = o; });
+    window.__ovrAt = Date.now();
+    if (list.length) apply();   // 没有覆盖就不必重绘，静态分级已经画好了
+  } catch { /* 接口不可用时沿用静态分级 */ }
+}
+
+/* 切回标签页时（间隔 > 60 秒）重新拉一次分级，管理员改完不用等缓存过期 */
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  if (Date.now() - (window.__ovrAt || 0) < 60000) return;
+  refreshTiers(false);
+});
 
 async function loadStats() {
   const ids = cars.map(c => c.id);
@@ -3289,11 +3305,35 @@ function paintDrift(c) {
    结构按设计文档：9 位分享码 + 作者游戏 ID + 适用强度分级 + ≤100 字说明。 */
 const fmtCode = v => String(v).replace(/\D/g, "").slice(0, 9).replace(/(\d{3})(?=\d)/g, "$1 ");
 
-function tierMenuHTML(groups) {
-  return groups.map(g => {
-    const cls = g.split(/\s+/)[0];
-    return `<button class="gi" type="button" data-grp="${esc(g)}" style="--cc:${ccOf(cls)};--ct:${ctOf(cls)}"><span class="dot"></span>${esc(g)}</button>`;
-  }).join("");
+/* 分级顺序与首页等级菜单保持一致：按 D → C → B → A → S1 → S2 → R 分组，
+   未归入任何等级的自定义分组排在最后 */
+function tierGroupsOrdered() {
+  const out = [], seen = new Set();
+  clsClasses.forEach(c => grpOfCls(c).forEach(g => { if (!seen.has(g)) { seen.add(g); out.push(g); } }));
+  [...(DATA.tierGroups || []), "漂移神车", "通用"].forEach(g => {
+    if (!seen.has(g)) { seen.add(g); out.push(g); }
+  });
+  return out;
+}
+
+function tierMenuHTML() {
+  const rows = [];
+  const seen = new Set();
+  clsClasses.forEach(c => {
+    const gs = grpOfCls(c);
+    if (!gs.length) return;
+    rows.push(`<div class="gh" style="--cc:${ccOf(c)}">${c} 级</div>`);
+    gs.forEach(g => {
+      seen.add(g);
+      rows.push(`<button class="gi" type="button" data-grp="${esc(g)}" style="--cc:${ccOf(c)};--ct:${ctOf(c)}"><span class="dot"></span>${esc(g)}</button>`);
+    });
+  });
+  const rest = [...(DATA.tierGroups || []), "漂移神车", "通用"].filter(g => !seen.has(g));
+  if (rest.length) {
+    rows.push(`<div class="gh" style="--cc:var(--steel)">其他</div>`);
+    rest.forEach(g => rows.push(`<button class="gi" type="button" data-grp="${esc(g)}" style="--cc:var(--steel);--ct:#fff"><span class="dot"></span>${esc(g)}</button>`));
+  }
+  return rows.join("");
 }
 
 function copyTip(anchor, text) {
@@ -3326,7 +3366,7 @@ async function copyCode(el) {
 async function renderTunes(c) {
   const host = $("dTune");
   if (!host) return;
-  const groups = [...(DATA.tierGroups || []), "漂移神车", "通用"];
+  const groups = tierGroupsOrdered();
   host.innerHTML = `<h3 class="tune-title">车辆调校</h3>
     <div class="tunelist" id="tuneList"><span class="ti">加载中…</span></div>`;
   if (ME && !ME.user.is_anonymous) {
@@ -3341,7 +3381,7 @@ async function renderTunes(c) {
             <button class="chip" type="button" id="tuneBtn" aria-haspopup="listbox" aria-expanded="false">
               <span class="dot" style="--cc:${ccOf(groups[0].split(/\s+/)[0])}"></span><span id="tuneLbl">${esc(groups[0])}</span>
             </button>
-            <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML(groups)}</div>
+            <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML()}</div>
           </div>
           <input id="tuneNote" maxlength="100" placeholder="说明（最多 100 字，所有玩家可见）">
           <button id="tunePost">上传</button>
