@@ -1397,6 +1397,8 @@ const FI = {}; FULL.forEach((f, i) => FI[f.n] = i);
 const UNIFORM = new Set(DATA.uniform || []);
 
 /* 强度分级（来自调校推荐表）：tier[cid] = [[强度序号, 组别序号], ...]，首个是主标签 */
+/* 后台覆盖必须声明在分级取值函数之前：tierOf/tierGroupOf 会在首屏渲染时就读它 */
+const OVR = {};                        // carId -> {race_tier, race_group, drift_tier}
 const TIER = DATA.tier || {};
 const TIER_NAMES = DATA.tierNames || [];
 const TIER_GROUPS = DATA.tierGroups || [];
@@ -3100,7 +3102,7 @@ const API_BASE = window.__FH6_API__ || "";
 let ME = null;
 const SOCIAL = {};                 // carId -> {fav, owned, wish, votes, avg}
 const MY = { garage: new Map(), ratings: new Map() };
-const OVR = {};                        // 后台改过的分级：carId -> {race_tier, race_group, drift_tier}
+/* OVR 已在分级函数之前声明（约第 1412 行），这里不能重复声明 */
 
 async function api(path, opt = {}) {
   const res = await fetch(API_BASE + path, {

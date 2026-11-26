@@ -1397,6 +1397,8 @@ const FI = {}; FULL.forEach((f, i) => FI[f.n] = i);
 const UNIFORM = new Set(DATA.uniform || []);
 
 /* 強度分級（來自調校推薦表）：tier[cid] = [[強度序號, 組別序號], ...]，首個是主標籤 */
+/* 後臺覆蓋必須聲明在分級取值函數之前：tierOf/tierGroupOf 會在首屏渲染時就讀它 */
+const OVR = {};                        // carId -> {race_tier, race_group, drift_tier}
 const TIER = DATA.tier || {};
 const TIER_NAMES = DATA.tierNames || [];
 const TIER_GROUPS = DATA.tierGroups || [];
@@ -3100,7 +3102,7 @@ const API_BASE = window.__FH6_API__ || "";
 let ME = null;
 const SOCIAL = {};                 // carId -> {fav, owned, wish, votes, avg}
 const MY = { garage: new Map(), ratings: new Map() };
-const OVR = {};                        // 後臺改過的分級：carId -> {race_tier, race_group, drift_tier}
+/* OVR 已在分級函數之前聲明（約第 1412 行），這裡不能重複聲明 */
 
 async function api(path, opt = {}) {
   const res = await fetch(API_BASE + path, {
