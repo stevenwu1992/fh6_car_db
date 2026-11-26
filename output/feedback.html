@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>问题反馈 · Forza Horizon 6 车辆索引</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{--bg:#0b0b0e;--card:#141418;--line:#26262c;--ink:#f4f4f7;--dim:#8a8a93;--accent:#ff2d6f;--ok:#3ddc97;--err:#ff5c7a}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
+    font:400 15px/1.7 -apple-system,"Segoe UI",system-ui,"Microsoft YaHei",sans-serif;
+    display:flex;flex-direction:column}
+  header{display:flex;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid var(--line)}
+  header img{width:30px;height:30px;border-radius:6px}
+  header b{font-weight:600;font-size:14px}
+  header .sp{flex:1}
+  header a{color:var(--dim);text-decoration:none;font-size:13px}
+  header a:hover{color:var(--ink)}
+  main{flex:1;display:flex;justify-content:center;padding:36px 20px 64px}
+  .card{width:100%;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 24px}
+  h1{margin:0 0 6px;font-size:18px;font-weight:600}
+  .sub{margin:0 0 22px;color:var(--dim);font-size:13px}
+  label{display:block;margin:0 0 6px;font-size:13px;color:var(--dim)}
+  .field{margin-bottom:16px}
+  input,textarea{width:100%;padding:10px 12px;background:#0b0b0e;border:1px solid var(--line);
+    border-radius:8px;color:var(--ink);font:inherit;outline:none}
+  input:focus,textarea:focus{border-color:var(--accent)}
+  textarea{min-height:132px;resize:vertical}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  button{width:100%;margin-top:6px;padding:11px;border:0;border-radius:8px;
+    background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.45;cursor:default}
+  .msg{min-height:22px;margin-top:14px;font-size:13px}
+  .msg.ok{color:var(--ok)}
+  .msg.err{color:var(--err)}
+  .note{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px;line-height:1.65}
+  #ts{margin:4px 0 14px}
+</style>
+</head>
+<body>
+<header>
+  <img src="assets/img/mark.png" alt="">
+  <b>Forza Horizon 6 车辆索引</b>
+  <span class="sp"></span>
+  <a href="zh-hans.html">← 返回索引</a>
+</header>
+<main>
+  <div class="card">
+    <h1>问题反馈</h1>
+    <p class="sub">数据有误、页面有问题、想补充调校，都可以写在这里。</p>
+
+    <form id="f" novalidate>
+      <div class="field">
+        <label for="name">称呼</label>
+        <input id="name" name="name" maxlength="40" autocomplete="nickname" placeholder="怎么称呼你">
+      </div>
+      <div class="field">
+        <label for="contact">联系方式</label>
+        <input id="contact" name="contact" maxlength="120" autocomplete="email" placeholder="邮箱 / QQ / Steam ID，方便回复">
+      </div>
+      <div class="field">
+        <label for="message">反馈内容</label>
+        <textarea id="message" name="message" maxlength="1000" placeholder="尽量写清楚车辆名或页面位置，比如「保时捷 911 GT3 的断油转速不对」"></textarea>
+      </div>
+
+      <div class="hp" aria-hidden="true">
+        <label for="website">网站</label>
+        <input id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div id="ts"></div>
+      <button id="go" type="submit">提交</button>
+      <div class="msg" id="msg"></div>
+    </form>
+
+    <div class="note">
+      提交内容会存到站点的数据库，只用于改进这个索引站，不会公开或转给第三方。
+    </div>
+  </div>
+</main>
+
+<script>
+// 填入 Turnstile 的 Site Key 即启用人机验证；留空则表单直接可用（服务端也会跳过校验）
+const SITE_KEY = "";
+
+let tsToken = "";
+const $ = s => document.querySelector(s);
+const setMsg = (t, kind) => { const m = $("#msg"); m.textContent = t; m.className = "msg" + (kind ? " " + kind : ""); };
+
+if (SITE_KEY) {
+  const s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+  s.async = true; s.defer = true;
+  s.onload = () => window.turnstile && turnstile.render("#ts", {
+    sitekey: SITE_KEY,
+    theme: "dark",
+    callback: t => { tsToken = t; },
+    "expired-callback": () => { tsToken = ""; },
+    "error-callback": () => { tsToken = ""; }
+  });
+  document.head.appendChild(s);
+}
+
+$("#f").addEventListener("submit", async e => {
+  e.preventDefault();
+  const btn = $("#go");
+  const body = {
+    name: $("#name").value.trim(),
+    contact: $("#contact").value.trim(),
+    message: $("#message").value.trim(),
+    website: $("#website").value,          // 蜜罐
+    turnstileToken: tsToken
+  };
+  if (!body.name) return setMsg("请填写称呼", "err");
+  if (body.contact.length < 3) return setMsg("请填写有效的联系方式", "err");
+  if (body.message.length < 2) return setMsg("请填写反馈内容", "err");
+
+  btn.disabled = true; btn.textContent = "提交中…"; setMsg("");
+  try {
+    const r = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body)
+    });
+    const d = await r.json().catch(() => ({}));
+    if (r.ok) {
+      $("#f").reset();
+      if (SITE_KEY && window.turnstile) turnstile.reset("#ts");
+      tsToken = "";
+      setMsg("已收到，感谢反馈。", "ok");
+    } else {
+      setMsg(d.error || "提交失败，请稍后再试", "err");
+    }
+  } catch {
+    setMsg("网络异常，请稍后再试", "err");
+  } finally {
+    btn.disabled = false; btn.textContent = "提交";
+  }
+});
+</script>
+</body>
+</html>

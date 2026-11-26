@@ -1,0 +1,12 @@
+name = "fh6-car-db"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-11-01"
+
+# 反馈表单的 D1 绑定
+# database_id 用 `npx wrangler d1 create fh6_contacts` 输出的 uuid 替换
+[[d1_databases]]
+binding = "DB"
+database_name = "fh6_contacts"
+database_id = "00000000-0000-0000-0000-000000000000"
+
+# 不要在这里写 TURNSTILE_SECRET，密钥用控制台的 Secret 或 wrangler pages secret put

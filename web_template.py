@@ -1255,6 +1255,7 @@ TEMPLATE = r"""<!DOCTYPE html>
           <li><button data-act="curves">轮胎曲线库</button></li>
           <li><button data-act="compare">并排比对</button></li>
           <li><button data-act="about">网站说明</button></li>
+          <li><a href="feedback.html">问题反馈</a></li>
         </ul>
       </div>
       <div>
