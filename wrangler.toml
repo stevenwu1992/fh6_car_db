@@ -23,5 +23,6 @@ database_id = "eefbe651-81aa-4640-9548-00dc5e7be209"
 
 [vars]
 # 后台管理密码的 PBKDF2 哈希（不是明文）。明文只发给站长本人，换密码时重新生成。
-# 若在控制台另设 ADMIN_PASSWORD 密钥，会优先使用密钥、忽略这里的哈希。
-ADMIN_PASSWORD_HASH = "pbkdf2$10000$VPv_ZCQPVSvXDXy8CYnd2w$0N2qVj_QwcvR7oAiPSue5hlE45NWnsyO8ksk5dArUqA"
+# 优先级高于控制台的 ADMIN_PASSWORD 密钥：这样不登录控制台也能轮换密码。
+# 生成方式：node -e "..."（见 docs/admin-credentials.md）
+ADMIN_PASSWORD_HASH = "pbkdf2$10000$4Nn7D6DTeaHSFjaC3wkmJA$VsFhdhyXbHM8WHunYY9yG4quqbniVzmpaJ8uh56TcMY"

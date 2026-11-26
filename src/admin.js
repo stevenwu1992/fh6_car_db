@@ -163,9 +163,10 @@ async function login(request, env, url) {
 
   const body = await request.json().catch(() => ({}));
   const pw = String(body.password ?? "");
-  const ok = env.ADMIN_PASSWORD
-    ? eqHash(await sha256hex(pw), await sha256hex(env.ADMIN_PASSWORD))
-    : await verifyPbkdf2(pw, env.ADMIN_PASSWORD_HASH);
+  // 优先级：仓库里的哈希变量 > 控制台密钥。这样在拿不到控制台时也能轮换密码。
+  const ok = env.ADMIN_PASSWORD_HASH
+    ? await verifyPbkdf2(pw, env.ADMIN_PASSWORD_HASH)
+    : eqHash(await sha256hex(pw), await sha256hex(env.ADMIN_PASSWORD || ""));
   if (!ok) return json(401, { error: "密码不正确" });
 
   const { token, ttl } = await issue(request, env);
