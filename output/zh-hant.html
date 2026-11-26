@@ -2276,7 +2276,8 @@ function syncFavN() {
   if (el) el.textContent = n;
   if (!n && S.fav) { S.fav = false; const cb = $("fFav"); if (cb) cb.checked = false; }
 }
-syncFavN();
+/* 首次值由 bootAuth 在拿到 /api/garage 後調用；此處不能提前調用，
+   MY 在第 3097 行才聲明，提前調用會觸發 TDZ ReferenceError 讓整段腳本中斷。 */
 
 /* 開關旁的臺數必須和勾選後的結果一致：NPC / 街車默認隱藏，
    若按全庫 111 寫死，勾上卻只剩 106，會被當成漏篩。 */
