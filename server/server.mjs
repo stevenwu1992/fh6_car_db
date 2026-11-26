@@ -36,6 +36,8 @@ const CFG = {
   adminTtlHours: Math.max(1, Math.min(72, Number(process.env.ADMIN_TTL_HOURS || 12))),
   dev: process.env.DEV === "1",
   steamKey: process.env.STEAM_API_KEY || "",
+  resendKey: process.env.RESEND_API_KEY || "",
+  mailFrom: process.env.MAIL_FROM || "",
   staticDir: process.env.STATIC_DIR || join(ROOT, "output"),
 };
 
@@ -148,6 +150,28 @@ const passwordMatches = input => {
   const b = createHash("sha256").update(CFG.adminPassword).digest();
   return timingSafeEqual(a, b);
 };
+
+/* ---------- 邮件（Resend，零依赖直连 REST） ---------- */
+const mailReady = () => Boolean(CFG.resendKey && CFG.mailFrom);
+
+async function sendLoginMail(email, link) {
+  const r = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { authorization: `Bearer ${CFG.resendKey}`, "content-type": "application/json" },
+    body: JSON.stringify({
+      from: CFG.mailFrom,
+      to: [email],
+      subject: "登录 FH6 车辆索引",
+      html: `<div style="font:400 15px/1.7 -apple-system,'Segoe UI',system-ui,'Microsoft YaHei',sans-serif;color:#111114">
+        <p>点下面的链接完成登录，15 分钟内有效：</p>
+        <p><a href="${link}" style="color:#e8185f">${link}</a></p>
+        <p style="color:#65656d;font-size:13px">如果不是你本人操作，忽略这封邮件即可，链接会自行失效。</p>
+      </div>`,
+    }),
+  });
+  if (!r.ok) console.error("[mail]", r.status, (await r.text()).slice(0, 200));
+  return r.ok;
+}
 
 function ensureAnon(req, res) {
   const u = userOf(req);
@@ -382,8 +406,16 @@ const server = createServer(async (req, res) => {
       db.prepare("INSERT INTO login_tokens(token_hash,email,user_id,next_path,created_at,expires_at) VALUES(?,?,?,?,?,?)")
         .run(sha(t), email, u.id, String(body.next || "/"), now(), now() + 900);
       const link = `${CFG.apiOrigin || CFG.siteOrigin}/auth/verify?token=${encodeURIComponent(t)}`;
-      if (CFG.dev) console.log(`[magic-link] ${email} → ${link}`);
-      return json(res, 200, { ok: true, dev_link: CFG.dev ? link : undefined });
+      if (CFG.dev) {
+        console.log(`[magic-link] ${email} → ${link}`);
+        return json(res, 200, { ok: true, dev_link: link });
+      }
+      if (!mailReady()) {
+        console.warn("[mail] 未配置 RESEND_API_KEY / MAIL_FROM，邮箱登录返回 503");
+        return err(res, 503, "MAIL_NOT_CONFIGURED", "邮件登录尚未开通，请改用 Steam 登录");
+      }
+      if (!await sendLoginMail(email, link)) return err(res, 502, "MAIL_FAILED", "验证邮件发送失败，请稍后再试");
+      return json(res, 200, { ok: true });
     }
 
     if (path === "/auth/verify" && method === "GET") {

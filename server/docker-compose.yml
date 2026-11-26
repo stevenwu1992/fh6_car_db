@@ -12,7 +12,11 @@ services:
       SITE_ORIGIN: "https://www.forzacardb.top"     # 必须与真实访问域名一致，否则写操作会被 Origin 校验拒绝
       API_ORIGIN: ""                                 # 与站点同域时留空
       ADMIN_EMAILS: "you@example.com"                # 管理员邮箱，逗号分隔
+      ADMIN_PASSWORD: ""                             # 后台密码；留空则 /output/admin.html 无法登录
+      ADMIN_TTL_HOURS: "12"                          # 后台会话有效期（1–72 小时）
       STEAM_API_KEY: ""                              # 可选：拉 Steam 昵称/头像
+      RESEND_API_KEY: ""                             # 可选：邮箱登录发信，留空则邮件登录不可用
+      MAIL_FROM: ""                                  # 例如 "FH6 车辆索引 <login@mail.forzacardb.top>"
       NODE_ENV: "production"
       # DEV: "1"                                     # 只在本机联调时打开
     volumes:
