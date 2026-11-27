@@ -561,8 +561,8 @@
   #tbl{table-layout:auto;min-width:1700px}
   /* 列宽跟随内容，两侧各留半个中文字符（约 7px） */
   #tbl thead th.tier{width:1%}
-  /* 多余宽度全部给车名列，避免出现在 Meta 区前面的大片空白 */
-  #tbl thead th.nm{width:99%}
+  /* 车名列保持内容宽度：撑满会让车名与「强度分级」之间出现大片空白 */
+  #tbl thead th.nm{width:auto}
   #tbl th.tier,#tbl td.tier{padding-left:7px;padding-right:7px}
   /* 驱动/配置列也按内容收窄，并居中（原来带 .l 是左对齐且被拉宽） */
   #tbl th.drv,#tbl td.drv{width:1%;white-space:nowrap;text-align:center;padding-left:7px;padding-right:7px}
@@ -3444,6 +3444,7 @@ async function renderTunes(c) {
             </button>
             <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML()}</div>
           </div>
+          <input id="tuneDate" type="date" title="游戏内调校发布时间" max="${new Date().toISOString().slice(0, 10)}">
           <input id="tuneNote" maxlength="100" placeholder="说明（最多 100 字，所有玩家可见）">
           <button id="tunePost">上传</button>
         </div>
@@ -3491,11 +3492,13 @@ async function renderTunes(c) {
       const author_id = $("tuneAuthor").value.trim();
       const tier_group = dd.dataset.grp;
       const note = $("tuneNote").value.trim();
+      const game_date = $("tuneDate").value;
       if (!/^\d{9}$/.test(share_code)) { msg.textContent = "分享码必须是 9 位数字"; return; }
+      if (!game_date) { msg.textContent = "请选择游戏内调校发布时间"; return; }
       if (Array.from(author_id).length < 2) { msg.textContent = "请填写作者游戏 ID"; return; }
       $("tunePost").disabled = true;
       try {
-        await api("/api/tunes", { method: "POST", body: JSON.stringify({ car_id: c.id, share_code, author_id, tier_group, note, payload: {} }) });
+        await api("/api/tunes", { method: "POST", body: JSON.stringify({ car_id: c.id, share_code, author_id, tier_group, game_date, note, payload: {} }) });
         renderTunes(c);
       } catch (e) {
         msg.textContent = e.status === 409 ? "这台车已收录过该分享码" : e.status === 429 ? "上传过于频繁，稍后再试" : "上传失败，请检查填写内容";
@@ -3519,7 +3522,7 @@ async function loadTunes(c) {
         <div class="ti-h"><b>${esc(t.tier_group)}</b>
         <code class="tune-code" data-code="${esc(t.share_code)}" title="点击复制分享码">${esc(fmtCode(t.share_code))}</code>
         <span>作者 ${esc(t.author_id)}</span>
-        <span class="ti-time" title="发布时间">${esc(fmtTime(t.created_at))}</span>
+        <span class="ti-time" title="游戏内调校发布时间">${esc(t.game_date || fmtTime(t.created_at))}</span>
         <button class="like" data-id="${esc(t.id)}" aria-pressed="${t.mine ? "true" : "false"}" title="点赞这个调校">
           ♥ <b>${t.likes || 0}</b></button></div>
         ${t.note ? `<p>${esc(t.note)}</p>` : ""}

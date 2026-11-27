@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS tunes (
   share_code    TEXT NOT NULL,           -- 游戏内 9 位数字调校分享码
   author_id     TEXT NOT NULL,           -- 调校作者的游戏 ID（非站内昵称）
   tier_group    TEXT NOT NULL,           -- 适用强度分级，如 S1 800泥地 / 漂移神车
+  game_date     TEXT NOT NULL DEFAULT '',-- 游戏内调校发布时间 YYYY-MM-DD（上传者填写）
   note          TEXT NOT NULL DEFAULT '',-- 说明，最多 100 个中文字符
   payload       TEXT NOT NULL DEFAULT '{}',
   created_at    INTEGER NOT NULL,

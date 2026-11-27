@@ -223,6 +223,13 @@ const TIER_GROUPS = [
   "C 500公路", "C 500泥地", "漂移神车", "通用",
 ];
 const SHARE_RE = /^\d{9}$/;
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const validDate = v => {
+  if (!DATE_RE.test(v)) return false;
+  const d = new Date(v + "T00:00:00Z");
+  if (Number.isNaN(d.getTime())) return false;
+  return v <= new Date().toISOString().slice(0, 10);
+};
 const norm = v => String(v ?? "").normalize("NFKC").trim();          // 分享码：全角转半角
 const text = v => String(v ?? "").replace(/\u3000/g, " ").replace(/\s+/g, " ").trim();  // 文本：保留中文标点
 const cjkLen = v => Array.from(String(v ?? "")).length;
@@ -536,10 +543,12 @@ const server = createServer(async (req, res) => {
       const sort = url.searchParams.get("sort") === "likes" ? "likes" : "time";
       if (carId && !CAR_RE.test(carId)) return err(res, 400, "BAD_CAR", "车辆 ID 不合法");
       const me = userOf(req);
-      const cols = `t.id,t.car_id,t.share_code,t.author_id,t.tier_group,t.note,t.created_at,u.display_name,
+      const cols = `t.id,t.car_id,t.share_code,t.author_id,t.tier_group,t.game_date,t.note,t.created_at,u.display_name,
                     (SELECT COUNT(*) FROM tune_likes l WHERE l.tune_id=t.id) likes,
                     EXISTS(SELECT 1 FROM tune_likes l2 WHERE l2.tune_id=t.id AND l2.user_id=?) mine`;
-      const order = sort === "likes" ? "likes DESC, t.created_at DESC" : "t.created_at DESC";
+      const order = sort === "likes"
+        ? "likes DESC, COALESCE(NULLIF(t.game_date,''), t.created_at) DESC"
+        : "COALESCE(NULLIF(t.game_date,''), date(t.created_at,'unixepoch')) DESC, t.created_at DESC";
       const rows = carId
         ? db.prepare(`SELECT ${cols} FROM tunes t JOIN users u ON u.id=t.user_id
                       WHERE t.car_id=? ORDER BY ${order} LIMIT 100`).all(me ? me.id : "", carId)
@@ -560,6 +569,7 @@ const server = createServer(async (req, res) => {
       const shareCode = norm(body.share_code);
       const authorId = text(body.author_id);
       const tierGroup = norm(body.tier_group);
+      const gameDate = norm(body.game_date);
       const note = text(body.note).replace(/[\u0000-\u001f]/g, " ");
 
       if (!CAR_RE.test(carId)) return err(res, 400, "BAD_CAR", "车辆 ID 不合法");
@@ -568,6 +578,7 @@ const server = createServer(async (req, res) => {
       if (!/^[\w\u4e00-\u9fa5 ._#-]+$/u.test(authorId)) return err(res, 400, "BAD_AUTHOR", "作者 ID 含有不支持的字符");
       if (!TIER_GROUPS.includes(tierGroup)) return err(res, 400, "BAD_TIER", "请选择调校适用的强度分级");
       if (cjkLen(note) > 100) return err(res, 400, "NOTE_TOO_LONG", "说明最多 100 个字符");
+      if (gameDate && !validDate(gameDate)) return err(res, 400, "BAD_DATE", "发布时间格式应为 YYYY-MM-DD，且不能晚于今天");
 
       const dup = db.prepare("SELECT id FROM tunes WHERE car_id=? AND share_code=?").get(carId, shareCode);
       if (dup) return err(res, 409, "DUPLICATE", "这台车已经收录过这个分享码");
@@ -575,9 +586,9 @@ const server = createServer(async (req, res) => {
       const payload = JSON.stringify(body.payload ?? {});
       if (payload.length > 12000) return err(res, 413, "TOO_BIG", "调校数据过大");
       const id = uid("t_");
-      db.prepare(`INSERT INTO tunes(id,user_id,car_id,share_code,author_id,tier_group,note,payload,created_at,updated_at)
-                  VALUES(?,?,?,?,?,?,?,?,?,?)`)
-        .run(id, u.id, carId, shareCode, authorId, tierGroup, note, payload, now(), now());
+      db.prepare(`INSERT INTO tunes(id,user_id,car_id,share_code,author_id,tier_group,game_date,note,payload,created_at,updated_at)
+                  VALUES(?,?,?,?,?,?,?,?,?,?,?)`)
+        .run(id, u.id, carId, shareCode, authorId, tierGroup, gameDate, note, payload, now(), now());
       return json(res, 200, { id, car_id: carId, share_code: shareCode });
     }
 
@@ -607,6 +618,38 @@ const server = createServer(async (req, res) => {
       if (row.user_id !== u.id && !u.isAdmin) return err(res, 403, "FORBIDDEN", "只能删除自己的调校");
       db.prepare("DELETE FROM tunes WHERE id=?").run(id);
       return json(res, 200, { ok: true });
+    }
+
+    /* --- 管理员：批量导入调校 --- */
+    if (path === "/api/admin/tunes/bulk" && method === "POST") {
+      if (!guardWrite(req, res)) return;
+      const u = userOf(req);
+      if (!u) return err(res, 401, "NO_SESSION", "请刷新页面后重试");
+      if (!u.isAdmin) return err(res, 403, "FORBIDDEN", "需要管理员权限");
+      const body = await readBody(req, 262144);
+      const rows = Array.isArray(body.rows) ? body.rows.slice(0, 500) : [];
+      if (!rows.length) return err(res, 400, "EMPTY", "没有可导入的行");
+      const insert = db.prepare(`INSERT INTO tunes(id,user_id,car_id,share_code,author_id,tier_group,game_date,note,payload,created_at,updated_at)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?)`);
+      const exists = db.prepare("SELECT 1 FROM tunes WHERE car_id=? AND share_code=?");
+      const ok = [], bad = [];
+      rows.forEach((r, i) => {
+        const carId = norm(r.car_id), code = norm(r.share_code), author = text(r.author_id),
+              tier = norm(r.tier_group), date = norm(r.game_date), note = text(r.note).slice(0, 100);
+        const why =
+          !CAR_RE.test(carId) ? "车辆ID不合法" :
+          !SHARE_RE.test(code) ? "分享码非 9 位数字" :
+          cjkLen(author) < 2 ? "作者ID过短" :
+          !TIER_GROUPS.includes(tier) ? "分级不在允许列表" :
+          (date && !validDate(date)) ? "日期格式不正确" :
+          exists.get(carId, code) ? "已存在同名分享码" : "";
+        if (why) { bad.push({ line: i + 1, why, row: r }); return; }
+        insert.run(uid("t_"), u.id, carId, code, author, tier, date, note, "{}", now(), now());
+        ok.push(code);
+      });
+      db.prepare("INSERT INTO audit_log(id,user_id,action,detail,created_at) VALUES(?,?,?,?,?)")
+        .run(uid("a_"), u.id, "tunes_bulk", JSON.stringify({ ok: ok.length, bad: bad.length }), now());
+      return json(res, 200, { imported: ok.length, failed: bad.length, errors: bad.slice(0, 50) });
     }
 
     /* --- 分级标签（读公开 / 写仅管理员） --- */

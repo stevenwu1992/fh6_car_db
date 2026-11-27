@@ -847,6 +847,15 @@ ADMIN_HTML = """<!DOCTYPE html>
   header .sp{flex:1}
   header a{color:var(--steel);text-decoration:none;font-size:13px}
   main{padding:18px 22px 60px;max-width:1180px;margin:0 auto}
+  .bulk{margin-bottom:14px;background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:10px 14px}
+  .bulk summary{cursor:pointer;font-weight:600;font-size:13px}
+  .bulk p{margin:8px 0;color:var(--steel);font-size:12.5px}
+  .bulk code{background:var(--paper-2);padding:1px 5px;border-radius:3px}
+  .bulk textarea{width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--rule);border-radius:4px;
+    font:400 12.5px/1.5 ui-monospace,Consolas,monospace;resize:vertical}
+  .bulk-row{display:flex;align-items:center;gap:12px;margin-top:8px}
+  .bulk-row button{padding:6px 14px;border:0;border-radius:4px;background:var(--ink);color:#fff;cursor:pointer;font-size:12.5px}
+  #bulkOut{font-size:12.5px;color:var(--steel)}
   .bar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
   input[type=search]{flex:1;min-width:220px;padding:9px 12px;border:1px solid var(--rule);border-radius:4px;font:inherit}
   table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
@@ -897,6 +906,12 @@ ADMIN_HTML = """<!DOCTYPE html>
 </div>
 <main id="app" hidden>
   <div class="bar"><input id="q" type="search" placeholder="搜车名 / 品牌 / ID"></div>
+  <details class="bulk">
+    <summary>批量导入调校</summary>
+    <p>每行一条，用 <b>制表符</b> 或 <b>逗号</b> 分隔：<code>车辆ID, 分享码(9位), 作者ID, 分级, 发布日期(YYYY-MM-DD), 说明</code></p>
+    <textarea id="bulkText" rows="6" placeholder="4210,123456789,Noa Miyako,S1 800公路,2026-11-20,高速弯稳定"></textarea>
+    <div class="bulk-row"><button id="bulkGo">开始导入</button><span id="bulkOut"></span></div>
+  </details>
   <div id="msg" class="msg"></div>
   <table><thead><tr><th style="width:44%">车辆</th><th style="width:15%">竞速强度</th>
     <th style="width:19%">组别</th><th style="width:11%">漂移强度</th><th></th></tr></thead>
@@ -1000,6 +1015,25 @@ function paint() {
   $("#msg").textContent = list.length ? `显示 ${list.length} 台（最多 400）` : "没有匹配的车辆";
 }
 $("#q").oninput = () => { clearTimeout(window.__t); window.__t = setTimeout(paint, 150); };
+
+/* 批量导入：制表符优先，其次逗号（说明里可能有逗号，所以按前 5 段切分） */
+$("#bulkGo").onclick = async () => {
+  const out = $("#bulkOut");
+  const lines = $("#bulkText").value.split(/\\r?\\n/).map(x => x.trim()).filter(Boolean);
+  if (!lines.length) { out.textContent = "没有内容"; return; }
+  const rows = lines.map(line => {
+    const p = line.includes("\t") ? line.split("\t") : line.split(",");
+    const f = p.map(x => x.trim());
+    const note = f.length > 5 ? f.slice(5).join(",") : "";
+    return { car_id: f[0], share_code: f[1], author_id: f[2], tier_group: f[3], game_date: f[4] || "", note };
+  });
+  out.textContent = "导入中…";
+  try {
+    const r = await api("/api/admin/tunes/bulk", { method: "POST", body: JSON.stringify({ rows }) });
+    out.textContent = `成功 ${r.imported} 条${r.failed ? `，失败 ${r.failed} 条：` + r.errors.map(e => `第${e.line}行 ${e.why}`).join("；") : ""}`;
+    if (r.imported) $("#bulkText").value = "";
+  } catch (e) { out.textContent = e.status === 403 ? "需要管理员权限" : "导入失败"; }
+};
 
 /* ── 调校管理 ───────────────────────────────────────── */
 const fmtCode = v => String(v).replace(/\D/g, "").slice(0, 9).replace(/(\d{3})(?=\d)/g, "$1 ");
