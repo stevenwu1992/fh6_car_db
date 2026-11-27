@@ -929,6 +929,10 @@ ADMIN_HTML = """<!DOCTYPE html>
 </main>
 <script>
 const CARS = __CARS__, RACE = __RACE__, GROUPS = __GROUPS__, DRIFT = __DRIFT__;
+/* 调校可选分级比「性能组别」多两项：漂移神车 / 通用（玩家上传时就允许） */
+const TUNE_GROUPS = [...GROUPS, "漂移神车", "通用"];
+/* 车辆英文原名，调校管理里跟车辆 ID 一起显示 */
+const CAREN = Object.fromEntries(CARS.map(c => [String(c.id), c.en || ""]));
 const OVR = {};
 let ROLE = "full";
 const $ = s => document.querySelector(s);
@@ -1058,11 +1062,11 @@ async function loadTunes() {
 function renderTunes(list) {
   if (!list.length) { $("#tlist").innerHTML = ""; return; }
   $("#tlist").innerHTML = list.map(t => `<div class="titem" data-id="${esc(t.id)}">
-      <div class="hd"><b>车辆 ${esc(t.car_id)}</b><span>ID ${esc(t.id)}</span></div>
+      <div class="hd"><b>车辆 ${esc(t.car_id)}${CAREN[t.car_id] ? ` · ${esc(CAREN[t.car_id])}` : ""}</b><span>ID ${esc(t.id)}</span></div>
       <div class="grid">
         <input class="f-code" value="${esc(fmtCode(t.share_code))}" maxlength="11" placeholder="9 位分享码">
         <input class="f-author" value="${esc(t.author_id)}" maxlength="32" placeholder="作者 ID">
-        <select class="f-tier">${GROUPS.map(g => `<option ${g === t.tier_group ? "selected" : ""}>${esc(g)}</option>`).join("")}</select>
+        <select class="f-tier">${TUNE_GROUPS.map(g => `<option ${g === t.tier_group ? "selected" : ""}>${esc(g)}</option>`).join("")}</select>
       </div>
       <div class="grid" style="grid-template-columns:150px 1fr">
         <input class="f-date" type="date" min="2026-05-18" max="${TODAY}" value="${esc(t.game_date || "")}" title="游戏内调校发布时间（2026-05-18 至今天）">
@@ -1118,11 +1122,16 @@ def write_admin(payload: dict[str, Any]) -> None:
     """分级后台：独立页面，只做「改标签」，鉴权与写库都在 API 侧。"""
     tier = payload.get("tier", {})
     names, groups = payload.get("tierNames", []), payload.get("tierGroups", [])
-    cars_admin = [{
-        "id": c["id"], "n": c["name"], "cls": c["cls"], "pi": c["pi"],
-        "rt": names[tier[str(c["id"])][0][0]] if str(c["id"]) in tier else "",
-        "rg": groups[tier[str(c["id"])][0][1]] if str(c["id"]) in tier else "",
-    } for c in payload.get("_cars_brief", [])]
+    ci = {c: i for i, c in enumerate(COLUMNS)}
+    cars_admin = []
+    for r in payload["rows"]:
+        cid = str(r[ci["id"]])
+        cars_admin.append({
+            "id": r[ci["id"]], "n": r[ci["name"]], "en": r[ci["name_en"]],
+            "cls": r[ci["cls"]], "pi": r[ci["pi"]],
+            "rt": names[tier[cid][0][0]] if cid in tier else "",
+            "rg": groups[tier[cid][0][1]] if cid in tier else "",
+        })
     html = (ADMIN_HTML
             .replace("__CARS__", json.dumps(cars_admin, ensure_ascii=False, separators=(",", ":")))
             .replace("__RACE__", json.dumps(names, ensure_ascii=False))
@@ -1135,8 +1144,6 @@ def main() -> int:
     if not DB.exists():
         raise SystemExit(f"找不到数据库：{DB}")
     payload = build_payload()
-    payload["_cars_brief"] = [
-        {"id": r[0], "name": r[2], "cls": r[4], "pi": r[5]} for r in payload["rows"]]
     # 中文名是主文件；同时写 ASCII 副本，供 GitHub Pages / 本地服务直接访问
     HANS = {"light": OUT, "dark": OUT.with_name("车辆索引_暗色.html")}
     HANS_ASCII = {"light": "zh-hans.html", "dark": "zh-hans-dark.html"}
