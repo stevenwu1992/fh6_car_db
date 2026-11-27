@@ -43,9 +43,16 @@ const DDL = [
   `CREATE TABLE IF NOT EXISTS tunes (
      id TEXT PRIMARY KEY, user_id TEXT NOT NULL, car_id TEXT NOT NULL,
      share_code TEXT NOT NULL, author_id TEXT NOT NULL, tier_group TEXT NOT NULL,
+     game_date TEXT NOT NULL DEFAULT '',
      note TEXT, payload TEXT, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL,
      UNIQUE(car_id, share_code))`,
   `CREATE INDEX IF NOT EXISTS idx_tunes_car ON tunes(car_id, created_at DESC)`,
+  // 老库补列（游戏内调校发布时间）：新库上会报 duplicate column，交给容错分支忽略
+  `ALTER TABLE tunes ADD COLUMN game_date TEXT NOT NULL DEFAULT ''`,
+  `CREATE TABLE IF NOT EXISTS tune_likes (
+     tune_id TEXT NOT NULL, user_id TEXT NOT NULL, created_at INTEGER NOT NULL,
+     PRIMARY KEY(tune_id, user_id))`,
+  `CREATE INDEX IF NOT EXISTS idx_tune_likes_tune ON tune_likes(tune_id)`,
 ];
 
 export async function ensureSchema(env) {

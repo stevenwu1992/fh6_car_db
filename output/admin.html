@@ -227,7 +227,8 @@ function renderTunes(list) {
         <input class="f-author" value="${esc(t.author_id)}" maxlength="32" placeholder="作者 ID">
         <select class="f-tier">${GROUPS.map(g => `<option ${g === t.tier_group ? "selected" : ""}>${esc(g)}</option>`).join("")}</select>
       </div>
-      <div class="grid" style="grid-template-columns:1fr">
+      <div class="grid" style="grid-template-columns:150px 1fr">
+        <input class="f-date" type="date" value="${esc(t.game_date || "")}" title="游戏内调校发布时间">
         <input class="f-note" value="${esc(t.note || "")}" maxlength="100" placeholder="说明（≤100 字）">
       </div>
       <div class="acts"><button class="sv">保存</button><button class="dl">删除</button></div>
@@ -250,6 +251,7 @@ function renderTunes(list) {
           share_code: code,
           author_id: el.querySelector(".f-author").value.trim(),
           tier_group: el.querySelector(".f-tier").value,
+          game_date: el.querySelector(".f-date").value,
           note: el.querySelector(".f-note").value.trim()
         }) });
         sv.textContent = "已保存";

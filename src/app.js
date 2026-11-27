@@ -28,6 +28,14 @@ const TIER_GROUPS = [
   "C 500公路", "C 500泥地", "漂移神车", "通用",
 ];
 const SHARE_RE = /^\d{9}$/;
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/* 游戏内调校发布时间：只收 YYYY-MM-DD，且不能晚于今天 */
+const validDate = v => {
+  if (!DATE_RE.test(v)) return false;
+  const d = new Date(v + "T00:00:00Z");
+  if (Number.isNaN(d.getTime())) return false;
+  return v <= new Date().toISOString().slice(0, 10);
+};
 const cjkLen = v => Array.from(String(v ?? "")).length;
 
 const carIdOf = url => (url.pathname.split("/")[3] || "");
@@ -126,13 +134,56 @@ async function stats(env, url) {
 }
 
 /* ---------- 调校 ---------- */
-async function listTunes(env, url) {
+async function listTunes(env, url, u) {
   const carId = String(url.searchParams.get("carId") || "");
   if (!CAR_RE.test(carId)) return json(400, { error: "车辆 ID 不合法" });
+  const sort = url.searchParams.get("sort") === "likes" ? "likes" : "time";
+  const cols = `t.id, t.car_id, t.share_code, t.author_id, t.tier_group, t.game_date,
+                t.note, t.created_at,
+                (SELECT COUNT(*) FROM tune_likes l WHERE l.tune_id=t.id) likes,
+                EXISTS(SELECT 1 FROM tune_likes l2 WHERE l2.tune_id=t.id AND l2.user_id=?) mine`;
+  const order = sort === "likes"
+    ? "likes DESC, t.created_at DESC"
+    : "COALESCE(NULLIF(t.game_date,''), date(t.created_at,'unixepoch')) DESC, t.created_at DESC";
   const rows = await env.DB.prepare(
-    "SELECT id, car_id, share_code, author_id, tier_group, note, created_at FROM tunes WHERE car_id=? ORDER BY created_at DESC LIMIT 200"
-  ).bind(carId).all();
-  return json(200, { tunes: rows.results || [] });
+    `SELECT ${cols} FROM tunes t WHERE t.car_id=? ORDER BY ${order} LIMIT 200`
+  ).bind(u?.id ?? "", carId).all();
+  return json(200, {
+    tunes: (rows.results || []).map(r => ({ ...r, mine: !!r.mine })),
+    sort,
+  });
+}
+
+/* 点赞：登录用户一人一条调校只记一次，再点取消 */
+async function toggleLike(request, env, url, u) {
+  const bad = guardWrite(request, url, u);
+  if (bad) return bad;
+  const id = url.pathname.split("/")[3] || "";
+  if (!id) return json(400, { error: "调校 ID 不合法" });
+  const tune = await env.DB.prepare("SELECT id FROM tunes WHERE id=?").bind(id).first();
+  if (!tune) return json(404, { error: "调校不存在" });
+
+  // 同一用户 10 分钟最多 60 次
+  const t = now();
+  const bucket = "like:" + u.id;
+  const rl = await env.DB.prepare("SELECT window_start,count FROM auth_rate_limits WHERE bucket=?").bind(bucket).first();
+  if (rl && t - rl.window_start < 600) {
+    if (rl.count >= 60) return json(429, { error: "操作过于频繁" });
+    await env.DB.prepare("UPDATE auth_rate_limits SET count=count+1 WHERE bucket=?").bind(bucket).run();
+  } else {
+    await env.DB.prepare(
+      "INSERT INTO auth_rate_limits(bucket,window_start,count) VALUES(?,?,1) ON CONFLICT(bucket) DO UPDATE SET window_start=?,count=1"
+    ).bind(bucket, t, t).run();
+  }
+
+  const had = await env.DB.prepare("SELECT 1 x FROM tune_likes WHERE tune_id=? AND user_id=?").bind(id, u.id).first();
+  if (had) {
+    await env.DB.prepare("DELETE FROM tune_likes WHERE tune_id=? AND user_id=?").bind(id, u.id).run();
+  } else {
+    await env.DB.prepare("INSERT INTO tune_likes(tune_id,user_id,created_at) VALUES(?,?,?)").bind(id, u.id, t).run();
+  }
+  const n = await env.DB.prepare("SELECT COUNT(*) n FROM tune_likes WHERE tune_id=?").bind(id).first();
+  return json(200, { id, liked: !had, likes: n?.n ?? 0 });
 }
 
 async function postTune(request, env, url, u) {
@@ -157,12 +208,14 @@ async function postTune(request, env, url, u) {
   const shareCode = String(b.share_code ?? "").trim();
   const authorId = String(b.author_id ?? "").replace(/\s+/g, " ").trim();
   const tierGroup = String(b.tier_group ?? "").trim();
+  const gameDate = String(b.game_date ?? "").trim();
   const note = String(b.note ?? "").replace(/[\u0000-\u001f]/g, " ").trim();
 
   if (!CAR_RE.test(carId)) return json(400, { error: "车辆 ID 不合法" });
   if (!SHARE_RE.test(shareCode)) return json(400, { error: "分享码必须是 9 位数字" });
   if (cjkLen(authorId) < 2 || cjkLen(authorId) > 32) return json(400, { error: "请填写 2–32 字的作者 ID" });
   if (!TIER_GROUPS.includes(tierGroup)) return json(400, { error: "分级不合法" });
+  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且不能晚于今天" });
   if (cjkLen(note) > 100) return json(400, { error: "说明最多 100 个字符" });
 
   const dup = await env.DB.prepare("SELECT id FROM tunes WHERE car_id=? AND share_code=?").bind(carId, shareCode).first();
@@ -170,11 +223,11 @@ async function postTune(request, env, url, u) {
 
   const id = "t_" + crypto.randomUUID().replace(/-/g, "").slice(0, 16);
   await env.DB.prepare(
-    `INSERT INTO tunes(id,user_id,car_id,share_code,author_id,tier_group,note,payload,created_at,updated_at)
-     VALUES(?,?,?,?,?,?,?,?,?,?)`
-  ).bind(id, u.id, carId, shareCode, authorId, tierGroup, note, JSON.stringify(b.payload ?? {}), t, t).run();
+    `INSERT INTO tunes(id,user_id,car_id,share_code,author_id,tier_group,game_date,note,payload,created_at,updated_at)
+     VALUES(?,?,?,?,?,?,?,?,?,?,?)`
+  ).bind(id, u.id, carId, shareCode, authorId, tierGroup, gameDate, note, JSON.stringify(b.payload ?? {}), t, t).run();
 
-  return json(200, { id, car_id: carId, share_code: shareCode });
+  return json(200, { id, car_id: carId, share_code: shareCode, game_date: gameDate });
 }
 
 /* ---------- 路由 ---------- */
@@ -208,9 +261,14 @@ export async function routeApp(request, env, url) {
 
   if (p === "/api/stats" && m === "GET") return stats(env, url);
 
-  if (p === "/api/tunes" && m === "GET") return listTunes(env, url);
+  if (p === "/api/tunes" && m === "GET") {
+    return listTunes(env, url, await currentUser(request, env));
+  }
   if (p === "/api/tunes" && m === "POST") {
     return postTune(request, env, url, await currentUser(request, env));
+  }
+  if (p.startsWith("/api/tunes/") && p.endsWith("/like") && m === "POST") {
+    return toggleLike(request, env, url, await currentUser(request, env));
   }
   if (p.startsWith("/api/tunes/") && m === "DELETE") {
     const u = await currentUser(request, env);

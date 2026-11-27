@@ -120,6 +120,18 @@ function badOrigin(request, url) {
 /* ---------- 分级 ---------- */
 const CAR_RE = /^\d{1,6}$/;
 const SHARE_RE = /^\d{9}$/;
+const TIER_GROUPS = [
+  "R 998公路", "S2 900公路", "S1 800公路", "S1 800泥地", "S1 800越野",
+  "A 700公路", "A 700泥地", "A 700越野", "B 600公路", "B 600泥地", "B 600越野",
+  "C 500公路", "C 500泥地", "漂移神车", "通用",
+];
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const validDate = v => {
+  if (!DATE_RE.test(v)) return false;
+  const d = new Date(v + "T00:00:00Z");
+  if (Number.isNaN(d.getTime())) return false;
+  return v <= new Date().toISOString().slice(0, 10);
+};
 
 async function listTiers(env) {
   const rows = await env.DB.prepare(
@@ -210,16 +222,16 @@ async function listTunesAdmin(env, url) {
   let rows;
   if (CAR_RE.test(carId)) {
     rows = await env.DB.prepare(
-      "SELECT id,car_id,share_code,author_id,tier_group,note,created_at FROM tunes WHERE car_id=? ORDER BY created_at DESC LIMIT 100"
+      "SELECT id,car_id,share_code,author_id,tier_group,game_date,note,created_at FROM tunes WHERE car_id=? ORDER BY created_at DESC LIMIT 100"
     ).bind(carId).all();
   } else if (kw) {
     rows = await env.DB.prepare(
-      `SELECT id,car_id,share_code,author_id,tier_group,note,created_at FROM tunes
+      `SELECT id,car_id,share_code,author_id,tier_group,game_date,note,created_at FROM tunes
        WHERE share_code LIKE ? OR author_id LIKE ? ORDER BY created_at DESC LIMIT 60`
     ).bind(`%${kw}%`, `%${kw}%`).all();
   } else {
     rows = await env.DB.prepare(
-      "SELECT id,car_id,share_code,author_id,tier_group,note,created_at FROM tunes ORDER BY created_at DESC LIMIT 60"
+      "SELECT id,car_id,share_code,author_id,tier_group,game_date,note,created_at FROM tunes ORDER BY created_at DESC LIMIT 60"
     ).all();
   }
   return json(200, { tunes: rows.results || [] });
@@ -236,15 +248,18 @@ async function updateTune(request, env, url) {
   const shareCode = String(b.share_code ?? "").replace(/\D/g, "");
   const authorId = String(b.author_id ?? "").replace(/\s+/g, " ").trim();
   const tierGroup = String(b.tier_group ?? "").trim();
+  const gameDate = String(b.game_date ?? "").trim();
   const note = String(b.note ?? "").replace(/[\u0000-\u001f]/g, " ").trim();
 
   if (!SHARE_RE.test(shareCode)) return json(400, { error: "分享码必须是 9 位数字" });
   if (Array.from(authorId).length < 2 || Array.from(authorId).length > 32) return json(400, { error: "作者 ID 需 2–32 字" });
+  if (!TIER_GROUPS.includes(tierGroup)) return json(400, { error: "分级不合法" });
+  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且不能晚于今天" });
   if (Array.from(note).length > 100) return json(400, { error: "说明最多 100 字" });
 
   await env.DB.prepare(
-    "UPDATE tunes SET share_code=?, author_id=?, tier_group=?, note=?, updated_at=? WHERE id=?"
-  ).bind(shareCode, authorId, tierGroup.slice(0, 24), note, now(), id).run();
+    "UPDATE tunes SET share_code=?, author_id=?, tier_group=?, game_date=?, note=?, updated_at=? WHERE id=?"
+  ).bind(shareCode, authorId, tierGroup.slice(0, 24), gameDate, note, now(), id).run();
   return json(200, { ok: true, id });
 }
 
@@ -254,6 +269,47 @@ async function deleteTune(request, env, url) {
   const id = url.pathname.split("/")[4] || "";
   await env.DB.prepare("DELETE FROM tunes WHERE id=?").bind(id).run();
   return json(200, { ok: true, id });
+}
+
+/* ---------- 批量导入（管理员） ---------- */
+/* 每行：车辆ID, 分享码, 作者ID, 分级, 发布日期, 说明；逐行校验并回显失败原因 */
+async function bulkImport(request, env, url) {
+  if (badOrigin(request, url)) return json(403, { error: "来源不被允许" });
+  if (!await adminValid(request, env)) return json(403, { error: "需要管理员权限" });
+
+  const body = await request.json().catch(() => ({}));
+  const rows = Array.isArray(body.rows) ? body.rows.slice(0, 500) : [];
+  if (!rows.length) return json(400, { error: "没有可导入的行" });
+
+  const t = now();
+  const ok = [], bad = [];
+  for (let i = 0; i < rows.length; i++) {
+    const r = rows[i] || {};
+    const carId = String(r.car_id ?? "").trim();
+    const code = String(r.share_code ?? "").replace(/\D/g, "");
+    const author = String(r.author_id ?? "").replace(/\s+/g, " ").trim();
+    const tier = String(r.tier_group ?? "").trim();
+    const date = String(r.game_date ?? "").trim();
+    const note = String(r.note ?? "").replace(/[\u0000-\u001f]/g, " ").trim().slice(0, 100);
+    const why =
+      !CAR_RE.test(carId) ? "车辆ID不合法" :
+      !SHARE_RE.test(code) ? "分享码非 9 位数字" :
+      (Array.from(author).length < 2 || Array.from(author).length > 32) ? "作者ID需 2–32 字" :
+      !TIER_GROUPS.includes(tier) ? "分级不在允许列表" :
+      (date && !validDate(date)) ? "日期格式不正确" : "";
+    if (why) { bad.push({ line: i + 1, why }); continue; }
+
+    const dup = await env.DB.prepare("SELECT 1 x FROM tunes WHERE car_id=? AND share_code=?").bind(carId, code).first();
+    if (dup) { bad.push({ line: i + 1, why: "已存在同名分享码" }); continue; }
+
+    await env.DB.prepare(
+      `INSERT INTO tunes(id,user_id,car_id,share_code,author_id,tier_group,game_date,note,payload,created_at,updated_at)
+       VALUES(?,?,?,?,?,?,?,?,?,?,?)`
+    ).bind("t_" + crypto.randomUUID().replace(/-/g, "").slice(0, 16),
+           "admin", carId, code, author, tier, date, note, "{}", t, t).run();
+    ok.push(code);
+  }
+  return json(200, { imported: ok.length, failed: bad.length, errors: bad.slice(0, 50) });
 }
 
 /* ---------- 路由 ---------- */
@@ -275,6 +331,7 @@ export async function routeAdmin(request, env, url) {
     if (!await adminValid(request, env)) return json(403, { error: "需要管理员权限" });
     return listTunesAdmin(env, url);
   }
+  if (p === "/api/admin/tunes/bulk" && m === "POST") return bulkImport(request, env, url);
   if (p.startsWith("/api/admin/tunes/") && m === "PUT") return updateTune(request, env, url);
   if (p.startsWith("/api/admin/tunes/") && m === "DELETE") return deleteTune(request, env, url);
 
