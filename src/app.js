@@ -30,14 +30,16 @@ const TIER_GROUPS = [
 const SHARE_RE = /^\d{9}$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /* 游戏内调校发布时间：只收 YYYY-MM-DD，且不能晚于今天 */
-/* 调校发布时间只卡下界：不早于《地平线 6》发售日 2026-05-18，不设上限（允许未来日期） */
+/* 调校发布时间：介于《地平线 6》发售日 2026-05-18 与今天之间（含两端），不接受未来日期。
+   服务器按 UTC 计时，"今天"统一按东八区算，避免凌晨上传被误判成未来。 */
 const RELEASE_DATE = "2026-05-18";
+const todayCST = () => new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
 const validDate = v => {
   if (!DATE_RE.test(v)) return false;
   const d = new Date(v + "T00:00:00Z");
   if (Number.isNaN(d.getTime())) return false;
   if (d.toISOString().slice(0, 10) !== v) return false;   // 2026-02-31 这类会被顺延的日期不收
-  return v >= RELEASE_DATE;
+  return v >= RELEASE_DATE && v <= todayCST();
 };
 const cjkLen = v => Array.from(String(v ?? "")).length;
 
@@ -218,7 +220,7 @@ async function postTune(request, env, url, u) {
   if (!SHARE_RE.test(shareCode)) return json(400, { error: "分享码必须是 9 位数字" });
   if (cjkLen(authorId) < 2 || cjkLen(authorId) > 32) return json(400, { error: "请填写 2–32 字的作者 ID" });
   if (!TIER_GROUPS.includes(tierGroup)) return json(400, { error: "分级不合法" });
-  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且不早于 2026-05-18" });
+  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且介于 2026-05-18 与今天之间" });
   if (cjkLen(note) > 100) return json(400, { error: "说明最多 100 个字符" });
 
   const dup = await env.DB.prepare("SELECT id FROM tunes WHERE car_id=? AND share_code=?").bind(carId, shareCode).first();

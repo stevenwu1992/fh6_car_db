@@ -933,6 +933,8 @@ const OVR = {};
 let ROLE = "full";
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const TODAY = (() => { const d = new Date(), p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`; })();
 const api = async (p, o = {}) => {
   const r = await fetch(p, { credentials: "include", ...o,
     headers: { "Content-Type": "application/json", "X-CSRF": "1", ...(o.headers || {}) } });
@@ -1063,7 +1065,7 @@ function renderTunes(list) {
         <select class="f-tier">${GROUPS.map(g => `<option ${g === t.tier_group ? "selected" : ""}>${esc(g)}</option>`).join("")}</select>
       </div>
       <div class="grid" style="grid-template-columns:150px 1fr">
-        <input class="f-date" type="date" min="2026-05-18" value="${esc(t.game_date || "")}" title="游戏内调校发布时间（不早于 2026-05-18）">
+        <input class="f-date" type="date" min="2026-05-18" max="${TODAY}" value="${esc(t.game_date || "")}" title="游戏内调校发布时间（2026-05-18 至今天）">
         <input class="f-note" value="${esc(t.note || "")}" maxlength="100" placeholder="说明（≤100 字）">
       </div>
       <div class="acts"><button class="sv">保存</button><button class="dl">删除</button></div>

@@ -1389,7 +1389,7 @@ TEMPLATE = r"""<!DOCTYPE html>
         <div><dt>竞速分级</dt><dd>394 台入选车辆按线上强度标注 <b>Meta+ / Meta / T0.5 / T1 / T1.5 / T2 / T3</b>，并对应 <b>13 个性能组别</b>（R 998公路 至 C 500泥地）；一台车有多个组别时分行列出，同时给出该组别适用的驱动、难度、轮胎与定位。数据表点击「强度分级」表头即可按强度排序，强度列同时显示徽章与组别。</dd></div>
         <div><dt>漂移分级</dt><dd>漂移强度单独一套 <b>S / A / B / C / D</b> 徽章，与竞速分级互不影响，同一台车可同时拥有两种分级；筛选栏可按漂移等级单独筛车。</dd></div>
         <div><dt>账号收藏</dt><dd>支持<b>邮箱注册登录与 Steam 登录</b>。登录后可收藏车辆、给车辆打 1–5 星、给玩家调校点赞；收藏数、平均分与点赞数对所有访客公开展示，首页可一键「<b>只看收藏</b>」。</dd></div>
-        <div><dt>调校分享</dt><dd>登录后可分享调校：<b>9 位分享码</b>（点击复制）、作者游戏 ID、适用强度分级、游戏内发布时间与 100 字说明。列表支持<b>最新发布 / 点赞最多</b>两种排序，按点赞数即可看出社区认可度。</dd></div>
+        <div><dt>调校分享</dt><dd>登录后可分享调校：<b>9 位分享码</b>（点击复制）、作者游戏 ID、适用强度分级、游戏内发布时间（2026-05-18 至上传当天）与 100 字说明。列表支持<b>最新发布 / 点赞最多</b>两种排序，按点赞数即可看出社区认可度。</dd></div>
         <div><dt>空力套件</dt><dd>详情页新增空力套件数据：每套尾翼等空力件的价格、质量变化、风阻缩放与稳定性，以及低 / 高攻角下的<b>下压力、空气阻力</b>和零攻角，改装前后的差异一目了然。</dd></div>
       </dl>
       <p class="about-note">车辆数据与车辆渲染图来自游戏内原始素材，版权归 Microsoft / Playground Games 所有。</p>
@@ -3370,6 +3370,11 @@ const fmtTime = ts => {
   const d = new Date(ts * 1000), p = n => String(n).padStart(2, "0");
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
 };
+/* 本机今天（YYYY-MM-DD），用作调校发布时间的上限 */
+const todayStr = () => {
+  const d = new Date(), p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+};
 
 /* 分级顺序与首页等级菜单保持一致：按 D → C → B → A → S1 → S2 → R 分组，
    未归入任何等级的自定义分组排在最后 */
@@ -3460,7 +3465,7 @@ async function renderTunes(c) {
             </button>
             <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML()}</div>
           </div>
-          <input id="tuneDate" type="date" title="游戏内调校发布时间（不早于 2026-05-18）" min="2026-05-18">
+          <input id="tuneDate" type="date" title="游戏内调校发布时间（2026-05-18 至今天）" min="2026-05-18" max="${todayStr()}">
           <input id="tuneNote" maxlength="100" placeholder="说明（最多 100 字，所有玩家可见）">
           <button id="tunePost">上传</button>
         </div>
@@ -3512,6 +3517,7 @@ async function renderTunes(c) {
       if (!/^\d{9}$/.test(share_code)) { msg.textContent = "分享码必须是 9 位数字"; return; }
       if (!game_date) { msg.textContent = "请选择游戏内调校发布时间"; return; }
       if (game_date < "2026-05-18") { msg.textContent = "发布时间不能早于 2026-05-18"; return; }
+      if (game_date > todayStr()) { msg.textContent = "发布时间不能晚于今天"; return; }
       if (Array.from(author_id).length < 2) { msg.textContent = "请填写作者游戏 ID"; return; }
       $("tunePost").disabled = true;
       try {

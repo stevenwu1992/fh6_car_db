@@ -1378,7 +1378,7 @@
         <div><dt>競速分級</dt><dd>394 臺入選車輛按線上強度標註 <b>Meta+ / Meta / T0.5 / T1 / T1.5 / T2 / T3</b>，並對應 <b>13 個性能組別</b>（R 998公路 至 C 500泥地）；一臺車有多個組別時分行列出，同時給出該組別適用的驅動、難度、輪胎與定位。數據表點擊「強度分級」表頭即可按強度排序，強度列同時顯示徽章與組別。</dd></div>
         <div><dt>漂移分級</dt><dd>漂移強度單獨一套 <b>S / A / B / C / D</b> 徽章，與競速分級互不影響，同一臺車可同時擁有兩種分級；篩選欄可按漂移等級單獨篩車。</dd></div>
         <div><dt>賬號收藏</dt><dd>支持<b>郵箱註冊登錄與 Steam 登錄</b>。登錄後可收藏車輛、給車輛打 1–5 星、給玩家調校點讚；收藏數、平均分與點讚數對所有訪客公開展示，首頁可一鍵「<b>只看收藏</b>」。</dd></div>
-        <div><dt>調校分享</dt><dd>登錄後可分享調校：<b>9 位分享碼</b>（點擊複製）、作者遊戲 ID、適用強度分級、遊戲內發布時間與 100 字說明。列表支持<b>最新發布 / 點讚最多</b>兩種排序，按點讚數即可看出社區認可度。</dd></div>
+        <div><dt>調校分享</dt><dd>登錄後可分享調校：<b>9 位分享碼</b>（點擊複製）、作者遊戲 ID、適用強度分級、遊戲內發布時間（2026-05-18 至上傳當天）與 100 字說明。列表支持<b>最新發布 / 點讚最多</b>兩種排序，按點讚數即可看出社區認可度。</dd></div>
         <div><dt>空力套件</dt><dd>詳情頁新增空力套件數據：每套尾翼等空力件的價格、質量變化、風阻縮放與穩定性，以及低 / 高攻角下的<b>下壓力、空氣阻力</b>和零攻角，改裝前後的差異一目了然。</dd></div>
       </dl>
       <p class="about-note">車輛數據與車輛渲染圖來自遊戲內原始素材，版權歸 Microsoft / Playground Games 所有。</p>
@@ -3359,6 +3359,11 @@ const fmtTime = ts => {
   const d = new Date(ts * 1000), p = n => String(n).padStart(2, "0");
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
 };
+/* 本機今天（YYYY-MM-DD），用作調校發布時間的上限 */
+const todayStr = () => {
+  const d = new Date(), p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+};
 
 /* 分級順序與首頁等級菜單保持一致：按 D → C → B → A → S1 → S2 → R 分組，
    未歸入任何等級的自定義分組排在最後 */
@@ -3449,7 +3454,7 @@ async function renderTunes(c) {
             </button>
             <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML()}</div>
           </div>
-          <input id="tuneDate" type="date" title="遊戲內調校發布時間（不早於 2026-05-18）" min="2026-05-18">
+          <input id="tuneDate" type="date" title="遊戲內調校發布時間（2026-05-18 至今天）" min="2026-05-18" max="${todayStr()}">
           <input id="tuneNote" maxlength="100" placeholder="說明（最多 100 字，所有玩家可見）">
           <button id="tunePost">上傳</button>
         </div>
@@ -3501,6 +3506,7 @@ async function renderTunes(c) {
       if (!/^\d{9}$/.test(share_code)) { msg.textContent = "分享碼必須是 9 位數字"; return; }
       if (!game_date) { msg.textContent = "請選擇遊戲內調校發布時間"; return; }
       if (game_date < "2026-05-18") { msg.textContent = "發布時間不能早於 2026-05-18"; return; }
+      if (game_date > todayStr()) { msg.textContent = "發布時間不能晚於今天"; return; }
       if (Array.from(author_id).length < 2) { msg.textContent = "請填寫作者遊戲 ID"; return; }
       $("tunePost").disabled = true;
       try {

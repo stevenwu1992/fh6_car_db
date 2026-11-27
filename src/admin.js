@@ -126,14 +126,16 @@ const TIER_GROUPS = [
   "C 500公路", "C 500泥地", "漂移神车", "通用",
 ];
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-/* 调校发布时间只卡下界：不早于《地平线 6》发售日 2026-05-18，不设上限（允许未来日期） */
+/* 调校发布时间：介于《地平线 6》发售日 2026-05-18 与今天之间（含两端），不接受未来日期。
+   服务器按 UTC 计时，"今天"统一按东八区算，避免凌晨上传被误判成未来。 */
 const RELEASE_DATE = "2026-05-18";
+const todayCST = () => new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
 const validDate = v => {
   if (!DATE_RE.test(v)) return false;
   const d = new Date(v + "T00:00:00Z");
   if (Number.isNaN(d.getTime())) return false;
   if (d.toISOString().slice(0, 10) !== v) return false;   // 2026-02-31 这类会被顺延的日期不收
-  return v >= RELEASE_DATE;
+  return v >= RELEASE_DATE && v <= todayCST();
 };
 
 async function listTiers(env) {
@@ -257,7 +259,7 @@ async function updateTune(request, env, url) {
   if (!SHARE_RE.test(shareCode)) return json(400, { error: "分享码必须是 9 位数字" });
   if (Array.from(authorId).length < 2 || Array.from(authorId).length > 32) return json(400, { error: "作者 ID 需 2–32 字" });
   if (!TIER_GROUPS.includes(tierGroup)) return json(400, { error: "分级不合法" });
-  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且不早于 2026-05-18" });
+  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且介于 2026-05-18 与今天之间" });
   if (Array.from(note).length > 100) return json(400, { error: "说明最多 100 字" });
 
   await env.DB.prepare(
@@ -299,7 +301,7 @@ async function bulkImport(request, env, url) {
       !SHARE_RE.test(code) ? "分享码非 9 位数字" :
       (Array.from(author).length < 2 || Array.from(author).length > 32) ? "作者ID需 2–32 字" :
       !TIER_GROUPS.includes(tier) ? "分级不在允许列表" :
-      (date && !validDate(date)) ? "日期格式不正确" : "";
+      (date && !validDate(date)) ? "日期需在 2026-05-18 至今天之间" : "";
     if (why) { bad.push({ line: i + 1, why }); continue; }
 
     const dup = await env.DB.prepare("SELECT 1 x FROM tunes WHERE car_id=? AND share_code=?").bind(carId, code).first();
