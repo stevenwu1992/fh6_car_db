@@ -228,7 +228,7 @@ function renderTunes(list) {
         <select class="f-tier">${GROUPS.map(g => `<option ${g === t.tier_group ? "selected" : ""}>${esc(g)}</option>`).join("")}</select>
       </div>
       <div class="grid" style="grid-template-columns:150px 1fr">
-        <input class="f-date" type="date" value="${esc(t.game_date || "")}" title="游戏内调校发布时间">
+        <input class="f-date" type="date" min="2026-05-18" value="${esc(t.game_date || "")}" title="游戏内调校发布时间（不早于 2026-05-18）">
         <input class="f-note" value="${esc(t.note || "")}" maxlength="100" placeholder="说明（≤100 字）">
       </div>
       <div class="acts"><button class="sv">保存</button><button class="dl">删除</button></div>

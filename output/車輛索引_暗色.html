@@ -3449,7 +3449,7 @@ async function renderTunes(c) {
             </button>
             <div class="clsmenu" id="tuneMenu" role="listbox">${tierMenuHTML()}</div>
           </div>
-          <input id="tuneDate" type="date" title="遊戲內調校發布時間" max="${new Date().toISOString().slice(0, 10)}">
+          <input id="tuneDate" type="date" title="遊戲內調校發布時間（不早於 2026-05-18）" min="2026-05-18">
           <input id="tuneNote" maxlength="100" placeholder="說明（最多 100 字，所有玩家可見）">
           <button id="tunePost">上傳</button>
         </div>
@@ -3500,6 +3500,7 @@ async function renderTunes(c) {
       const game_date = $("tuneDate").value;
       if (!/^\d{9}$/.test(share_code)) { msg.textContent = "分享碼必須是 9 位數字"; return; }
       if (!game_date) { msg.textContent = "請選擇遊戲內調校發布時間"; return; }
+      if (game_date < "2026-05-18") { msg.textContent = "發布時間不能早於 2026-05-18"; return; }
       if (Array.from(author_id).length < 2) { msg.textContent = "請填寫作者遊戲 ID"; return; }
       $("tunePost").disabled = true;
       try {

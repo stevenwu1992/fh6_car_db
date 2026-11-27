@@ -126,11 +126,14 @@ const TIER_GROUPS = [
   "C 500公路", "C 500泥地", "漂移神车", "通用",
 ];
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/* 调校发布时间只卡下界：不早于《地平线 6》发售日 2026-05-18，不设上限（允许未来日期） */
+const RELEASE_DATE = "2026-05-18";
 const validDate = v => {
   if (!DATE_RE.test(v)) return false;
   const d = new Date(v + "T00:00:00Z");
   if (Number.isNaN(d.getTime())) return false;
-  return v <= new Date().toISOString().slice(0, 10);
+  if (d.toISOString().slice(0, 10) !== v) return false;   // 2026-02-31 这类会被顺延的日期不收
+  return v >= RELEASE_DATE;
 };
 
 async function listTiers(env) {
@@ -254,7 +257,7 @@ async function updateTune(request, env, url) {
   if (!SHARE_RE.test(shareCode)) return json(400, { error: "分享码必须是 9 位数字" });
   if (Array.from(authorId).length < 2 || Array.from(authorId).length > 32) return json(400, { error: "作者 ID 需 2–32 字" });
   if (!TIER_GROUPS.includes(tierGroup)) return json(400, { error: "分级不合法" });
-  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且不能晚于今天" });
+  if (gameDate && !validDate(gameDate)) return json(400, { error: "发布时间格式应为 YYYY-MM-DD，且不早于 2026-05-18" });
   if (Array.from(note).length > 100) return json(400, { error: "说明最多 100 字" });
 
   await env.DB.prepare(

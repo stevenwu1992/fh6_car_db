@@ -224,11 +224,14 @@ const TIER_GROUPS = [
 ];
 const SHARE_RE = /^\d{9}$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/* 调校发布时间只卡下界：不早于《地平线 6》发售日 2026-05-18，不设上限（允许未来日期） */
+const RELEASE_DATE = "2026-05-18";
 const validDate = v => {
   if (!DATE_RE.test(v)) return false;
   const d = new Date(v + "T00:00:00Z");
   if (Number.isNaN(d.getTime())) return false;
-  return v <= new Date().toISOString().slice(0, 10);
+  if (d.toISOString().slice(0, 10) !== v) return false;   // 2026-02-31 这类会被顺延的日期不收
+  return v >= RELEASE_DATE;
 };
 const norm = v => String(v ?? "").normalize("NFKC").trim();          // 分享码：全角转半角
 const text = v => String(v ?? "").replace(/\u3000/g, " ").replace(/\s+/g, " ").trim();  // 文本：保留中文标点
@@ -578,7 +581,7 @@ const server = createServer(async (req, res) => {
       if (!/^[\w\u4e00-\u9fa5 ._#-]+$/u.test(authorId)) return err(res, 400, "BAD_AUTHOR", "作者 ID 含有不支持的字符");
       if (!TIER_GROUPS.includes(tierGroup)) return err(res, 400, "BAD_TIER", "请选择调校适用的强度分级");
       if (cjkLen(note) > 100) return err(res, 400, "NOTE_TOO_LONG", "说明最多 100 个字符");
-      if (gameDate && !validDate(gameDate)) return err(res, 400, "BAD_DATE", "发布时间格式应为 YYYY-MM-DD，且不能晚于今天");
+      if (gameDate && !validDate(gameDate)) return err(res, 400, "BAD_DATE", "发布时间格式应为 YYYY-MM-DD，且不早于 2026-05-18");
 
       const dup = db.prepare("SELECT id FROM tunes WHERE car_id=? AND share_code=?").get(carId, shareCode);
       if (dup) return err(res, 409, "DUPLICATE", "这台车已经收录过这个分享码");
