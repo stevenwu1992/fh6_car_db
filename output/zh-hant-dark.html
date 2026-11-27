@@ -434,6 +434,14 @@
   .tuneform button{padding:8px 16px;border:0;border-radius:var(--r);background:var(--ink);color:var(--paper);
     font:500 13px/1 var(--text);cursor:pointer}
   .tuneform .tunemsg{margin:0;font-size:12px;color:var(--steel);min-height:16px}
+  .tunebar{display:flex;align-items:center;gap:8px;margin:10px 0 4px;font-size:12.5px;color:var(--steel)}
+  .tunebar button{padding:5px 11px;border:1px solid var(--rule);border-radius:99px;background:none;
+    color:var(--ink-2);cursor:pointer;font:500 12px/1 var(--text)}
+  .tunebar button.on{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
+  .tunelist .ti-time{color:var(--steel-2);font-size:11.5px;margin-left:auto;white-space:nowrap}
+  .tunelist .like{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1px solid var(--rule);
+    border-radius:99px;background:none;cursor:pointer;font:500 12px/1 var(--text);color:var(--steel)}
+  .tunelist .like[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--sel)}
   .tunelist .ti-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .tunelist .ti-h code{font:600 12.5px/1 var(--mono);color:var(--ink);background:var(--paper-2);
     padding:3px 7px;border-radius:3px;letter-spacing:.06em}
@@ -553,13 +561,16 @@
   #tbl{table-layout:auto;min-width:1700px}
   /* 列寬跟隨內容，兩側各留半個中文字符（約 7px） */
   #tbl thead th.tier{width:1%}
+  /* 多餘寬度全部給車名列，避免出現在 Meta 區前面的大片空白 */
+  #tbl thead th.nm{width:99%}
   #tbl th.tier,#tbl td.tier{padding-left:7px;padding-right:7px}
   /* 驅動/配置列也按內容收窄，並居中（原來帶 .l 是左對齊且被拉寬） */
   #tbl th.drv,#tbl td.drv{width:1%;white-space:nowrap;text-align:center;padding-left:7px;padding-right:7px}
   #tbl thead th.tt{width:1%}
   /* 多出 4 列後不能讓 fixed 布局把每列壓扁：撐開到可橫向滾動 */
-  body.tiermode #tbl{table-layout:auto;min-width:1720px}
+  body.tiermode #tbl{table-layout:auto}
   body.tiermode #tbl th.tt,body.tiermode #tbl td.tt{min-width:0;text-align:center;padding-left:7px;padding-right:7px}
+  body.tiermode #tbl .tt-first{border-left:1px solid var(--rule)}
   thead th{
     position:sticky;top:var(--barh);z-index:6;background:var(--paper);
     text-align:right;white-space:nowrap;
@@ -1233,7 +1244,7 @@
             <th class="brk" data-k="brk">剎車<i>m</i></th>
             <th class="drv l" data-k="drv">驅動</th>
             <th class="l eng" data-k="eng">引擎</th>
-            <th class="tt" data-k="tdrv">驅動<i>Meta</i></th>
+            <th class="tt tt-first" data-k="tdrv">驅動<i>Meta</i></th>
             <th class="tt" data-k="tdiff">難度</th>
             <th class="tt" data-k="ttire">輪胎</th>
             <th class="tt" data-k="trole">定位</th>
@@ -2033,9 +2044,9 @@ function rowHTML(c, e, mode) {
     ? `<span class="tierb"><img src="assets/tier/${TIER_IMG[ti]}.png" alt="${esc(TIER_NAMES[ti])}"></span>` : "";
   const note = e && e[6] ? ` title="${esc(e[6])}"` : "";
   const tt = mode
-    ? `<td class="tt">${esc(e && e[2] || "—")}</td><td class="tt">${esc(e && e[3] || "—")}</td>
+    ? `<td class="tt tt-first">${esc(e && e[2] || "—")}</td><td class="tt">${esc(e && e[3] || "—")}</td>
        <td class="tt">${esc(e && e[4] || "—")}</td><td class="tt">${esc(e && e[5] || "—")}</td>`
-    : `<td class="tt"></td><td class="tt"></td><td class="tt"></td><td class="tt"></td>`;
+    : `<td class="tt tt-first"></td><td class="tt"></td><td class="tt"></td><td class="tt"></td>`;
   return `<tr data-id="${c.id}" data-ti="${ti}" style="--cc:${ccOf(c.cls)};--ct:${ctOf(c.cls)}">
       <td class="pick"><input type="checkbox" class="chk" data-sel="${c.id}" aria-label="選擇 ${esc(nm(c))}"></td>
       <td class="yr">${c.year}</td>
@@ -2095,7 +2106,7 @@ function sortTable() {
   const TT = { tdrv: 2, tdiff: 3, ttire: 4, trole: 5 };
   const cmp = (a, b) => {
     if (k === "tier") {
-      const ta = a.e ? a.e[0] : 99, tb = b.e ? b.e[0] : 99;
+      const ta = a.e ? a.e[0] : tierOf(a.c), tb = b.e ? b.e[0] : tierOf(b.c);
       return ta - tb || (b.c.pi || 0) - (a.c.pi || 0);
     }
     if (k in TT) {
@@ -3337,6 +3348,12 @@ function paintDrift(c) {
 /* 調校：詳情頁裏常顯一塊，按需拉取。
    結構按設計文檔：9 位分享碼 + 作者遊戲 ID + 適用強度分級 + ≤100 字說明。 */
 const fmtCode = v => String(v).replace(/\D/g, "").slice(0, 9).replace(/(\d{3})(?=\d)/g, "$1 ");
+/* 調校列表排序：time = 發布時間從新到舊；likes = 點讚最多優先 */
+let TUNE_SORT = "time";
+const fmtTime = ts => {
+  const d = new Date(ts * 1000), p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+};
 
 /* 分級順序與首頁等級菜單保持一致：按 D → C → B → A → S1 → S2 → R 分組，
    未歸入任何等級的自定義分組排在最後 */
@@ -3401,7 +3418,18 @@ async function renderTunes(c) {
   if (!host) return;
   const groups = tierGroupsOrdered();
   host.innerHTML = `<h3 class="tune-title">車輛調校</h3>
+    <div class="tunebar"><span>排序</span>
+      <button type="button" data-sort="time" class="${TUNE_SORT === "time" ? "on" : ""}">最新發布</button>
+      <button type="button" data-sort="likes" class="${TUNE_SORT === "likes" ? "on" : ""}">點讚最多</button>
+    </div>
     <div class="tunelist" id="tuneList"><span class="ti">加載中…</span></div>`;
+  host.querySelectorAll(".tunebar button").forEach(b => {
+    b.onclick = () => {
+      TUNE_SORT = b.dataset.sort;
+      host.querySelectorAll(".tunebar button").forEach(x => x.classList.toggle("on", x === b));
+      loadTunes(c);
+    };
+  });
   if (ME && !ME.user.is_anonymous) {
     host.insertAdjacentHTML("beforeend", `
       <div class="tuneform">
@@ -3475,21 +3503,41 @@ async function renderTunes(c) {
       }
     };
   }
+  loadTunes(c);
+}
+
+/* 調校列表：按 TUNE_SORT 拉取，展示發布時間與點讚數（點讚參與排序） */
+async function loadTunes(c) {
+  const list = $("tuneList");
+  if (!list) return;
   try {
-    const r = await api("/api/tunes?carId=" + c.id);
-    const list = $("tuneList");
-    if (!list) return;
-    const title = host.querySelector(".tune-title");
+    const r = await api(`/api/tunes?carId=${c.id}&sort=${TUNE_SORT}`);
+    const host = $("dTune");
+    const title = host && host.querySelector(".tune-title");
     if (title) title.textContent = r.tunes.length ? `車輛調校（${r.tunes.length}）` : "車輛調校";
     list.innerHTML = r.tunes.length ? r.tunes.map(t => `<div class="ti">
         <div class="ti-h"><b>${esc(t.tier_group)}</b>
         <code class="tune-code" data-code="${esc(t.share_code)}" title="點擊複製分享碼">${esc(fmtCode(t.share_code))}</code>
-        <span>作者 ${esc(t.author_id)}</span></div>
+        <span>作者 ${esc(t.author_id)}</span>
+        <span class="ti-time" title="發布時間">${esc(fmtTime(t.created_at))}</span>
+        <button class="like" data-id="${esc(t.id)}" aria-pressed="${t.mine ? "true" : "false"}" title="點讚這個調校">
+          ♥ <b>${t.likes || 0}</b></button></div>
         ${t.note ? `<p>${esc(t.note)}</p>` : ""}
       </div>`).join("") : `<span class="ti">還沒有收錄這臺車的調校，來做第一個。</span>`;
     list.querySelectorAll(".tune-code").forEach(el => { el.onclick = () => copyCode(el); });
+    list.querySelectorAll(".like").forEach(btn => {
+      btn.onclick = async () => {
+        if (!ME || ME.user.is_anonymous) return openLogin();
+        try {
+          const res = await api(`/api/tunes/${btn.dataset.id}/like`, { method: "POST" });
+          btn.setAttribute("aria-pressed", String(res.liked));
+          btn.querySelector("b").textContent = res.likes;
+          if (TUNE_SORT === "likes") loadTunes(c);
+        } catch { /* 單次失敗忽略 */ }
+      };
+    });
   } catch {
-    const list = $("tuneList"); if (list) list.innerHTML = `<span class="ti">調校服務暫不可用</span>`;
+    list.innerHTML = `<span class="ti">調校服務暫不可用</span>`;
   }
 }
 

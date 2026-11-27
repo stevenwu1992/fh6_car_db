@@ -533,12 +533,19 @@ const server = createServer(async (req, res) => {
     /* --- 调校 --- */
     if (path === "/api/tunes" && method === "GET") {
       const carId = url.searchParams.get("carId");
+      const sort = url.searchParams.get("sort") === "likes" ? "likes" : "time";
       if (carId && !CAR_RE.test(carId)) return err(res, 400, "BAD_CAR", "车辆 ID 不合法");
-      const cols = "t.id,t.car_id,t.share_code,t.author_id,t.tier_group,t.note,t.created_at,u.display_name";
+      const me = userOf(req);
+      const cols = `t.id,t.car_id,t.share_code,t.author_id,t.tier_group,t.note,t.created_at,u.display_name,
+                    (SELECT COUNT(*) FROM tune_likes l WHERE l.tune_id=t.id) likes,
+                    EXISTS(SELECT 1 FROM tune_likes l2 WHERE l2.tune_id=t.id AND l2.user_id=?) mine`;
+      const order = sort === "likes" ? "likes DESC, t.created_at DESC" : "t.created_at DESC";
       const rows = carId
-        ? db.prepare(`SELECT ${cols} FROM tunes t JOIN users u ON u.id=t.user_id WHERE t.car_id=? ORDER BY t.created_at DESC LIMIT 50`).all(carId)
-        : db.prepare(`SELECT ${cols} FROM tunes t JOIN users u ON u.id=t.user_id ORDER BY t.created_at DESC LIMIT 50`).all();
-      return json(res, 200, { tunes: rows });
+        ? db.prepare(`SELECT ${cols} FROM tunes t JOIN users u ON u.id=t.user_id
+                      WHERE t.car_id=? ORDER BY ${order} LIMIT 100`).all(me ? me.id : "", carId)
+        : db.prepare(`SELECT ${cols} FROM tunes t JOIN users u ON u.id=t.user_id
+                      ORDER BY ${order} LIMIT 100`).all(me ? me.id : "");
+      return json(res, 200, { tunes: rows.map(r => ({ ...r, mine: !!r.mine })), sort });
     }
 
     if (path === "/api/tunes" && method === "POST") {
@@ -572,6 +579,22 @@ const server = createServer(async (req, res) => {
                   VALUES(?,?,?,?,?,?,?,?,?,?)`)
         .run(id, u.id, carId, shareCode, authorId, tierGroup, note, payload, now(), now());
       return json(res, 200, { id, car_id: carId, share_code: shareCode });
+    }
+
+    if (/^\/api\/tunes\/[^/]+\/like$/.test(path) && method === "POST") {
+      if (!guardWrite(req, res)) return;
+      const u = userOf(req);
+      if (!u) return err(res, 401, "NO_SESSION", "请刷新页面后重试");
+      if (u.isAnonymous) return err(res, 403, "LOGIN_REQUIRED", "点赞需要登录");
+      const id = path.split("/")[3];
+      const tune = db.prepare("SELECT id FROM tunes WHERE id=?").get(id);
+      if (!tune) return err(res, 404, "NOT_FOUND", "调校不存在");
+      if (!rateLimit(`u:${u.id}:like`, 60, 600)) return err(res, 429, "RATE_LIMITED", "操作过于频繁");
+      const had = db.prepare("SELECT 1 FROM tune_likes WHERE tune_id=? AND user_id=?").get(id, u.id);
+      if (had) db.prepare("DELETE FROM tune_likes WHERE tune_id=? AND user_id=?").run(id, u.id);
+      else db.prepare("INSERT INTO tune_likes(tune_id,user_id,created_at) VALUES(?,?,?)").run(id, u.id, now());
+      const n = db.prepare("SELECT COUNT(*) n FROM tune_likes WHERE tune_id=?").get(id).n;
+      return json(res, 200, { id, liked: !had, likes: n });
     }
 
     if (path.startsWith("/api/tunes/") && method === "DELETE") {

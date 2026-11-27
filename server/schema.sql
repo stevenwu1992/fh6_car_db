@@ -67,6 +67,15 @@ CREATE TABLE IF NOT EXISTS tunes (
 );
 CREATE INDEX IF NOT EXISTS idx_tunes_car ON tunes(car_id, created_at DESC);
 
+-- 调校点赞：一个用户对一条调校只能点一次
+CREATE TABLE IF NOT EXISTS tune_likes (
+  tune_id       TEXT NOT NULL REFERENCES tunes(id) ON DELETE CASCADE,
+  user_id       TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at    INTEGER NOT NULL,
+  PRIMARY KEY (tune_id, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_tune_likes_tune ON tune_likes(tune_id);
+
 CREATE TABLE IF NOT EXISTS tier_overrides (
   car_id        TEXT PRIMARY KEY,
   race_tier     TEXT,

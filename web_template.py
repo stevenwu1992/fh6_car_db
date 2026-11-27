@@ -445,6 +445,14 @@ TEMPLATE = r"""<!DOCTYPE html>
   .tuneform button{padding:8px 16px;border:0;border-radius:var(--r);background:var(--ink);color:var(--paper);
     font:500 13px/1 var(--text);cursor:pointer}
   .tuneform .tunemsg{margin:0;font-size:12px;color:var(--steel);min-height:16px}
+  .tunebar{display:flex;align-items:center;gap:8px;margin:10px 0 4px;font-size:12.5px;color:var(--steel)}
+  .tunebar button{padding:5px 11px;border:1px solid var(--rule);border-radius:99px;background:none;
+    color:var(--ink-2);cursor:pointer;font:500 12px/1 var(--text)}
+  .tunebar button.on{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
+  .tunelist .ti-time{color:var(--steel-2);font-size:11.5px;margin-left:auto;white-space:nowrap}
+  .tunelist .like{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1px solid var(--rule);
+    border-radius:99px;background:none;cursor:pointer;font:500 12px/1 var(--text);color:var(--steel)}
+  .tunelist .like[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--sel)}
   .tunelist .ti-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .tunelist .ti-h code{font:600 12.5px/1 var(--mono);color:var(--ink);background:var(--paper-2);
     padding:3px 7px;border-radius:3px;letter-spacing:.06em}
@@ -564,13 +572,16 @@ TEMPLATE = r"""<!DOCTYPE html>
   #tbl{table-layout:auto;min-width:1700px}
   /* 列宽跟随内容，两侧各留半个中文字符（约 7px） */
   #tbl thead th.tier{width:1%}
+  /* 多余宽度全部给车名列，避免出现在 Meta 区前面的大片空白 */
+  #tbl thead th.nm{width:99%}
   #tbl th.tier,#tbl td.tier{padding-left:7px;padding-right:7px}
   /* 驱动/配置列也按内容收窄，并居中（原来带 .l 是左对齐且被拉宽） */
   #tbl th.drv,#tbl td.drv{width:1%;white-space:nowrap;text-align:center;padding-left:7px;padding-right:7px}
   #tbl thead th.tt{width:1%}
   /* 多出 4 列后不能让 fixed 布局把每列压扁：撑开到可横向滚动 */
-  body.tiermode #tbl{table-layout:auto;min-width:1720px}
+  body.tiermode #tbl{table-layout:auto}
   body.tiermode #tbl th.tt,body.tiermode #tbl td.tt{min-width:0;text-align:center;padding-left:7px;padding-right:7px}
+  body.tiermode #tbl .tt-first{border-left:1px solid var(--rule)}
   thead th{
     position:sticky;top:var(--barh);z-index:6;background:var(--paper);
     text-align:right;white-space:nowrap;
@@ -1244,7 +1255,7 @@ TEMPLATE = r"""<!DOCTYPE html>
             <th class="brk" data-k="brk">刹车<i>m</i></th>
             <th class="drv l" data-k="drv">驱动</th>
             <th class="l eng" data-k="eng">引擎</th>
-            <th class="tt" data-k="tdrv">驱动<i>Meta</i></th>
+            <th class="tt tt-first" data-k="tdrv">驱动<i>Meta</i></th>
             <th class="tt" data-k="tdiff">难度</th>
             <th class="tt" data-k="ttire">轮胎</th>
             <th class="tt" data-k="trole">定位</th>
@@ -2044,9 +2055,9 @@ function rowHTML(c, e, mode) {
     ? `<span class="tierb"><img src="assets/tier/${TIER_IMG[ti]}.png" alt="${esc(TIER_NAMES[ti])}"></span>` : "";
   const note = e && e[6] ? ` title="${esc(e[6])}"` : "";
   const tt = mode
-    ? `<td class="tt">${esc(e && e[2] || "—")}</td><td class="tt">${esc(e && e[3] || "—")}</td>
+    ? `<td class="tt tt-first">${esc(e && e[2] || "—")}</td><td class="tt">${esc(e && e[3] || "—")}</td>
        <td class="tt">${esc(e && e[4] || "—")}</td><td class="tt">${esc(e && e[5] || "—")}</td>`
-    : `<td class="tt"></td><td class="tt"></td><td class="tt"></td><td class="tt"></td>`;
+    : `<td class="tt tt-first"></td><td class="tt"></td><td class="tt"></td><td class="tt"></td>`;
   return `<tr data-id="${c.id}" data-ti="${ti}" style="--cc:${ccOf(c.cls)};--ct:${ctOf(c.cls)}">
       <td class="pick"><input type="checkbox" class="chk" data-sel="${c.id}" aria-label="选择 ${esc(nm(c))}"></td>
       <td class="yr">${c.year}</td>
@@ -2106,7 +2117,7 @@ function sortTable() {
   const TT = { tdrv: 2, tdiff: 3, ttire: 4, trole: 5 };
   const cmp = (a, b) => {
     if (k === "tier") {
-      const ta = a.e ? a.e[0] : 99, tb = b.e ? b.e[0] : 99;
+      const ta = a.e ? a.e[0] : tierOf(a.c), tb = b.e ? b.e[0] : tierOf(b.c);
       return ta - tb || (b.c.pi || 0) - (a.c.pi || 0);
     }
     if (k in TT) {
@@ -3348,6 +3359,12 @@ function paintDrift(c) {
 /* 调校：详情页里常显一块，按需拉取。
    结构按设计文档：9 位分享码 + 作者游戏 ID + 适用强度分级 + ≤100 字说明。 */
 const fmtCode = v => String(v).replace(/\D/g, "").slice(0, 9).replace(/(\d{3})(?=\d)/g, "$1 ");
+/* 调校列表排序：time = 发布时间从新到旧；likes = 点赞最多优先 */
+let TUNE_SORT = "time";
+const fmtTime = ts => {
+  const d = new Date(ts * 1000), p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+};
 
 /* 分级顺序与首页等级菜单保持一致：按 D → C → B → A → S1 → S2 → R 分组，
    未归入任何等级的自定义分组排在最后 */
@@ -3412,7 +3429,18 @@ async function renderTunes(c) {
   if (!host) return;
   const groups = tierGroupsOrdered();
   host.innerHTML = `<h3 class="tune-title">车辆调校</h3>
+    <div class="tunebar"><span>排序</span>
+      <button type="button" data-sort="time" class="${TUNE_SORT === "time" ? "on" : ""}">最新发布</button>
+      <button type="button" data-sort="likes" class="${TUNE_SORT === "likes" ? "on" : ""}">点赞最多</button>
+    </div>
     <div class="tunelist" id="tuneList"><span class="ti">加载中…</span></div>`;
+  host.querySelectorAll(".tunebar button").forEach(b => {
+    b.onclick = () => {
+      TUNE_SORT = b.dataset.sort;
+      host.querySelectorAll(".tunebar button").forEach(x => x.classList.toggle("on", x === b));
+      loadTunes(c);
+    };
+  });
   if (ME && !ME.user.is_anonymous) {
     host.insertAdjacentHTML("beforeend", `
       <div class="tuneform">
@@ -3486,21 +3514,41 @@ async function renderTunes(c) {
       }
     };
   }
+  loadTunes(c);
+}
+
+/* 调校列表：按 TUNE_SORT 拉取，展示发布时间与点赞数（点赞参与排序） */
+async function loadTunes(c) {
+  const list = $("tuneList");
+  if (!list) return;
   try {
-    const r = await api("/api/tunes?carId=" + c.id);
-    const list = $("tuneList");
-    if (!list) return;
-    const title = host.querySelector(".tune-title");
+    const r = await api(`/api/tunes?carId=${c.id}&sort=${TUNE_SORT}`);
+    const host = $("dTune");
+    const title = host && host.querySelector(".tune-title");
     if (title) title.textContent = r.tunes.length ? `车辆调校（${r.tunes.length}）` : "车辆调校";
     list.innerHTML = r.tunes.length ? r.tunes.map(t => `<div class="ti">
         <div class="ti-h"><b>${esc(t.tier_group)}</b>
         <code class="tune-code" data-code="${esc(t.share_code)}" title="点击复制分享码">${esc(fmtCode(t.share_code))}</code>
-        <span>作者 ${esc(t.author_id)}</span></div>
+        <span>作者 ${esc(t.author_id)}</span>
+        <span class="ti-time" title="发布时间">${esc(fmtTime(t.created_at))}</span>
+        <button class="like" data-id="${esc(t.id)}" aria-pressed="${t.mine ? "true" : "false"}" title="点赞这个调校">
+          ♥ <b>${t.likes || 0}</b></button></div>
         ${t.note ? `<p>${esc(t.note)}</p>` : ""}
       </div>`).join("") : `<span class="ti">还没有收录这台车的调校，来做第一个。</span>`;
     list.querySelectorAll(".tune-code").forEach(el => { el.onclick = () => copyCode(el); });
+    list.querySelectorAll(".like").forEach(btn => {
+      btn.onclick = async () => {
+        if (!ME || ME.user.is_anonymous) return openLogin();
+        try {
+          const res = await api(`/api/tunes/${btn.dataset.id}/like`, { method: "POST" });
+          btn.setAttribute("aria-pressed", String(res.liked));
+          btn.querySelector("b").textContent = res.likes;
+          if (TUNE_SORT === "likes") loadTunes(c);
+        } catch { /* 单次失败忽略 */ }
+      };
+    });
   } catch {
-    const list = $("tuneList"); if (list) list.innerHTML = `<span class="ti">调校服务暂不可用</span>`;
+    list.innerHTML = `<span class="ti">调校服务暂不可用</span>`;
   }
 }
 
